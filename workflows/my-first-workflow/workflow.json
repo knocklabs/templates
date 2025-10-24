@@ -1,5 +1,0 @@
-{
-  "$schema": "https://schemas.knock.app/cli/workflow.json",
-  "name": "My First Workflow",
-  "steps": []
-}

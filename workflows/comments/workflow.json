@@ -1,0 +1,89 @@
+{
+  "name": "Comments",
+  "steps": [
+    {
+      "ref": "batch_1",
+      "settings": {
+        "batch_execution_mode": "accumulate",
+        "batch_key": "page_id",
+        "batch_order": "asc",
+        "batch_window": {
+          "unit": "minutes",
+          "value": 15
+        },
+        "batch_window_type": "fixed"
+      },
+      "type": "batch"
+    },
+    {
+      "channel_key": "in-app-feed",
+      "ref": "in_app_feed_1",
+      "template": {
+        "action_url": "{{ vars.app_url }}/pages/{{page_id}}",
+        "markdown_body@": "in_app_feed_1/markdown_body.md"
+      },
+      "type": "channel"
+    },
+    {
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "minutes",
+          "value": 60
+        }
+      },
+      "type": "delay"
+    },
+    {
+      "channel_key": "sendgrid",
+      "conditions": {
+        "all": [
+          {
+            "argument": "$message.seen",
+            "operator": "less_than",
+            "variable": "refs.in_app_feed_1.status"
+          }
+        ]
+      },
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "New activity on {{ page_name }}",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    },
+    {
+      "channel_key": "apns",
+      "conditions": {
+        "all": [
+          {
+            "argument": "$message.seen",
+            "operator": "less_than",
+            "variable": "refs.in_app_feed_1.status"
+          }
+        ]
+      },
+      "ref": "push_1",
+      "template": {
+        "settings": {
+          "delivery_type": "content"
+        },
+        "title": "New activity on {{ page_name }}",
+        "text_body@": "push_1/text_body.txt"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "comments",
+    "active": true,
+    "valid": true,
+    "created_at": "2022-01-06T18:42:01.690070Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

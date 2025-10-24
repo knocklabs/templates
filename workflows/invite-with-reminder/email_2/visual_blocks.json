@@ -1,0 +1,78 @@
+[
+  {
+    "layout_attrs": {
+      "padding_bottom": 8,
+      "padding_left": 4,
+      "padding_right": 4,
+      "padding_top": 8
+    },
+    "type": "markdown",
+    "variant": "default",
+    "version": 1,
+    "content@": "visual_blocks/1.content.md"
+  },
+  {
+    "layout_attrs": {
+      "padding_bottom": 8,
+      "padding_left": 4,
+      "padding_right": 4,
+      "padding_top": 8
+    },
+    "type": "markdown",
+    "variant": "default",
+    "version": 1,
+    "content@": "visual_blocks/2.content.md"
+  },
+  {
+    "buttons": [
+      {
+        "action": "{{ vars.app_url }}/invites/account/{{ invite_token }}",
+        "label": "Accept invite",
+        "size_attrs": {
+          "is_fullwidth": false,
+          "size": "sm"
+        },
+        "style_attrs": {
+          "background_color": "primary_color",
+          "border_radius": 6,
+          "text_color": "primary_color_contrast"
+        },
+        "variant": "solid"
+      }
+    ],
+    "layout_attrs": {
+      "column_gap": 8,
+      "horizontal_align": "left",
+      "padding_bottom": 40,
+      "padding_left": 4,
+      "padding_right": 4,
+      "padding_top": 8
+    },
+    "type": "button_set",
+    "version": 1
+  },
+  {
+    "layout_attrs": {
+      "padding_bottom": 8,
+      "padding_left": 4,
+      "padding_right": 4,
+      "padding_top": 8
+    },
+    "type": "markdown",
+    "variant": "default",
+    "version": 1,
+    "content@": "visual_blocks/4.content.md"
+  },
+  {
+    "layout_attrs": {
+      "padding_bottom": 8,
+      "padding_left": 4,
+      "padding_right": 4,
+      "padding_top": 8
+    },
+    "type": "markdown",
+    "variant": "default",
+    "version": 1,
+    "content@": "visual_blocks/5.content.md"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "name": "Referral sent",
+  "steps": [
+    {
+      "channel_key": "sendgrid",
+      "name": "Referral invite",
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "{{ actor.name | split: \" \" | first }} invited you to try Knock",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    },
+    {
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "days",
+          "value": 3
+        }
+      },
+      "type": "delay"
+    },
+    {
+      "channel_key": "sendgrid",
+      "description": "Cancel if referral accepted",
+      "name": "Reminder email",
+      "ref": "email_2",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "Reminder: {{ actor.name | split: \" \" | first }} invited you to try Knock",
+        "visual_blocks@": "email_2/visual_blocks.json"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "referral-sent",
+    "active": true,
+    "valid": true,
+    "created_at": "2022-01-06T18:56:42.713177Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

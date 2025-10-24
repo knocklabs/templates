@@ -1,0 +1,35 @@
+{
+  "name": "Welcome messages",
+  "steps": [
+    {
+      "channel_key": "in-app-feed",
+      "ref": "in_app_feed_1",
+      "template": {
+        "action_url": "https://docs.knock.app?utm_source=in-app-feed&utm_campaign=welcome-message&utm_medium=in-app-feed",
+        "markdown_body@": "in_app_feed_1/markdown_body.md"
+      },
+      "type": "channel"
+    },
+    {
+      "channel_key": "postmark",
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "Welcome to Knock! 🎉",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "welcome-messages",
+    "active": true,
+    "valid": true,
+    "created_at": "2022-01-06T19:20:28.401508Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

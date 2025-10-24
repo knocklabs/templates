@@ -1,0 +1,51 @@
+{
+  "name": "Invite with reminder",
+  "steps": [
+    {
+      "channel_key": "postmark",
+      "name": "Invite email",
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "{{ actor.name | split: \" \" | first }} invited you to join {{ account_name }} on Knock",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    },
+    {
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "days",
+          "value": 3
+        }
+      },
+      "type": "delay"
+    },
+    {
+      "channel_key": "postmark",
+      "description": "Cancel if invite accepted",
+      "name": "Reminder email",
+      "ref": "email_2",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "Reminder: You've been invited to join {{ account_name }} on Knock",
+        "visual_blocks@": "email_2/visual_blocks.json"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "invite-with-reminder",
+    "active": true,
+    "valid": true,
+    "created_at": "2022-01-06T18:33:42.081237Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

@@ -1,0 +1,1 @@
+A new alert was triggered for the {{event}} event at {{timestamp}}. 

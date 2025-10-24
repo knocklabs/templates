@@ -1,0 +1,26 @@
+{
+  "name": "Password changed",
+  "steps": [
+    {
+      "channel_key": "postmark",
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "Your password was changed",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "password-changed",
+    "active": true,
+    "valid": true,
+    "created_at": "2022-01-06T18:47:38.865767Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

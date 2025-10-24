@@ -1,0 +1,54 @@
+{
+  "name": "Referral accepted",
+  "steps": [
+    {
+      "channel_key": "in-app-feed",
+      "ref": "in_app_feed_1",
+      "template": {
+        "action_url": "{{ vars.app_url }}/settings/billing",
+        "markdown_body@": "in_app_feed_1/markdown_body.md"
+      },
+      "type": "channel"
+    },
+    {
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "hours",
+          "value": 8
+        }
+      },
+      "type": "delay"
+    },
+    {
+      "channel_key": "sendgrid",
+      "conditions": {
+        "all": [
+          {
+            "argument": "$message.seen",
+            "operator": "less_than",
+            "variable": "refs.in_app_feed_1.status"
+          }
+        ]
+      },
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "layout_key": "default"
+        },
+        "subject": "{{ actor.name }} accepted your referral to Knock 🎉",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "referral-accepted",
+    "active": true,
+    "valid": true,
+    "created_at": "2022-01-06T18:48:42.467881Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}
