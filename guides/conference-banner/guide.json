@@ -1,0 +1,27 @@
+{
+  "channel_key": "knock-guide",
+  "name": "Conference banner",
+  "semver": "0.0.1",
+  "steps": [
+    {
+      "ref": "step_1",
+      "schema_key": "banner",
+      "schema_semver": "0.0.1",
+      "schema_variant_key": "default",
+      "values": {
+        "body": "Copy about a feature or an action that the user should be aware of.",
+        "dismissible": true,
+        "title": "Banner title"
+      }
+    }
+  ],
+  "type": "banner",
+  "__readonly": {
+    "key": "conference-banner",
+    "active": true,
+    "valid": true,
+    "environment": "development",
+    "created_at": "2025-10-06T19:35:24.700108Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/guide.json"
+}

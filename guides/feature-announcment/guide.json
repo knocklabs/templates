@@ -1,0 +1,40 @@
+{
+  "channel_key": "knock-guide",
+  "name": "Feature announcement",
+  "semver": "0.0.3",
+  "steps": [
+    {
+      "ref": "step_1",
+      "schema_key": "announcement-card",
+      "schema_semver": "0.0.3",
+      "schema_variant_key": "default",
+      "values": {
+        "body": "Power in-app messaging like Webflow and Assembly.",
+        "dismissible": true,
+        "image": {
+          "action": null,
+          "alt": null,
+          "url": "https://account-assets.knock.app/5d7b26ec-ec8b-4389-b325-4be273e2fa3e/d6110fa5-6a56-4b03-8e52-c225aa9e771e/3631bf79-db75-4788-b1ec-93496cd23c68.png"
+        },
+        "primary_button": {
+          "action": "/features/guides",
+          "text": "Learn more"
+        },
+        "secondary_button": {
+          "action": "/docs",
+          "text": "Read the docs"
+        },
+        "title": "Announcing Guides 1.0"
+      }
+    }
+  ],
+  "type": "announcement-card",
+  "__readonly": {
+    "key": "feature-announcement",
+    "active": false,
+    "valid": true,
+    "environment": "development",
+    "created_at": "2025-10-07T14:22:33.416153Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/guide.json"
+}

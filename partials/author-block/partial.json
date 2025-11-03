@@ -1,0 +1,14 @@
+{
+  "icon_name": "Lightbulb",
+  "name": "Author Block",
+  "visual_block_enabled": true,
+  "content@": "content.html",
+  "__readonly": {
+    "environment": "development",
+    "key": "author-block",
+    "type": "html",
+    "valid": true,
+    "created_at": "2025-10-15T14:37:45.794191Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}

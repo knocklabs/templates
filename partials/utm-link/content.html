@@ -1,0 +1,35 @@
+<table
+  align="center"
+  width="100%"
+  border="0"
+  cellpadding="0"
+  cellspacing="0"
+  role="presentation"
+>
+  <tbody style="width: 100%">
+    <tr style="width: 100%">
+      <td align="center">
+        {% assign params = '' %} {% if utm_source != '' %} {% assign params =
+        params | append: 'utm_source=' | append: utm_source %} {% endif %} {% if
+        utm_medium != '{{ utm_medium }}' %} {% if params != '' %}{% assign
+        params = params | append: '&' %}{% endif %} {% assign params = params |
+        append: 'utm_medium=' | append: utm_medium %} {% endif %} {% if
+        utm_campaign != '{{ utm_campaign }}' %} {% if params != '' %}{% assign
+        params = params | append: '&' %}{% endif %} {% assign params = params |
+        append: 'utm_campaign=' | append: utm_campaign %} {% endif %} {% if
+        utm_term != '{{ utm_term }}' %} {% if params != '' %}{% assign params =
+        params | append: '&' %}{% endif %} {% assign params = params | append:
+        'utm_term=' | append: utm_term %} {% endif %} {% if utm_content != '{{
+        utm_content }}' %} {% if params != '' %}{% assign params = params |
+        append: '&' %}{% endif %} {% assign params = params | append:
+        'utm_content=' | append: utm_content %} {% endif %} {% assign final_url
+        = button_url %} {% if params != '' %} {% if button_url contains '?' %}
+        {% assign final_url = button_url | append: '&' | append: params %} {%
+        else %} {% assign final_url = button_url | append: '?' | append: params
+        %} {% endif %} {% endif %}
+
+        <a href="{{ final_url }}"> {{ button_text }} </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

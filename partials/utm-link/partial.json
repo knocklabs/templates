@@ -1,0 +1,14 @@
+{
+  "icon_name": "BellDot",
+  "name": "UTM Link",
+  "visual_block_enabled": true,
+  "content@": "content.html",
+  "__readonly": {
+    "environment": "development",
+    "key": "utm-link",
+    "type": "html",
+    "valid": true,
+    "created_at": "2025-05-02T17:46:26.477933Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}
