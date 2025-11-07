@@ -1,16 +1,17 @@
-{% assign text_align = alignment | default: "center" %} {% if text_align == ""
-%} {% assign text_align = "center" %} {% endif %} {% if text_align == "center"
-%} {% assign image_margin = "0 auto" %} {% elsif text_align == "left" %} {%
-assign image_margin = "0 0 0 0" %} {% elsif text_align == "right" %} {% assign
-image_margin = "0 0 0 auto" %} {% endif %}
-
-<div style="text-align: {{ text_align }}; margin: 24px 0;">
+<div style="text-align: center; margin: 24px 0">
   {% if author_image_url %}
   <div style="margin-bottom: 16px">
     <img
       src="{{ author_image_url }}"
       alt="{{ author_name | default: 'Author' }}"
-      style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; display: block; margin: {{ image_margin }};"
+      style="
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        margin: 0 auto;
+      "
     />
   </div>
   {% endif %} {% if signoff %}
