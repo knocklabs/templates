@@ -1,31 +1,61 @@
-<div style="text-align: center; margin: 24px 0;">
+{% assign text_align = alignment | default: "center" %} {% if text_align == ""
+%} {% assign text_align = "center" %} {% endif %} {% if text_align == "center"
+%} {% assign image_margin = "0 auto" %} {% elsif text_align == "left" %} {%
+assign image_margin = "0 0 0 0" %} {% elsif text_align == "right" %} {% assign
+image_margin = "0 0 0 auto" %} {% endif %}
+
+<div style="text-align: {{ text_align }}; margin: 24px 0;">
   {% if author_image_url %}
-  <div style="margin-bottom: 16px;">
-    <img src="{{ author_image_url }}" alt="{{ author_name | default: 'Author' }}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto;">
+  <div style="margin-bottom: 16px">
+    <img
+      src="{{ author_image_url }}"
+      alt="{{ author_name | default: 'Author' }}"
+      style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; display: block; margin: {{ image_margin }};"
+    />
   </div>
-  {% endif %}
-  
-  {% if signoff %}
-  <div style="font-family: Georgia, Times, 'Times New Roman', serif; font-size: 16px; color: #222222;">
+  {% endif %} {% if signoff %}
+  <div
+    style="
+      font-family: Georgia, Times, 'Times New Roman', serif;
+      font-size: 16px;
+      color: #222222;
+    "
+  >
     {{ signoff }}
   </div>
-  {% endif %}
-  
-  {% if author_name %}
-  <div style="font-family: Georgia, Times, 'Times New Roman', serif; font-size: 16px; font-weight: bold; color: #222222;">
+  {% endif %} {% if author_name %}
+  <div
+    style="
+      font-family: Georgia, Times, 'Times New Roman', serif;
+      font-size: 16px;
+      font-weight: bold;
+      color: #222222;
+    "
+  >
     {{ author_name }}
   </div>
-  {% endif %}
-  
-  {% if author_title %}
-  <div style="font-family: Georgia, Times, 'Times New Roman', serif; font-size: 16px; color: #7a7a7a;">
+  {% endif %} {% if author_title %}
+  <div
+    style="
+      font-family: Georgia, Times, 'Times New Roman', serif;
+      font-size: 16px;
+      color: #7a7a7a;
+    "
+  >
     {{ author_title }}
   </div>
-  {% endif %}
-  
-  {% if author_email %}
-  <div style="font-family: Georgia, Times, 'Times New Roman', serif; font-size: 16px;">
-    <a href="mailto:{{ author_email }}" style="color: #fc5b22; text-decoration: none;">{{ author_email }}</a>
+  {% endif %} {% if author_email %}
+  <div
+    style="
+      font-family: Georgia, Times, 'Times New Roman', serif;
+      font-size: 16px;
+    "
+  >
+    <a
+      href="mailto:{{ author_email }}"
+      style="color: #fc5b22; text-decoration: none"
+      >{{ author_email }}</a
+    >
   </div>
   {% endif %}
 </div>

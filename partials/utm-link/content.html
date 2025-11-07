@@ -8,19 +8,19 @@
 >
   <tbody style="width: 100%">
     <tr style="width: 100%">
-      <td align="center">
-        {% assign params = '' %} {% if utm_source != '' %} {% assign params =
-        params | append: 'utm_source=' | append: utm_source %} {% endif %} {% if
-        utm_medium != '{{ utm_medium }}' %} {% if params != '' %}{% assign
-        params = params | append: '&' %}{% endif %} {% assign params = params |
-        append: 'utm_medium=' | append: utm_medium %} {% endif %} {% if
-        utm_campaign != '{{ utm_campaign }}' %} {% if params != '' %}{% assign
+      <td align="center" style="padding: 16px 0">
+        {% assign params = '' %} {% if utm_source != '' and utm_source %} {%
+        assign params = params | append: 'utm_source=' | append: utm_source %}
+        {% endif %} {% if utm_medium != '' and utm_medium %} {% if params != ''
+        %}{% assign params = params | append: '&' %}{% endif %} {% assign params
+        = params | append: 'utm_medium=' | append: utm_medium %} {% endif %} {%
+        if utm_campaign != '' and utm_campaign %} {% if params != '' %}{% assign
         params = params | append: '&' %}{% endif %} {% assign params = params |
         append: 'utm_campaign=' | append: utm_campaign %} {% endif %} {% if
-        utm_term != '{{ utm_term }}' %} {% if params != '' %}{% assign params =
+        utm_term != '' and utm_term %} {% if params != '' %}{% assign params =
         params | append: '&' %}{% endif %} {% assign params = params | append:
-        'utm_term=' | append: utm_term %} {% endif %} {% if utm_content != '{{
-        utm_content }}' %} {% if params != '' %}{% assign params = params |
+        'utm_term=' | append: utm_term %} {% endif %} {% if utm_content != ''
+        and utm_content %} {% if params != '' %}{% assign params = params |
         append: '&' %}{% endif %} {% assign params = params | append:
         'utm_content=' | append: utm_content %} {% endif %} {% assign final_url
         = button_url %} {% if params != '' %} {% if button_url contains '?' %}
@@ -28,7 +28,24 @@
         else %} {% assign final_url = button_url | append: '?' | append: params
         %} {% endif %} {% endif %}
 
-        <a href="{{ final_url }}"> {{ button_text }} </a>
+        <a
+          href="{{ final_url }}"
+          style="
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ea580c;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+              'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+          "
+        >
+          {{ button_text }}
+        </a>
       </td>
     </tr>
   </tbody>

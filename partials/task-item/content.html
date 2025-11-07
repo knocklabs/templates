@@ -1,24 +1,82 @@
-<table border="0" cellpadding="0" cellspacing="0" width="100%" style="border: 1px solid #e5e5e5;">
+<table
+  border="0"
+  cellpadding="0"
+  cellspacing="0"
+  width="100%"
+  style="border: 1px solid #e5e5e5"
+>
   <tr>
-    <td style="padding: 16px;">
+    <td style="padding: 16px">
       <table border="0" cellpadding="0" cellspacing="0" width="100%">
         <tr>
-          <td width="24" valign="top" style="padding-right: 12px;">
-            <img src="https://d3ki9tyy5l5ruj.cloudfront.net/obj/17ebaf90443cc42469dfeeaf11302fa63f0a3386/checkmark-icon-32x32.png" width="24" height="24" style="display: block;" alt="Task icon" />
+          <td width="24" valign="top" style="padding-right: 12px">
+            <div
+              style="
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background-color: #6b7280;
+                line-height: 24px;
+                text-align: center;
+              "
+            >
+              <span style="color: white; font-size: 14px; font-weight: bold"
+                >✓</span
+              >
+            </div>
           </td>
-          <td style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-            <a href="{{ link }}" style="color: #1a1a1a; text-decoration: none; display: block;">
+          <td
+            style="
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+                'Helvetica Neue', Arial, sans-serif;
+            "
+          >
+            <a
+              href="{{ link }}"
+              style="color: #1a1a1a; text-decoration: none; display: block"
+            >
               <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr>
                   <td>
-                    <span style="font-size: 16px; line-height: 24px; color: #1a1a1a;">{{ name }}</span>
+                    <span
+                      style="font-size: 16px; line-height: 24px; color: #1a1a1a"
+                      >{{ name }}</span
+                    >
                   </td>
-                  <td align="right" style="padding-left: 16px;">
+                  <td align="right" style="padding-left: 16px">
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="font-size: 16px; line-height: 24px; color: #2e7d32;">{{ date }}</td>
-                        <td style="padding-left: 8px;">
-                          <img src="https://d3ki9tyy5l5ruj.cloudfront.net/obj/44f5654475ec4d9fad41014461c7561e0a5811fa/right_icon-16x16@2x.png" width="16" height="16" style="display: block;" alt="Arrow icon" />
+                        {% assign task_date_unix = date | date: "%s" %} {%
+                        assign current_date_unix = "now" | date: "%s" %} {% if
+                        task_date_unix < current_date_unix %}
+                        <td
+                          style="
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #dc2626;
+                          "
+                        >
+                          {{ date | date: "%A, %b %d" }}
+                        </td>
+                        {% else %}
+                        <td
+                          style="
+                            font-size: 16px;
+                            line-height: 24px;
+                            color: #4b5563;
+                          "
+                        >
+                          {{ date | date: "%A, %b %d" }}
+                        </td>
+                        {% endif %}
+                        <td style="padding-left: 8px">
+                          <img
+                            src="https://d3ki9tyy5l5ruj.cloudfront.net/obj/44f5654475ec4d9fad41014461c7561e0a5811fa/right_icon-16x16@2x.png"
+                            width="16"
+                            height="16"
+                            style="display: block"
+                            alt="Arrow icon"
+                          />
                         </td>
                       </tr>
                     </table>
