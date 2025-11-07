@@ -1,0 +1,14 @@
+{
+  "icon_name": "SquareUser",
+  "name": "Testimonial with large avatar",
+  "visual_block_enabled": true,
+  "content@": "content.html",
+  "__readonly": {
+    "environment": "development",
+    "key": "testimonial-with-large-avatar",
+    "type": "html",
+    "valid": true,
+    "created_at": "2025-11-07T20:09:07.411382Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}
