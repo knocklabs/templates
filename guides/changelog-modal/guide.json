@@ -1,0 +1,33 @@
+{
+  "channel_key": "knock-guide",
+  "name": "Changelog modal",
+  "semver": "0.0.1",
+  "steps": [
+    {
+      "ref": "step_1",
+      "schema_key": "changelog-modal",
+      "schema_semver": "0.0.1",
+      "schema_variant_key": "default",
+      "values": {
+        "body": "Today we're introducing reusable requests, making it easy to reuse HTTP fetch step configurations across different workflows.",
+        "eyebrowText": "New in Knock",
+        "image": {
+          "action": "https://knock.app/changelog/2025-09-30",
+          "alt": "Introducing resuable requests",
+          "url": "https://account-assets.knock.app/6919f02d-6324-4ec0-8432-b3329c2190ab/7499f5cc-d0a3-4ff4-9702-ec625ae08d3f/b5a99622-0ab8-4bb0-8d5b-8a9fc4dbf0fb.jpg"
+        },
+        "link": "https://knock.app/changelog/2025-09-30",
+        "title": "Introducing reusable requests"
+      }
+    }
+  ],
+  "type": "changelog-modal",
+  "__readonly": {
+    "key": "changelog-modal",
+    "active": false,
+    "valid": true,
+    "environment": "development",
+    "created_at": "2025-11-18T21:08:57.810942Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/guide.json"
+}
