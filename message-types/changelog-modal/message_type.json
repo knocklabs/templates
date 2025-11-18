@@ -1,0 +1,99 @@
+{
+  "description": "A modal overlay with rating scale that displays in the lower-right corner of our app.",
+  "icon_name": "Flag",
+  "name": "Changelog modal",
+  "variants": [
+    {
+      "fields": [
+        {
+          "key": "eyebrowText",
+          "label": "Eyebrow text",
+          "settings": {
+            "default": "New in Knock",
+            "max_length": 32,
+            "required": false
+          },
+          "type": "text"
+        },
+        {
+          "key": "title",
+          "label": "Title",
+          "settings": {
+            "default": "Modal title",
+            "max_length": 32,
+            "min_length": 3,
+            "required": true
+          },
+          "type": "text"
+        },
+        {
+          "key": "body",
+          "label": "Body",
+          "settings": {
+            "default": "Copy about the feature or general information to highlight.",
+            "max_length": 200,
+            "min_length": 10,
+            "required": true
+          },
+          "type": "textarea"
+        },
+        {
+          "key": "link",
+          "label": "Link",
+          "settings": {
+            "default": "Link to changelog, release notes, or feature.",
+            "required": false
+          },
+          "type": "text"
+        },
+        {
+          "action": {
+            "key": "action",
+            "label": "Image action",
+            "settings": {
+              "default": "",
+              "required": false
+            },
+            "type": "text"
+          },
+          "alt": {
+            "key": "alt",
+            "label": "Alt text",
+            "settings": {
+              "default": "",
+              "required": false
+            },
+            "type": "text"
+          },
+          "key": "image",
+          "label": "Image",
+          "settings": {
+            "required": true
+          },
+          "type": "image",
+          "url": {
+            "key": "url",
+            "label": "Image URL",
+            "settings": {
+              "default": "",
+              "required": true
+            },
+            "type": "url"
+          }
+        }
+      ],
+      "key": "default",
+      "name": "Default"
+    }
+  ],
+  "preview@": "preview.html",
+  "__readonly": {
+    "key": "changelog-modal",
+    "valid": true,
+    "owner": "user",
+    "environment": "development",
+    "semver": null,
+    "created_at": "2025-11-18T19:12:47.771692Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/message-type.json"
+}

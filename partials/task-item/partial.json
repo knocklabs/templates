@@ -1,14 +1,14 @@
 {
   "icon_name": "BellDot",
   "name": "Task Item",
-  "visual_block_enabled": false,
+  "visual_block_enabled": true,
   "content@": "content.html",
   "__readonly": {
     "environment": "development",
     "key": "task-item",
     "type": "html",
     "valid": true,
-    "created_at": "2025-06-10T17:48:50.497632Z"
+    "created_at": "2025-11-18T15:16:12.268423Z"
   },
   "$schema": "https://schemas.knock.app/cli/partial.json"
 }
