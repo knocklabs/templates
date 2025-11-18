@@ -1,5 +1,5 @@
 {
-  "description": "A modal overlay with rating scale that displays in the lower-right corner of our app.",
+  "description": "Displays a modal with one or more changelog announcements.",
   "icon_name": "Flag",
   "name": "Changelog modal",
   "variants": [
