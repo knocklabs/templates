@@ -1,0 +1,27 @@
+{
+  "channel_key": "knock-guide",
+  "name": "NPS survey",
+  "semver": "0.0.1",
+  "steps": [
+    {
+      "ref": "step_1",
+      "schema_key": "nps-survey",
+      "schema_semver": "0.0.1",
+      "schema_variant_key": "default",
+      "values": {
+        "companyName": "Knock",
+        "showFeedbackSection": false,
+        "showThanksToast": false
+      }
+    }
+  ],
+  "type": "nps-survey",
+  "__readonly": {
+    "key": "nps-survey",
+    "active": false,
+    "valid": true,
+    "environment": "development",
+    "created_at": "2025-11-18T21:07:24.100227Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/guide.json"
+}

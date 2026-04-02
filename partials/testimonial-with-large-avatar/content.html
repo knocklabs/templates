@@ -1,0 +1,59 @@
+<style>
+  /* Webfont declarations (many email clients will ignore, but harmless to include) */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    mso-font-alt: 'Helvetica';
+    src: url(https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    mso-font-alt: 'Helvetica';
+    src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_fjbvMwCp50PDca1ZL7.woff2) format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    mso-font-alt: 'Helvetica';
+    src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_fjbvMwCp50BTca1ZL7.woff2) format('woff2');
+  }
+
+  /* Light reset + defaults */
+  * { font-family: Inter, Helvetica, Arial, sans-serif; }
+  .outer { padding: 16px 12px; }
+  .inner { max-width: 600px; }
+  .copy { color:#374151; font-size:16px; line-height:1.625; }
+  .name { font-weight:600; color:#1f2937; }
+  .title { font-size:14px; color:#4b5563; }
+</style>
+
+<table width="100%" cellpadding="0" cellspacing="0" role="presentation">
+  <tr>
+    <td align="center" class="outer">
+      <table width="100%" cellpadding="0" cellspacing="0" role="presentation" class="inner">
+        <tr>
+          <!-- Image column -->
+          <td align="left" valign="top" style="padding-right:12px; width:300px;">
+            <img
+              src="{{ image_url }}"
+              alt="{{ image_alt }}"
+              width="300"
+              style="display:block; width:100%; max-width:300px; height:auto; border-radius:24px; outline:none; border:none; text-decoration:none;"
+            />
+          </td>
+
+          <!-- Text column -->
+          <td align="left" valign="top" class="copy" style="padding-left:12px;">
+            <p style="margin:0 0 24px;">{{ quote }}</p>
+            <p class="name" style="margin:0 0 4px;">{{ name }}</p>
+            <p class="title" style="margin:0;">{{ title }}</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>

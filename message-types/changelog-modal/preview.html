@@ -1,0 +1,181 @@
+<!-- Modal card (no background overlay) -->
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: Arial, sans-serif;
+  "
+>
+  <table
+    role="presentation"
+    cellpadding="0"
+    cellspacing="0"
+    border="0"
+    width="680"
+    style="
+      border-radius: 12px;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+    "
+  >
+    <!-- Hero image (no text overlay) -->
+    <tr>
+      <td style="background: #f4f2ee; padding: 0">
+        {% if image and image.url %}
+        <a
+          href="{{ image.action }}"
+          target="_blank"
+          style="display: block; text-decoration: none"
+        >
+          <img
+            src="{{ image.url | escape }}"
+            alt="{{ image.alt | escape }}"
+            width="680"
+            style="
+              display: block;
+              width: 100%;
+              height: auto;
+              border: 0;
+              outline: 0;
+            "
+          />
+        </a>
+        {% else %}
+        <!-- optional fallback if no image is provided -->
+        <div style="height: 220px; background: #f4f2ee"></div>
+        {% endif %}
+      </td>
+    </tr>
+
+    <!-- Content -->
+    <tr>
+      <td style="padding: 24px 28px 18px 28px; background: #ffffff">
+        <p
+          style="
+            margin: 0 0 6px 0;
+            font-size: 12px;
+            line-height: 1;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            color: #ff573a;
+          "
+        >
+          {{ eyebrowText }}
+        </p>
+        <h2
+          style="
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            line-height: 1.25;
+            font-weight: 600;
+            color: #111111;
+          "
+        >
+          {{ title }}
+        </h2>
+
+        <!-- Body + Learn more row -->
+        <table
+          role="presentation"
+          width="100%"
+          cellpadding="0"
+          cellspacing="0"
+          border="0"
+        >
+          <tr>
+            <!-- Body copy (left) -->
+            <td style="vertical-align: top; padding-right: 12px">
+              <p style="font-size: 15px; line-height: 1.55; color: #444444">
+                {{ body }}
+              </p>
+            </td>
+
+            <!-- Learn more (right, bottom-aligned) -->
+            <td
+              style="
+                width: 1%;
+                white-space: nowrap;
+                vertical-align: bottom;
+                text-align: right;
+              "
+            >
+              <a
+                href="{{ link }}"
+                target="_blank"
+                style="
+                  display: inline-block;
+                  font-size: 15px;
+                  line-height: 1.2;
+                  color: #0a66c2;
+                  text-decoration: none;
+                "
+              >
+                Learn more ↗
+              </a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+
+    <!-- Horizontal divider -->
+    <tr>
+      <td style="height: 1px; background: #e5e5e5"></td>
+    </tr>
+
+    <!-- Footer -->
+    <tr>
+      <td style="padding: 18px 28px">
+        <table
+          role="presentation"
+          width="100%"
+          cellpadding="0"
+          cellspacing="0"
+          border="0"
+        >
+          <tr>
+            <!-- Powered by knock pill -->
+            <td style="vertical-align: middle">
+              <span
+                style="
+                  display: inline-block;
+                  background: #111111;
+                  color: #ffffff;
+                  border-radius: 999px;
+                  padding: 6px 10px;
+                  font-size: 12px;
+                  line-height: 1;
+                  font-weight: 600;
+                "
+              >
+                Powered by knock
+              </span>
+            </td>
+
+            <!-- Close button (tighter padding, orange) -->
+            <td style="text-align: right; vertical-align: middle">
+              <button
+                type="button"
+                style="
+                  appearance: none;
+                  border: 0;
+                  background: #ff573a;
+                  color: #ffffff;
+                  border-radius: 6px;
+                  padding: 6px 8px;
+                  font-size: 13px;
+                  cursor: pointer;
+                "
+              >
+                Close
+              </button>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>

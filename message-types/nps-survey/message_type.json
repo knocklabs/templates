@@ -1,0 +1,55 @@
+{
+  "description": "A modal overlay with rating scale that displays in the lower-right corner of our app.",
+  "icon_name": "Flag",
+  "name": "NPS survey",
+  "variants": [
+    {
+      "fields": [
+        {
+          "key": "companyName",
+          "label": "Company Name",
+          "settings": {
+            "default": "",
+            "description": "The company name to insert into the NPS survey",
+            "max_length": 100,
+            "min_length": 1,
+            "required": true
+          },
+          "type": "text"
+        },
+        {
+          "key": "showFeedbackSection",
+          "label": "Show Feedback Section",
+          "settings": {
+            "default": false,
+            "description": "Toggle to show or hide the feedback section",
+            "required": false
+          },
+          "type": "boolean"
+        },
+        {
+          "key": "showThanksToast",
+          "label": "Show Thanks Toast",
+          "settings": {
+            "default": false,
+            "description": "Toggle to show or hide the thanks toast after survey completion",
+            "required": false
+          },
+          "type": "boolean"
+        }
+      ],
+      "key": "default",
+      "name": "Default"
+    }
+  ],
+  "preview@": "preview.html",
+  "__readonly": {
+    "key": "nps-survey",
+    "valid": true,
+    "owner": "user",
+    "environment": "development",
+    "semver": null,
+    "created_at": "2025-11-18T19:12:38.444455Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/message-type.json"
+}

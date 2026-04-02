@@ -1,0 +1,140 @@
+<style>
+  .nps-card {
+    background-color: #fff;
+    border-radius: 6px;
+    max-width: 384px;
+    padding: 24px;
+    margin: 0;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    line-height: 24px;
+    z-index: 1400;
+  }
+
+  .nps-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #2d3748;
+  }
+
+  .segmented-control {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  .segmented-control button {
+    background-color: #f7fafc;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    flex: 1;
+    margin: 0 2px;
+  }
+
+  .segmented-control button:hover {
+    background-color: #edf2f7;
+  }
+
+  /* Likelihood labels under the segmented control */
+  .likelihood-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.85rem;
+    color: #4a5568;
+  }
+
+  .feedback-section {
+    margin-top: 20px;
+  }
+
+  .feedback-section label {
+    display: block;
+    font-size: 1.1rem; /* match .nps-title */
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2d3748;
+  }
+
+  .feedback-section textarea {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    padding: 5px;
+    resize: none;
+  }
+
+  .button-group {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+
+  .button-group button {
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: 500;
+  }
+
+  /* "Ask me later" – no outline, subtle link-like button */
+  .button-group .secondary {
+    background: none;
+    border: none;
+    color: #4a5568;
+  }
+
+  .button-group .secondary:hover {
+    text-decoration: underline;
+  }
+
+  /* "Submit" – orange primary */
+  .button-group .primary {
+    background-color: #ff573a; /* Orange */
+    color: white;
+    border: none;
+  }
+
+  .button-group .primary:hover {
+    background-color: #dd6b20; /* Darker orange */
+  }
+</style>
+
+<div class="nps-card">
+  <div class="nps-title">
+    How likely are you to recommend {{ companyName }} to a friend or colleague?
+  </div>
+
+  <div class="segmented-control">
+    {% for i in (0..10) %}
+    <button>{{ i }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="likelihood-labels">
+    <span>Not likely</span>
+    <span>Very likely</span>
+  </div>
+
+  {% if showFeedbackSection %}
+  <div class="feedback-section">
+    <label for="feedback"
+      >How might we improve {{ companyName }} for you?</label
+    >
+    <textarea
+      id="feedback"
+      placeholder="Please share any feedback..."
+    ></textarea>
+  </div>
+  {% endif %}
+
+  <div class="button-group">
+    <button class="secondary">Ask me later</button>
+    <button class="primary">Submit</button>
+  </div>
+</div>
