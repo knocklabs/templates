@@ -1,0 +1,41 @@
+name: Deploy Knock resources
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Knock CLI
+        run: npm install -g @knocklabs/cli@latest
+
+      - name: Push all resources to development
+        env:
+          KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
+        run: knock push --all --knock-dir .
+
+      - name: Commit changes
+        env:
+          KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
+        run: >
+          knock commit create
+          -m "Deploy from PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
+          --force
+
+      - name: Promote to production
+        env:
+          KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
+        run: knock commit promote --to=production --force
