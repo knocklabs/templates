@@ -170,6 +170,7 @@
                   }
                 ]
               },
+              "description": "Send batched alerts",
               "name": "SMS",
               "ref": "sms_2",
               "template": {
