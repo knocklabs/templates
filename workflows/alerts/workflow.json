@@ -183,7 +183,7 @@
           "terminates": false
         }
       ],
-      "description": "Branch based on batch settings",
+      "description": "Branch based on user settings",
       "name": "Is batch configured?",
       "ref": "branch_1",
       "type": "branch"
