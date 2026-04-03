@@ -33,24 +33,20 @@ jobs:
           KNOCK_BRANCH="pr-${{ github.event.pull_request.number }}"
           echo "name=$KNOCK_BRANCH" >> "$GITHUB_OUTPUT"
 
-      - name: Create Knock branch (if it doesn't already exist)
+      - name: Switch to Knock branch (creates it if it doesn't exist)
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock branch create ${{ steps.branch.outputs.name }} || true
+        run: knock branch switch ${{ steps.branch.outputs.name }} --create
 
       - name: Push all resources to branch
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock push --all --knock-dir . --branch ${{ steps.branch.outputs.name }}
+        run: knock push --knock-dir=.
 
       - name: Commit changes on branch
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: >
-          knock commit create
-          -m "PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
-          --branch ${{ steps.branch.outputs.name }}
-          --force
+        run: knock commit create -m "PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}" --force
 
       - name: Post or update preview comment
         uses: marocchino/sticky-pull-request-comment@v2

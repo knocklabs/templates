@@ -27,7 +27,7 @@ jobs:
       - name: Push all resources to development
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock push --all --knock-dir .
+        run: knock push --knock-dir=.
 
       - name: Commit changes
         env:
