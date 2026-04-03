@@ -3,6 +3,9 @@
   "steps": [
     {
       "channel_key": "in-app-feed",
+      "channel_type": "in_app_feed",
+      "description": "Send mention notification",
+      "name": "In-app feed",
       "ref": "in_app_feed_1",
       "template": {
         "action_url": "{{ vars.app_url }}/pages/{{page_id}}",
@@ -12,9 +15,13 @@
     },
     {
       "channel_key": "sendgrid",
+      "channel_type": "email",
+      "description": "Send mention email",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "{{ actor.name }} mentioned you on {{ page_name }}",
@@ -24,6 +31,9 @@
     },
     {
       "channel_key": "apns",
+      "channel_type": "push",
+      "description": "Send mention push notification",
+      "name": "Push",
       "ref": "push_1",
       "template": {
         "settings": {

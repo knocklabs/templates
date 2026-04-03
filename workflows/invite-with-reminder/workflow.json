@@ -3,10 +3,13 @@
   "steps": [
     {
       "channel_key": "postmark",
-      "name": "Invite email",
+      "channel_type": "email",
+      "description": "Send team invite",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "{{ actor.name | split: \" \" | first }} invited you to join {{ account_name }} on Knock",
@@ -15,6 +18,8 @@
       "type": "channel"
     },
     {
+      "description": "Wait before sending reminder",
+      "name": "Delay",
       "ref": "delay_1",
       "settings": {
         "delay_for": {
@@ -26,11 +31,13 @@
     },
     {
       "channel_key": "postmark",
-      "description": "Cancel if invite accepted",
-      "name": "Reminder email",
+      "channel_type": "email",
+      "description": "Send invite reminder",
+      "name": "Email",
       "ref": "email_2",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "Reminder: You've been invited to join {{ account_name }} on Knock",

@@ -17,7 +17,6 @@
         "action": "{{ vars.app_url }}/{{account_slug}}/settings/billing",
         "label": "View billing",
         "size_attrs": {
-          "is_fullwidth": false,
           "size": "sm"
         },
         "style_attrs": {

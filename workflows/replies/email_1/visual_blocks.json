@@ -14,10 +14,9 @@
   {
     "buttons": [
       {
-        "action": "{{ vars.app_url }}/pages/{{ page_id }",
-        "label": "{{ total_activities | pluralize: \"View reply\", \"View replies\" }}",
+        "action": "{{ vars.app_url }}/pages/{{ page_id }}",
+        "label": "{{ total_activities | pluralize: 'View reply', 'View replies' }}",
         "size_attrs": {
-          "is_fullwidth": false,
           "size": "sm"
         },
         "style_attrs": {

@@ -26,6 +26,7 @@
           "steps": [
             {
               "channel_key": "sendgrid",
+              "channel_type": "email",
               "conditions": {
                 "all": [
                   {
@@ -35,9 +36,13 @@
                   }
                 ]
               },
+              "description": "Send immediate alert",
+              "name": "Email",
               "ref": "email_1",
               "template": {
+                "is_mjml": false,
                 "settings": {
+                  "attachment_key": "attachments",
                   "layout_key": "default"
                 },
                 "subject": "New alert for event {{event}}",
@@ -47,6 +52,7 @@
             },
             {
               "channel_key": "in-app-feed",
+              "channel_type": "in_app_feed",
               "conditions": {
                 "all": [
                   {
@@ -56,6 +62,8 @@
                   }
                 ]
               },
+              "description": "Send immediate alert",
+              "name": "In-app feed",
               "ref": "in_app_feed_1",
               "template": {
                 "action_url": "",
@@ -65,6 +73,7 @@
             },
             {
               "channel_key": "twilio",
+              "channel_type": "sms",
               "conditions": {
                 "all": [
                   {
@@ -74,6 +83,8 @@
                   }
                 ]
               },
+              "description": "Send immediate alert",
+              "name": "SMS",
               "ref": "sms_1",
               "template": {
                 "settings": {},
@@ -88,6 +99,8 @@
           "name": "Daily or Weekly",
           "steps": [
             {
+              "description": "Create batch with custom window",
+              "name": "Batch",
               "ref": "batch_1",
               "settings": {
                 "batch_execution_mode": "accumulate",
@@ -100,6 +113,7 @@
             },
             {
               "channel_key": "sendgrid",
+              "channel_type": "email",
               "conditions": {
                 "all": [
                   {
@@ -109,18 +123,23 @@
                   }
                 ]
               },
+              "description": "Send batched alerts",
+              "name": "Email",
               "ref": "email_2",
               "template": {
+                "is_mjml": false,
                 "settings": {
+                  "attachment_key": "attachments",
                   "layout_key": "default"
                 },
-                "subject": "{{total_activities}} new {{total_activities | pluralize: \"alert\", \"alerts\" }} {{total_activities | pluralize: \"was\", \"were\" }} triggered",
+                "subject": "{{total_activities}} new {{total_activities | pluralize: \"alert\", \"alerts\" }} {{total_activities | pluralize: \"was\", \"were\" }} trigged",
                 "visual_blocks@": "email_2/visual_blocks.json"
               },
               "type": "channel"
             },
             {
               "channel_key": "in-app-feed",
+              "channel_type": "in_app_feed",
               "conditions": {
                 "all": [
                   {
@@ -130,6 +149,8 @@
                   }
                 ]
               },
+              "description": "Send batched alerts",
+              "name": "In-app feed",
               "ref": "in_app_feed_2",
               "template": {
                 "action_url": "",
@@ -139,6 +160,7 @@
             },
             {
               "channel_key": "twilio",
+              "channel_type": "sms",
               "conditions": {
                 "all": [
                   {
@@ -148,6 +170,7 @@
                   }
                 ]
               },
+              "name": "SMS",
               "ref": "sms_2",
               "template": {
                 "settings": {},
@@ -159,6 +182,8 @@
           "terminates": false
         }
       ],
+      "description": "Branch based on user settings",
+      "name": "Is batch configured?",
       "ref": "branch_1",
       "type": "branch"
     }

@@ -15,9 +15,8 @@
     "buttons": [
       {
         "action": "{{ vars.app_url }}/pages/{{ page_id }}",
-        "label": "{{ total_activities | pluralize: \"View comment\", \"View comments\" }}",
+        "label": "{{ total_activities | pluralize: 'View comment', 'View comments' }}",
         "size_attrs": {
-          "is_fullwidth": false,
           "size": "sm"
         },
         "style_attrs": {

@@ -3,9 +3,13 @@
   "steps": [
     {
       "channel_key": "postmark",
+      "channel_type": "email",
+      "description": "Confirm password change",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "Your password was changed",

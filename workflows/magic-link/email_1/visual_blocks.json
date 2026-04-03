@@ -17,7 +17,6 @@
         "action": "{{ magic_link_url }}",
         "label": "Log in to Knock",
         "size_attrs": {
-          "is_fullwidth": false,
           "size": "sm"
         },
         "style_attrs": {

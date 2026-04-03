@@ -3,6 +3,9 @@
   "steps": [
     {
       "channel_key": "in-app-feed",
+      "channel_type": "in_app_feed",
+      "description": "Notify referrer of acceptance",
+      "name": "In-app feed",
       "ref": "in_app_feed_1",
       "template": {
         "action_url": "{{ vars.app_url }}/settings/billing",
@@ -11,6 +14,8 @@
       "type": "channel"
     },
     {
+      "description": "Wait before escalating",
+      "name": "Delay",
       "ref": "delay_1",
       "settings": {
         "delay_for": {
@@ -22,6 +27,7 @@
     },
     {
       "channel_key": "sendgrid",
+      "channel_type": "email",
       "conditions": {
         "all": [
           {
@@ -31,9 +37,12 @@
           }
         ]
       },
+      "description": "Send acceptance email if unseen",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "{{ actor.name }} accepted your referral to Knock 🎉",

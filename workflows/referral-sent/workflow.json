@@ -3,10 +3,13 @@
   "steps": [
     {
       "channel_key": "sendgrid",
-      "name": "Referral invite",
+      "channel_type": "email",
+      "description": "Send referral invite",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "{{ actor.name | split: \" \" | first }} invited you to try Knock",
@@ -15,6 +18,8 @@
       "type": "channel"
     },
     {
+      "description": "Wait before sending reminder",
+      "name": "Delay",
       "ref": "delay_1",
       "settings": {
         "delay_for": {
@@ -26,11 +31,13 @@
     },
     {
       "channel_key": "sendgrid",
-      "description": "Cancel if referral accepted",
-      "name": "Reminder email",
+      "channel_type": "email",
+      "description": "Send referral reminder",
+      "name": "Email",
       "ref": "email_2",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "Reminder: {{ actor.name | split: \" \" | first }} invited you to try Knock",
