@@ -1,0 +1,53 @@
+name: Trigger marketing-site Cursor automation
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+jobs:
+  notify-cursor:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send webhook to Cursor automation
+        env:
+          CURSOR_WEBHOOK_URL: ${{ secrets.CURSOR_WEBHOOK_URL }}
+          CURSOR_HEADER_NAME: ${{ secrets.CURSOR_WEBHOOK_HEADER_NAME }}
+          CURSOR_HEADER_VALUE: ${{ secrets.CURSOR_WEBHOOK_HEADER_VALUE }}
+        run: |
+          payload=$(jq -n \
+            --arg eventType "pull_request" \
+            --arg action "${{ github.event.action }}" \
+            --arg repository "${{ github.repository }}" \
+            --arg prNumber "${{ github.event.pull_request.number }}" \
+            --arg title "${{ github.event.pull_request.title }}" \
+            --arg headBranch "${{ github.event.pull_request.head.ref }}" \
+            --arg baseBranch "${{ github.event.pull_request.base.ref }}" \
+            --arg author "${{ github.event.pull_request.user.login }}" \
+            --arg url "${{ github.event.pull_request.html_url }}" \
+            --arg mergedSha "${{ github.event.pull_request.merge_commit_sha }}" \
+            --arg baseSha "${{ github.event.pull_request.base.sha }}" \
+            --arg headSha "${{ github.event.pull_request.head.sha }}" \
+            '{
+              automationId: "template-library-submodule-sync",
+              triggerContext: {
+                eventType: $eventType,
+                action: $action,
+                repository: $repository,
+                prNumber: ($prNumber | tonumber),
+                title: $title,
+                headBranch: $headBranch,
+                baseBranch: $baseBranch,
+                author: $author,
+                url: $url,
+                mergedSha: $mergedSha,
+                baseSha: $baseSha,
+                headSha: $headSha
+              }
+            }')
+
+          curl --fail-with-body -X POST "$CURSOR_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -H "$CURSOR_HEADER_NAME: $CURSOR_HEADER_VALUE" \
+            --data "$payload"
