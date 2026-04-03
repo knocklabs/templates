@@ -1,4 +1,4 @@
-{{total_activities}} new {{total_activities | pluralize: "alert", "alerts" }} {{total_activities | pluralize: "was", "were" }} trigged for the **{{event}}** event:
+{{total_activities}} new {{total_activities | pluralize: "alert", "alerts" }} {{total_activities | pluralize: "was", "were" }} triggered for the **{{event}}** event:
 
 {% for activity in activities %}
 

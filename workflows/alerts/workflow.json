@@ -114,7 +114,7 @@
                 "settings": {
                   "layout_key": "default"
                 },
-                "subject": "{{total_activities}} new {{total_activities | pluralize: \"alert\", \"alerts\" }} {{total_activities | pluralize: \"was\", \"were\" }} trigged",
+                "subject": "{{total_activities}} new {{total_activities | pluralize: \"alert\", \"alerts\" }} {{total_activities | pluralize: \"was\", \"were\" }} triggered",
                 "visual_blocks@": "email_2/visual_blocks.json"
               },
               "type": "channel"
