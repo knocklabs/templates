@@ -3,9 +3,13 @@
   "steps": [
     {
       "channel_key": "sendgrid",
+      "channel_type": "email",
+      "description": "Send password reset link",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "Reset your password",

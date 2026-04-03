@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "skills": {
+    "knock-cli": {
+      "source": "knocklabs/skills",
+      "sourceType": "github",
+      "computedHash": "f594e45cbec19f310991d59c2d9d11d1901284394600c31ef38ec0d06a73d92d"
+    },
+    "notification-best-practices": {
+      "source": "knocklabs/skills",
+      "sourceType": "github",
+      "computedHash": "189ac9a8b9131e05cc9f534d0f94129c63e5f84c83e1361a4186447354975a64"
+    }
+  }
+}

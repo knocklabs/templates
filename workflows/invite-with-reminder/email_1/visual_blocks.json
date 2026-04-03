@@ -29,7 +29,6 @@
         "action": "{{ vars.app_url }}/invites/account/{{ invite_token }}",
         "label": "Accept invite",
         "size_attrs": {
-          "is_fullwidth": false,
           "size": "sm"
         },
         "style_attrs": {

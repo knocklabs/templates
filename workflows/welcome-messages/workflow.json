@@ -3,6 +3,9 @@
   "steps": [
     {
       "channel_key": "in-app-feed",
+      "channel_type": "in_app_feed",
+      "description": "Send welcome message",
+      "name": "In-app feed",
       "ref": "in_app_feed_1",
       "template": {
         "action_url": "https://docs.knock.app?utm_source=in-app-feed&utm_campaign=welcome-message&utm_medium=in-app-feed",
@@ -12,9 +15,13 @@
     },
     {
       "channel_key": "postmark",
+      "channel_type": "email",
+      "description": "Send welcome email",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "Welcome to Knock! 🎉",

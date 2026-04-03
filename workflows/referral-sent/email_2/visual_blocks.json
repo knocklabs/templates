@@ -17,7 +17,6 @@
         "action": "https://knock.app/referrals/{{ referral_token }}",
         "label": "Get started ",
         "size_attrs": {
-          "is_fullwidth": false,
           "size": "sm"
         },
         "style_attrs": {

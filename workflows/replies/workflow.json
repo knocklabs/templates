@@ -2,6 +2,8 @@
   "name": "Replies",
   "steps": [
     {
+      "description": "Batch replies by comment",
+      "name": "Batch",
       "ref": "batch_1",
       "settings": {
         "batch_execution_mode": "accumulate",
@@ -17,6 +19,9 @@
     },
     {
       "channel_key": "in-app-feed",
+      "channel_type": "in_app_feed",
+      "description": "Send reply notification",
+      "name": "In-app feed",
       "ref": "in_app_feed_1",
       "template": {
         "action_url": "{{ vars.app_url }}/pages/{{page_id}}",
@@ -25,6 +30,8 @@
       "type": "channel"
     },
     {
+      "description": "Wait before escalating",
+      "name": "Delay",
       "ref": "delay_1",
       "settings": {
         "delay_for": {
@@ -36,6 +43,7 @@
     },
     {
       "channel_key": "sendgrid",
+      "channel_type": "email",
       "conditions": {
         "all": [
           {
@@ -45,9 +53,12 @@
           }
         ]
       },
+      "description": "Send reply digest if unseen",
+      "name": "Email",
       "ref": "email_1",
       "template": {
         "settings": {
+          "attachment_key": "attachments",
           "layout_key": "default"
         },
         "subject": "New reply to your comment \"{{ parent_comment_body | truncatewords: 5}}\" on {{ page_name }}",
@@ -57,6 +68,7 @@
     },
     {
       "channel_key": "apns",
+      "channel_type": "push",
       "conditions": {
         "all": [
           {
@@ -66,6 +78,8 @@
           }
         ]
       },
+      "description": "Send reply push if unseen",
+      "name": "Push",
       "ref": "push_1",
       "template": {
         "settings": {
