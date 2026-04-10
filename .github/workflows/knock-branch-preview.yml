@@ -46,7 +46,9 @@ jobs:
       - name: Commit changes on branch
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock commit create -m "PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}" --force
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: knock commit create -m "PR #${PR_NUMBER}: ${PR_TITLE}" --force
 
       - name: Post or update preview comment
         uses: marocchino/sticky-pull-request-comment@v2
