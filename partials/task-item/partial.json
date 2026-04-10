@@ -2,40 +2,34 @@
   "icon_name": "ListChecks",
   "input_schema": [
     {
-      "key": "tasks",
-      "label": "Tasks",
+      "key": "name",
+      "label": "Task name",
+      "type": "text",
       "settings": {
-        "default": {
-          "items": ""
-        },
-        "description": "An object containing an items array of task objects, each with name, link, and date fields.",
         "required": true,
-        "schema": {
-          "type": "object",
-          "properties": {
-            "items": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "link": {
-                    "type": "string"
-                  },
-                  "date": {
-                    "type": "string"
-                  }
-                },
-                "required": ["name", "link", "date"]
-              }
-            }
-          },
-          "required": ["items"]
-        }
-      },
-      "type": "json"
+        "default": "Example task",
+        "description": "The name of the task."
+      }
+    },
+    {
+      "key": "link",
+      "label": "Task link",
+      "type": "url",
+      "settings": {
+        "required": true,
+        "default": "https://example.com",
+        "description": "URL the task links to."
+      }
+    },
+    {
+      "key": "date",
+      "label": "Due date",
+      "type": "text",
+      "settings": {
+        "required": true,
+        "default": "2026-04-10",
+        "description": "Due date for the task (e.g. 2026-04-10)."
+      }
     }
   ],
   "name": "Task item",
