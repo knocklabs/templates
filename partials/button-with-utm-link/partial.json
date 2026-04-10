@@ -1,14 +1,93 @@
 {
-  "icon_name": "BellDot",
-  "name": "Button with UTM Link",
+  "icon_name": "Link",
+  "input_schema": [
+    {
+      "key": "button_url",
+      "label": "Button URL",
+      "settings": {
+        "default": "https://google.com",
+        "description": "The destination URL for the button.",
+        "placeholder": "https://example.com",
+        "required": true
+      },
+      "type": "url"
+    },
+    {
+      "key": "button_text",
+      "label": "Button Text",
+      "settings": {
+        "default": "Click here",
+        "description": "The label displayed on the button.",
+        "placeholder": "Click here",
+        "required": true
+      },
+      "type": "text"
+    },
+    {
+      "key": "utm_source",
+      "label": "UTM Source",
+      "settings": {
+        "default": "",
+        "description": "Identifies which site sent the traffic (e.g. newsletter, google).",
+        "placeholder": "newsletter",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "utm_medium",
+      "label": "UTM Medium",
+      "settings": {
+        "default": "",
+        "description": "The marketing medium (e.g. email, cpc).",
+        "placeholder": "email",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "utm_campaign",
+      "label": "UTM Campaign",
+      "settings": {
+        "default": "",
+        "description": "The campaign name or promotion.",
+        "placeholder": "spring_sale",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "utm_term",
+      "label": "UTM Term",
+      "settings": {
+        "default": "",
+        "description": "Paid keyword term for the campaign.",
+        "placeholder": "running+shoes",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "utm_content",
+      "label": "UTM Content",
+      "settings": {
+        "default": "",
+        "description": "Differentiates ads or links pointing to the same URL.",
+        "placeholder": "logolink",
+        "required": false
+      },
+      "type": "text"
+    }
+  ],
+  "name": "Button with UTM link",
+  "type": "html",
   "visual_block_enabled": true,
   "content@": "content.html",
   "__readonly": {
     "environment": "development",
     "key": "button-with-utm-link",
-    "type": "html",
     "valid": true,
-    "created_at": "2025-05-02T17:46:26.477933Z"
+    "created_at": "2026-04-10T13:32:49.240959Z"
   },
   "$schema": "https://schemas.knock.app/cli/partial.json"
 }

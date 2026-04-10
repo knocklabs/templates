@@ -1,14 +1,85 @@
 {
-  "icon_name": "SquareUser",
+  "icon_name": "MessageCircleHeart",
+  "input_schema": [
+    {
+      "action": {
+        "key": "action",
+        "label": "Image action",
+        "settings": {
+          "default": "",
+          "required": false
+        },
+        "type": "text"
+      },
+      "alt": {
+        "key": "alt",
+        "label": "Alt text",
+        "settings": {
+          "default": "",
+          "required": false
+        },
+        "type": "text"
+      },
+      "key": "image_url",
+      "label": "Avatar image",
+      "settings": {
+        "description": "The large avatar or photo displayed on the left side of the testimonial",
+        "required": true
+      },
+      "type": "image",
+      "url": {
+        "key": "url",
+        "label": "Image URL",
+        "settings": {
+          "default": "https://react.email/static/steve-jobs.jpg",
+          "required": true
+        },
+        "type": "url"
+      }
+    },
+    {
+      "key": "quote",
+      "label": "Quote",
+      "settings": {
+        "default": "Design is not just what it looks like and feels like.",
+        "description": "The testimonial quote text",
+        "placeholder": "\"This product changed everything for us...\"",
+        "required": true
+      },
+      "type": "textarea"
+    },
+    {
+      "key": "name",
+      "label": "Name",
+      "settings": {
+        "default": "Steve Jobs",
+        "description": "Full name of the person giving the testimonial",
+        "placeholder": "Jane Doe",
+        "required": true
+      },
+      "type": "text"
+    },
+    {
+      "key": "title",
+      "label": "Title",
+      "settings": {
+        "default": "CEO, Apple",
+        "description": "Job title or company of the person giving the testimonial",
+        "placeholder": "CEO at Acme Inc.",
+        "required": false
+      },
+      "type": "text"
+    }
+  ],
   "name": "Testimonial with large avatar",
+  "type": "html",
   "visual_block_enabled": true,
   "content@": "content.html",
   "__readonly": {
     "environment": "development",
     "key": "testimonial-with-large-avatar",
-    "type": "html",
     "valid": true,
-    "created_at": "2025-11-07T20:09:07.411382Z"
+    "created_at": "2026-04-10T14:43:13.226495Z"
   },
   "$schema": "https://schemas.knock.app/cli/partial.json"
 }
