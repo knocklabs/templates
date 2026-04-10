@@ -56,7 +56,7 @@ jobs:
       - name: Push all resources to branch
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock push --knock-dir=. --commit -m "PR #${{ github.event.pull_request.number }}"
+        run: knock push --knock-dir=. --commit
 
       - name: Post or update preview comment
         uses: marocchino/sticky-pull-request-comment@v2
