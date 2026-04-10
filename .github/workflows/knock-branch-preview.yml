@@ -33,15 +33,30 @@ jobs:
           KNOCK_BRANCH="pr-${{ github.event.pull_request.number }}"
           echo "name=$KNOCK_BRANCH" >> "$GITHUB_OUTPUT"
 
-      - name: Switch to Knock branch (creates it if it doesn't exist)
+      - name: Detect changed Knock resources
+        id: changes
+        run: |
+          git fetch origin main --depth=1
+          CHANGED=$(git diff --name-only origin/main...HEAD -- workflows/ partials/ email-layouts/ translations/ guides/ message-types/ | \
+            awk -F/ '{print $1"/"$2}' | sort -u)
+          if [ -z "$CHANGED" ]; then
+            CHANGED="No Knock resource changes detected"
+          fi
+          {
+            echo "resources<<EOF"
+            echo "$CHANGED"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Switch to Knock branch (creates if it doesn't exist)
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock branch switch ${{ steps.branch.outputs.name }} --create
+        run: knock branch switch ${{ steps.branch.outputs.name }} --create --force
 
       - name: Push all resources to branch
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock push --knock-dir=.
+        run: knock push --knock-dir=. --commit -m "PR #${{ github.event.pull_request.number }}"
 
       - name: Post or update preview comment
         uses: marocchino/sticky-pull-request-comment@v2
@@ -51,6 +66,11 @@ jobs:
             ### Knock branch preview
 
             A Knock branch **`${{ steps.branch.outputs.name }}`** has been created/updated with the resources from this PR.
+
+            **Changed resources:**
+            ```
+            ${{ steps.changes.outputs.resources }}
+            ```
 
             **[Open in Knock dashboard →](https://dashboard.knock.app/knock-workflow-templates/${{ steps.branch.outputs.name }}/workflows)**
 
