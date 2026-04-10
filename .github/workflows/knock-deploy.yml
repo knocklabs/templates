@@ -7,9 +7,7 @@ on:
 
 jobs:
   deploy:
-    # Disabled for testing — re-enable by replacing `false` with the merge check below
-    # if: github.event.pull_request.merged == true
-    if: false
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -24,18 +22,12 @@ jobs:
       - name: Install Knock CLI
         run: npm install -g @knocklabs/cli@latest
 
-      - name: Push all resources to development
+      - name: Push and commit all resources to development
         env:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: knock push --knock-dir=.
-
-      - name: Commit changes
-        env:
-          KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
-        run: >
-          knock commit create
-          -m "Deploy from PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
-          --force
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: knock push --knock-dir=. --commit -m "Deploy from PR #${PR_NUMBER}: ${PR_TITLE}"
 
       - name: Promote to production
         env:
