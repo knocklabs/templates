@@ -5,7 +5,23 @@
       "key": "tasks",
       "label": "Tasks",
       "settings": {
-        "default": {},
+        "default": [
+          {
+            "name": "Review project proposal",
+            "link": "https://example.com/tasks/1",
+            "date": "2025-08-01"
+          },
+          {
+            "name": "Schedule team standup",
+            "link": "https://example.com/tasks/2",
+            "date": "2025-07-25"
+          },
+          {
+            "name": "Update documentation",
+            "link": "https://example.com/tasks/3",
+            "date": "2025-08-10"
+          }
+        ],
         "description": "An array of task objects, each with name, link, and date fields.",
         "required": true,
         "schema": {
@@ -21,11 +37,7 @@
                 "type": "string"
               }
             },
-            "required": [
-              "name",
-              "link",
-              "date"
-            ],
+            "required": ["name", "link", "date"],
             "type": "object"
           },
           "type": "array"
