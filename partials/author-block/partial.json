@@ -1,5 +1,5 @@
 {
-  "icon_name": "BellDot",
+  "icon_name": "UserRoundPen",
   "input_schema": [
     {
       "action": {
@@ -80,7 +80,7 @@
   ],
   "name": "Author block",
   "type": "html",
-  "visual_block_enabled": false,
+  "visual_block_enabled": true,
   "content@": "content.html",
   "__readonly": {
     "environment": "development",

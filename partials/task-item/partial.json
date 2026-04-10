@@ -1,14 +1,48 @@
 {
-  "icon_name": "BellDot",
-  "name": "Task Item",
+  "icon_name": "ListChecks",
+  "input_schema": [
+    {
+      "key": "tasks",
+      "label": "Tasks",
+      "settings": {
+        "default": {},
+        "description": "An array of task objects, each with name, link, and date fields.",
+        "required": true,
+        "schema": {
+          "items": {
+            "properties": {
+              "date": {
+                "type": "string"
+              },
+              "link": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "link",
+              "date"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "type": "json"
+    }
+  ],
+  "name": "Task item",
+  "type": "html",
   "visual_block_enabled": true,
   "content@": "content.html",
   "__readonly": {
     "environment": "development",
     "key": "task-item",
-    "type": "html",
     "valid": true,
-    "created_at": "2025-11-18T15:16:12.268423Z"
+    "created_at": "2026-04-10T11:50:55.898603Z"
   },
   "$schema": "https://schemas.knock.app/cli/partial.json"
 }

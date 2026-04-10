@@ -1,9 +1,10 @@
+{% for task in tasks %}
 <table
   border="0"
   cellpadding="0"
   cellspacing="0"
   width="100%"
-  style="border: 1px solid #e5e5e5"
+  style="width: 100%; border: 1px solid #e5e5e5;{% unless forloop.first %} border-top: none;{% endunless %}"
 >
   <tr>
     <td style="padding: 16px">
@@ -32,7 +33,7 @@
             "
           >
             <a
-              href="{{ link }}"
+              href="{{ task.link }}"
               style="color: #1a1a1a; text-decoration: none; display: block"
             >
               <table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -40,15 +41,15 @@
                   <td>
                     <span
                       style="font-size: 16px; line-height: 24px; color: #1a1a1a"
-                      >{{ name | truncate: 35 }}</span
+                      >{{ task.name | truncate: 35 }}</span
                     >
                   </td>
                   <td align="right" style="padding-left: 16px">
                     <table border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        {% assign task_date_unix = date | date: "%s" %} {%
-                        assign current_date_unix = "now" | date: "%s" %} {% if
-                        task_date_unix < current_date_unix %}
+                        {% assign task_date_unix = task.date | date: "%s" %}
+                        {% assign current_date_unix = "now" | date: "%s" %}
+                        {% if task_date_unix < current_date_unix %}
                         <td
                           style="
                             font-size: 16px;
@@ -56,7 +57,7 @@
                             color: #dc2626;
                           "
                         >
-                          {{ date | date: "%b %d" }}
+                          {{ task.date | date: "%b %d" }}
                         </td>
                         {% else %}
                         <td
@@ -66,7 +67,7 @@
                             color: #4b5563;
                           "
                         >
-                          {{ date | date: "%b %d" }}
+                          {{ task.date | date: "%b %d" }}
                         </td>
                         {% endif %}
                         <td style="padding-left: 8px">
@@ -90,3 +91,4 @@
     </td>
   </tr>
 </table>
+{% endfor %}
