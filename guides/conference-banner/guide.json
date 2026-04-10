@@ -18,10 +18,10 @@
   "type": "banner",
   "__readonly": {
     "key": "conference-banner",
-    "active": true,
+    "active": false,
     "valid": true,
     "environment": "development",
-    "created_at": "2025-10-06T19:35:24.700108Z"
+    "created_at": "2026-04-03T17:31:26.776909Z"
   },
   "$schema": "https://schemas.knock.app/cli/guide.json"
 }

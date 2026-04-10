@@ -4,32 +4,32 @@
     {
       "key": "name",
       "label": "Task name",
-      "type": "text",
       "settings": {
-        "required": true,
         "default": "Example task",
-        "description": "The name of the task."
-      }
+        "description": "The name of the task.",
+        "required": true
+      },
+      "type": "text"
     },
     {
       "key": "link",
       "label": "Task link",
-      "type": "url",
       "settings": {
-        "required": true,
         "default": "https://example.com",
-        "description": "URL the task links to."
-      }
+        "description": "URL the task links to.",
+        "required": true
+      },
+      "type": "url"
     },
     {
       "key": "date",
       "label": "Due date",
-      "type": "text",
       "settings": {
-        "required": true,
         "default": "2026-04-10",
-        "description": "Due date for the task (e.g. 2026-04-10)."
-      }
+        "description": "Due date for the task (e.g. 2026-04-10).",
+        "required": true
+      },
+      "type": "text"
     }
   ],
   "name": "Task item",
