@@ -25,31 +25,7 @@
           ]
         },
         "description": "An object containing an items array of task objects, each with name, link, and date fields.",
-        "required": true,
-        "schema": {
-          "type": "object",
-          "properties": {
-            "items": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "link": {
-                    "type": "string"
-                  },
-                  "date": {
-                    "type": "string"
-                  }
-                },
-                "required": ["name", "link", "date"]
-              }
-            }
-          },
-          "required": ["items"]
-        }
+        "required": true
       },
       "type": "json"
     }
