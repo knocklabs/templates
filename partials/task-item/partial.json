@@ -6,26 +6,34 @@
       "label": "Tasks",
       "settings": {
         "default": {
-          "items": [
-            {
-              "name": "Review project proposal",
-              "link": "https://example.com/tasks/1",
-              "date": "2025-08-01"
-            },
-            {
-              "name": "Schedule team standup",
-              "link": "https://example.com/tasks/2",
-              "date": "2025-07-25"
-            },
-            {
-              "name": "Update documentation",
-              "link": "https://example.com/tasks/3",
-              "date": "2025-08-10"
-            }
-          ]
+          "items": ""
         },
         "description": "An object containing an items array of task objects, each with name, link, and date fields.",
-        "required": true
+        "required": true,
+        "schema": {
+          "type": "object",
+          "properties": {
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "link": {
+                    "type": "string"
+                  },
+                  "date": {
+                    "type": "string"
+                  }
+                },
+                "required": ["name", "link", "date"]
+              }
+            }
+          },
+          "required": ["items"]
+        }
       },
       "type": "json"
     }
