@@ -55,23 +55,30 @@
                 height: 72px;
                 border-radius: 36px;
                 background-color: rgba(0, 0, 0, 0.72);
-                text-align: center;
-                line-height: 72px;
+                display: table;
               "
             >
-              <span
-                class="video-cover-play-triangle"
+              <div
                 style="
-                  display: inline-block;
-                  width: 0;
-                  height: 0;
-                  border-top: 11px solid transparent;
-                  border-bottom: 11px solid transparent;
-                  border-left: 18px solid #ffffff;
-                  margin-left: 4px;
+                  display: table-cell;
                   vertical-align: middle;
+                  text-align: center;
+                  line-height: 0;
                 "
-              ></span>
+              >
+                <span
+                  class="video-cover-play-triangle"
+                  style="
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-top: 11px solid transparent;
+                    border-bottom: 11px solid transparent;
+                    border-left: 18px solid #ffffff;
+                    margin-left: 4px;
+                  "
+                ></span>
+              </div>
             </div>
           </div>
         {% if destination_url and destination_url != "" %}
