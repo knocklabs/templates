@@ -1,14 +1,46 @@
 {
-  "icon_name": "BellDot",
-  "name": "Task Item",
+  "icon_name": "ListChecks",
+  "input_schema": [
+    {
+      "key": "name",
+      "label": "Task name",
+      "type": "text",
+      "settings": {
+        "required": true,
+        "default": "Example task",
+        "description": "The name of the task."
+      }
+    },
+    {
+      "key": "link",
+      "label": "Task link",
+      "type": "url",
+      "settings": {
+        "required": true,
+        "default": "https://example.com",
+        "description": "URL the task links to."
+      }
+    },
+    {
+      "key": "date",
+      "label": "Due date",
+      "type": "text",
+      "settings": {
+        "required": true,
+        "default": "2026-04-10",
+        "description": "Due date for the task (e.g. 2026-04-10)."
+      }
+    }
+  ],
+  "name": "Task item",
+  "type": "html",
   "visual_block_enabled": true,
   "content@": "content.html",
   "__readonly": {
     "environment": "development",
     "key": "task-item",
-    "type": "html",
     "valid": true,
-    "created_at": "2025-11-18T15:16:12.268423Z"
+    "created_at": "2026-04-10T11:50:55.898603Z"
   },
   "$schema": "https://schemas.knock.app/cli/partial.json"
 }

@@ -1,14 +1,92 @@
 {
-  "icon_name": "Lightbulb",
-  "name": "Author Block",
+  "icon_name": "UserRoundPen",
+  "input_schema": [
+    {
+      "action": {
+        "key": "action",
+        "label": "Image action",
+        "settings": {
+          "default": "",
+          "required": false
+        },
+        "type": "text"
+      },
+      "alt": {
+        "key": "alt",
+        "label": "Alt text",
+        "settings": {
+          "default": "",
+          "required": false
+        },
+        "type": "text"
+      },
+      "key": "author_image",
+      "label": "Author image",
+      "settings": {
+        "description": "The author's profile photo",
+        "required": false
+      },
+      "type": "image",
+      "url": {
+        "key": "url",
+        "label": "Image URL",
+        "settings": {
+          "default": "https://upload.wikimedia.org/wikipedia/en/b/b5/John_Hammond.webp",
+          "required": false
+        },
+        "type": "url"
+      }
+    },
+    {
+      "key": "author_name",
+      "label": "Author name",
+      "settings": {
+        "default": "John Hammond",
+        "placeholder": "Jane Doe",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "signoff",
+      "label": "Signoff",
+      "settings": {
+        "default": "We spared no expense,",
+        "placeholder": "Best,",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "author_title",
+      "label": "Author title",
+      "settings": {
+        "default": "CEO, InGen",
+        "placeholder": "Head of Marketing",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "author_email",
+      "label": "Author email",
+      "settings": {
+        "default": "jhammond@ingen.net",
+        "placeholder": "jane@example.com",
+        "required": false
+      },
+      "type": "text"
+    }
+  ],
+  "name": "Author block",
+  "type": "html",
   "visual_block_enabled": true,
   "content@": "content.html",
   "__readonly": {
     "environment": "development",
     "key": "author-block",
-    "type": "html",
     "valid": true,
-    "created_at": "2025-11-17T22:11:47.566754Z"
+    "created_at": "2026-04-10T11:36:44.466473Z"
   },
   "$schema": "https://schemas.knock.app/cli/partial.json"
 }

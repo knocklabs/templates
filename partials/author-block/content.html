@@ -1,9 +1,9 @@
 <div style="text-align: center; margin: 24px 0">
-  {% if author_image_url %}
+  {% if author_image.url %}
   <div style="margin-bottom: 16px">
     <img
-      src="{{ author_image_url }}"
-      alt="{{ author_name | default: 'Author' }}"
+      src="{{ author_image.url }}"
+      alt="{{ author_image.alt | default: author_name | default: 'Author' }}"
       style="
         width: 80px;
         height: 80px;

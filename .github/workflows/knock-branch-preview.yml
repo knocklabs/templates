@@ -1,0 +1,100 @@
+name: Knock branch preview
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+    branches: [main]
+
+# Prevent concurrent runs for the same PR to avoid branch conflicts
+concurrency:
+  group: knock-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    if: github.event.action != 'closed'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Knock CLI
+        run: npm install -g @knocklabs/cli@latest
+
+      - name: Derive Knock branch name
+        id: branch
+        run: |
+          KNOCK_BRANCH="pr-${{ github.event.pull_request.number }}"
+          echo "name=$KNOCK_BRANCH" >> "$GITHUB_OUTPUT"
+
+      - name: Detect changed Knock resources
+        id: changes
+        run: |
+          git fetch origin main --depth=1
+          CHANGED=$(git diff --name-only origin/main...HEAD -- workflows/ partials/ email-layouts/ translations/ guides/ message-types/ | \
+            awk -F/ '{print $1"/"$2}' | sort -u)
+          if [ -z "$CHANGED" ]; then
+            CHANGED="No Knock resource changes detected"
+          fi
+          {
+            echo "resources<<EOF"
+            echo "$CHANGED"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Switch to Knock branch (creates if it doesn't exist)
+        env:
+          KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
+        run: knock branch switch ${{ steps.branch.outputs.name }} --create --force
+
+      - name: Push all resources to branch
+        env:
+          KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
+        run: knock push --knock-dir=. --commit
+
+      - name: Post or update preview comment
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: knock-preview
+          message: |
+            ### Knock branch preview
+
+            A Knock branch **`${{ steps.branch.outputs.name }}`** has been created/updated with the resources from this PR.
+
+            **Changed resources:**
+            ```
+            ${{ steps.changes.outputs.resources }}
+            ```
+
+            **[Open in Knock dashboard →](https://dashboard.knock.app/knock-workflow-templates/${{ steps.branch.outputs.name }}/workflows)**
+
+            > To test workflows on this branch via the API, include the header:
+            > ```
+            > X-Knock-Branch: ${{ steps.branch.outputs.name }}
+            > ```
+            >
+            > _Last updated: ${{ github.event.pull_request.head.sha }}_
+
+  cleanup:
+    if: github.event.action == 'closed'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Knock CLI
+        run: npm install -g @knocklabs/cli@latest
+
+      - name: Delete Knock branch
+        env:
+          KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
+        run: knock branch delete pr-${{ github.event.pull_request.number }} --force || true
