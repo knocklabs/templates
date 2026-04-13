@@ -27,7 +27,8 @@ jobs:
           KNOCK_SERVICE_TOKEN: ${{ secrets.KNOCK_SERVICE_TOKEN }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           PR_TITLE: ${{ github.event.pull_request.title }}
-        run: knock push --knock-dir=. --commit -m "Deploy from PR #${PR_NUMBER}: ${PR_TITLE}"
+        run: |
+          knock push --knock-dir=. --commit -m "Deploy from PR #${PR_NUMBER}: ${PR_TITLE}"
 
       - name: Promote to production
         env:
