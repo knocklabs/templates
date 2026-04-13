@@ -3,6 +3,7 @@
   "description": "A responsive video thumbnail image with a centered play icon overlay.",
   "type": "html",
   "visual_block_enabled": true,
+  "icon_name": "Video",
   "content@": "content.html",
   "input_schema": [
     {
