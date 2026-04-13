@@ -1,0 +1,90 @@
+{%- assign destination_url = cover_image.action | default: optional_link -%}
+<style>
+  @media only screen and (max-width: 480px) {
+    .video-cover-play-circle {
+      width: 54px !important;
+      height: 54px !important;
+    }
+    .video-cover-play-triangle {
+      border-top-width: 8px !important;
+      border-bottom-width: 8px !important;
+      border-left-width: 13px !important;
+    }
+  }
+</style>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+  <tr>
+    <td align="center" style="padding: 0">
+      <div style="max-width: 640px; margin: 0 auto; position: relative; line-height: 0; font-size: 0">
+        {% if destination_url and destination_url != "" %}
+        <a
+          href="{{ destination_url }}"
+          style="text-decoration: none; display: block; position: relative"
+        >
+        {% endif %}
+          <img
+            src="{{ cover_image.url }}"
+            alt="{{ cover_image.alt | default: 'Video cover image' }}"
+            width="640"
+            style="
+              display: block;
+              width: 100%;
+              max-width: 640px;
+              height: auto;
+              border: 0;
+              border-radius: 8px;
+              outline: none;
+              text-decoration: none;
+            "
+          />
+          <div
+            style="
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%);
+              -webkit-transform: translate(-50%, -50%);
+              mso-hide: all;
+            "
+          >
+            <div
+              class="video-cover-play-circle"
+              style="
+                width: 72px;
+                height: 72px;
+                border-radius: 36px;
+                background-color: rgba(0, 0, 0, 0.72);
+                display: table;
+              "
+            >
+              <div
+                style="
+                  display: table-cell;
+                  vertical-align: middle;
+                  text-align: center;
+                  line-height: 0;
+                "
+              >
+                <span
+                  class="video-cover-play-triangle"
+                  style="
+                    display: inline-block;
+                    width: 0;
+                    height: 0;
+                    border-top: 11px solid transparent;
+                    border-bottom: 11px solid transparent;
+                    border-left: 18px solid #ffffff;
+                    margin-left: 4px;
+                  "
+                ></span>
+              </div>
+            </div>
+          </div>
+        {% if destination_url and destination_url != "" %}
+        </a>
+        {% endif %}
+      </div>
+    </td>
+  </tr>
+</table>
