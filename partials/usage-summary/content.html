@@ -27,8 +27,9 @@
         {{ summary_title }}
       </div>
       {% endif %} {% assign usage_items = current_usage %} {% if usage_items == blank %}
-      {% assign usage_items = data.current_usage %} {% endif %} {% for usage in
-      usage_items %} {% assign value = usage.usage_quantity | default: 0 | plus: 0 %}
+      {% assign usage_items = data.current_usage %} {% endif %} {% assign usage_count =
+      usage_items | size %} {% if usage_count > 0 %} {% for usage in usage_items %} {% assign
+      value = usage.usage_quantity | default: 0 | plus: 0 %}
       {% assign capacity = usage.usage_plan_limit | default: 0 | plus: 0 %} {% assign
       percent = usage.percentage_used | default: 0 | plus: 0 %} {% if percent <= 1 %}
       {% assign percent = percent | times: 100 %} {% endif %} {% if percent < 0 %} {%
@@ -126,7 +127,17 @@
         </tr>
         {% endif %}
       </table>
-      {% endfor %}
+      {% endfor %} {% else %}
+      <div
+        style="
+          font-size: 13px;
+          line-height: 18px;
+          color: #6b7280;
+        "
+      >
+        {{ empty_state_text | default: "No usage metrics available for this period." }}
+      </div>
+      {% endif %}
     </td>
   </tr>
 </table>

@@ -17,6 +17,55 @@
       }
     },
     {
+      "type": "json",
+      "key": "current_usage",
+      "label": "Current usage",
+      "settings": {
+        "required": false,
+        "description": "Usage metrics array. Pass an array of usage objects to render one bar per metric.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "inserted_at": {
+                "type": "string"
+              },
+              "percentage_used": {
+                "type": "number"
+              },
+              "usage_amount_charged": {
+                "type": "string"
+              },
+              "usage_name": {
+                "type": "string"
+              },
+              "usage_period_end": {
+                "type": "string"
+              },
+              "usage_period_start": {
+                "type": "string"
+              },
+              "usage_plan_limit": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "usage_quantity": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "usage_name",
+              "percentage_used",
+              "usage_quantity"
+            ]
+          }
+        }
+      }
+    },
+    {
       "type": "text",
       "key": "empty_state_text",
       "label": "Empty state text",
