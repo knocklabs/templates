@@ -1,0 +1,119 @@
+<table
+  border="0"
+  cellpadding="0"
+  cellspacing="0"
+  width="100%"
+  role="presentation"
+  style="
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, sans-serif;
+  "
+>
+  <tr>
+    <td style="padding: 20px">
+      {% if summary_title != blank %}
+      <div
+        style="
+          font-size: 18px;
+          line-height: 24px;
+          font-weight: 600;
+          color: #111827;
+          margin: 0 0 16px 0;
+        "
+      >
+        {{ summary_title }}
+      </div>
+      {% endif %} {% assign labels = stat_labels | split: "|" %} {% assign values =
+      stat_values | split: "|" %} {% assign capacities = stat_capacities | split: "|"
+      %} {% assign percents = stat_percents | split: "|" %} {% assign units =
+      stat_units | split: "|" %} {% for label in labels %} {% assign index = forloop.index0
+      %} {% assign value = values[index] | strip | default: "0" %} {% assign capacity =
+      capacities[index] | strip | default: "0" %} {% assign percent_override =
+      percents[index] | strip %} {% assign unit = units[index] | strip %} {% assign
+      percent = 0 %} {% if percent_override != blank %} {% assign percent =
+      percent_override | plus: 0 %} {% elsif capacity != blank and capacity != "0" %} {%
+      assign percent = value | times: 100.0 | divided_by: capacity %} {% endif %} {% if
+      percent < 0 %} {% assign percent = 0 %} {% endif %} {% if percent > 100 %} {% assign
+      percent = 100 %} {% endif %} {% assign rounded_percent = percent | round %}
+      <table
+        border="0"
+        cellpadding="0"
+        cellspacing="0"
+        width="100%"
+        role="presentation"
+        style="margin: {% if forloop.first %}0{% else %}14px{% endif %} 0 0 0"
+      >
+        <tr>
+          <td
+            style="
+              font-size: 14px;
+              line-height: 20px;
+              font-weight: 600;
+              color: #111827;
+              padding-bottom: 4px;
+            "
+          >
+            {{ label | strip }}
+          </td>
+        </tr>
+        <tr>
+          <td
+            style="
+              font-size: 13px;
+              line-height: 18px;
+              color: #4b5563;
+              padding-bottom: 8px;
+            "
+          >
+            {{ value }}{% if unit != blank %} {{ unit }}{% endif %} / {{ capacity }}{% if
+            unit != blank %} {{ unit }}{% endif %} ({{ rounded_percent }}%)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table
+              border="0"
+              cellpadding="0"
+              cellspacing="0"
+              width="100%"
+              role="presentation"
+              style="
+                background-color: #e5e7eb;
+                border-radius: 999px;
+              "
+            >
+              <tr>
+                <td
+                  style="
+                    width: {{ percent }}%;
+                    min-width: {% if rounded_percent > 0 %}12px{% else %}0{% endif %};
+                    height: 12px;
+                    line-height: 12px;
+                    font-size: 1px;
+                    background-color: #2563eb;
+                    border-radius: 999px;
+                  "
+                >
+                  &nbsp;
+                </td>
+                <td
+                  style="
+                    height: 12px;
+                    line-height: 12px;
+                    font-size: 1px;
+                  "
+                >
+                  &nbsp;
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      {% endfor %}
+    </td>
+  </tr>
+</table>
