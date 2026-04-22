@@ -26,18 +26,14 @@
       >
         {{ summary_title }}
       </div>
-      {% endif %} {% assign labels = stat_labels | split: "|" %} {% assign values =
-      stat_values | split: "|" %} {% assign capacities = stat_capacities | split: "|"
-      %} {% assign percents = stat_percents | split: "|" %} {% assign units =
-      stat_units | split: "|" %} {% for label in labels %} {% assign index = forloop.index0
-      %} {% assign value = values[index] | strip | default: "0" %} {% assign capacity =
-      capacities[index] | strip | default: "0" %} {% assign percent_override =
-      percents[index] | strip %} {% assign unit = units[index] | strip %} {% assign
-      percent = 0 %} {% if percent_override != blank %} {% assign percent =
-      percent_override | plus: 0 %} {% elsif capacity != blank and capacity != "0" %} {%
-      assign percent = value | times: 100.0 | divided_by: capacity %} {% endif %} {% if
-      percent < 0 %} {% assign percent = 0 %} {% endif %} {% if percent > 100 %} {% assign
-      percent = 100 %} {% endif %} {% assign rounded_percent = percent | round %}
+      {% endif %} {% assign usage_items = current_usage %} {% if usage_items == blank %}
+      {% assign usage_items = data.current_usage %} {% endif %} {% for usage in
+      usage_items %} {% assign value = usage.usage_quantity | default: 0 | plus: 0 %}
+      {% assign capacity = usage.usage_plan_limit | default: 0 | plus: 0 %} {% assign
+      percent = usage.percentage_used | default: 0 | plus: 0 %} {% if percent <= 1 %}
+      {% assign percent = percent | times: 100 %} {% endif %} {% if percent < 0 %} {%
+      assign percent = 0 %} {% endif %} {% if percent > 100 %} {% assign percent = 100
+      %} {% endif %} {% assign rounded_percent = percent | round %}
       <table
         border="0"
         cellpadding="0"
@@ -56,7 +52,7 @@
               padding-bottom: 4px;
             "
           >
-            {{ label | strip }}
+            {{ usage.usage_name | default: "Usage metric" }}
           </td>
         </tr>
         <tr>
@@ -68,8 +64,8 @@
               padding-bottom: 8px;
             "
           >
-            {{ value }}{% if unit != blank %} {{ unit }}{% endif %} / {{ capacity }}{% if
-            unit != blank %} {{ unit }}{% endif %} ({{ rounded_percent }}%)
+            {{ value }} / {% if usage.usage_plan_limit == blank %}Unlimited{% else %}{{
+            capacity }}{% endif %} ({{ rounded_percent }}%)
           </td>
         </tr>
         <tr>
@@ -112,6 +108,23 @@
             </table>
           </td>
         </tr>
+        {% if usage.usage_period_start != blank or usage.usage_period_end != blank %}
+        <tr>
+          <td
+            style="
+              font-size: 12px;
+              line-height: 16px;
+              color: #6b7280;
+              padding-top: 6px;
+            "
+          >
+            {% if usage.usage_period_start != blank %}{{ usage.usage_period_start | date:
+            "%b %-d, %Y" }}{% endif %}{% if usage.usage_period_start != blank and
+            usage.usage_period_end != blank %} - {% endif %}{% if usage.usage_period_end !=
+            blank %}{{ usage.usage_period_end | date: "%b %-d, %Y" }}{% endif %}
+          </td>
+        </tr>
+        {% endif %}
       </table>
       {% endfor %}
     </td>

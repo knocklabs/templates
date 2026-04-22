@@ -1,6 +1,6 @@
 {
   "name": "Usage summary",
-  "description": "Displays summary statistics as 0-100% usage bars with numerical values and total capacity.",
+  "description": "Displays usage metrics from current_usage as 0-100% bars with numeric values and capacity.",
   "type": "html",
   "visual_block_enabled": true,
   "content@": "content.html",
@@ -17,52 +17,12 @@
       }
     },
     {
-      "type": "textarea",
-      "key": "stat_labels",
-      "label": "Statistic labels",
+      "type": "text",
+      "key": "empty_state_text",
+      "label": "Empty state text",
       "settings": {
-        "default": "API calls|Storage used|Active seats",
-        "description": "Pipe-separated labels. Example: API calls|Storage used|Active seats",
-        "required": true
-      }
-    },
-    {
-      "type": "textarea",
-      "key": "stat_values",
-      "label": "Current values",
-      "settings": {
-        "default": "75000|420|24",
-        "description": "Pipe-separated current values in the same order as labels.",
-        "required": true
-      }
-    },
-    {
-      "type": "textarea",
-      "key": "stat_capacities",
-      "label": "Total capacities",
-      "settings": {
-        "default": "100000|500|30",
-        "description": "Pipe-separated total capacities in the same order as labels.",
-        "required": true
-      }
-    },
-    {
-      "type": "textarea",
-      "key": "stat_percents",
-      "label": "Percent overrides",
-      "settings": {
-        "default": "",
-        "description": "Optional pipe-separated percentages (0-100). Leave blank to auto-calculate from value/capacity.",
-        "required": false
-      }
-    },
-    {
-      "type": "textarea",
-      "key": "stat_units",
-      "label": "Units",
-      "settings": {
-        "default": "|GB|seats",
-        "description": "Optional pipe-separated units in the same order as labels. Leave blank for no unit.",
+        "default": "No usage metrics available for this period.",
+        "description": "Shown when current_usage is empty or missing.",
         "required": false
       }
     }
