@@ -1,0 +1,80 @@
+{
+  "name": "Usage summary",
+  "description": "Displays usage metrics from current_usage as 0-100% bars with numeric values and capacity.",
+  "type": "html",
+  "visual_block_enabled": true,
+  "content@": "content.html",
+  "icon_name": "ListChecks",
+  "input_schema": [
+    {
+      "type": "text",
+      "key": "summary_title",
+      "label": "Summary title",
+      "settings": {
+        "default": "Usage summary",
+        "description": "Heading shown above usage bars.",
+        "required": false
+      }
+    },
+    {
+      "type": "json",
+      "key": "current_usage",
+      "label": "Current usage",
+      "settings": {
+        "required": false,
+        "description": "Usage metrics array. Pass an array of usage objects to render one bar per metric.",
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "inserted_at": {
+                "type": "string"
+              },
+              "percentage_used": {
+                "type": "number"
+              },
+              "usage_amount_charged": {
+                "type": "string"
+              },
+              "usage_name": {
+                "type": "string"
+              },
+              "usage_period_end": {
+                "type": "string"
+              },
+              "usage_period_start": {
+                "type": "string"
+              },
+              "usage_plan_limit": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "usage_quantity": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "usage_name",
+              "percentage_used",
+              "usage_quantity"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "key": "empty_state_text",
+      "label": "Empty state text",
+      "settings": {
+        "default": "No usage metrics available for this period.",
+        "description": "Shown when current_usage is empty or missing.",
+        "required": false
+      }
+    }
+  ],
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}
