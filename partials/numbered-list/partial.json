@@ -1,0 +1,71 @@
+{
+  "icon_name": "ListOrdered",
+  "input_schema": [
+    {
+      "key": "list_item_1",
+      "label": "List item #1",
+      "settings": {
+        "default": "Click \"Copy agent prompt\" above and paste the prompt into the Knock dashboard agent.",
+        "description": "The first numbered list item.",
+        "placeholder": "Add the first list item",
+        "required": false
+      },
+      "type": "textarea"
+    },
+    {
+      "key": "list_item_2",
+      "label": "List item #2",
+      "settings": {
+        "default": "Navigate to the Workflows section in your dashboard and click \"Create workflow\".",
+        "description": "The second numbered list item.",
+        "placeholder": "Add the second list item",
+        "required": false
+      },
+      "type": "textarea"
+    },
+    {
+      "key": "list_item_3",
+      "label": "List item #3",
+      "settings": {
+        "default": "Build your workflow using the visual editor, then commit your changes when ready.",
+        "description": "The third numbered list item.",
+        "placeholder": "Add the third list item",
+        "required": false
+      },
+      "type": "textarea"
+    },
+    {
+      "key": "list_item_4",
+      "label": "List item #4",
+      "settings": {
+        "default": "",
+        "description": "The fourth numbered list item.",
+        "placeholder": "Add the fourth list item",
+        "required": false
+      },
+      "type": "textarea"
+    },
+    {
+      "key": "list_item_5",
+      "label": "List item #5",
+      "settings": {
+        "default": "",
+        "description": "The fifth numbered list item.",
+        "placeholder": "Add the fifth list item",
+        "required": false
+      },
+      "type": "textarea"
+    }
+  ],
+  "name": "Numbered list",
+  "type": "html",
+  "visual_block_enabled": true,
+  "content@": "content.html",
+  "__readonly": {
+    "environment": "development",
+    "key": "numbered-list",
+    "valid": true,
+    "created_at": "2026-04-24T21:14:00.000000Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}
