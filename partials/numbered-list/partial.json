@@ -5,7 +5,7 @@
       "key": "list_item_1",
       "label": "List item #1",
       "settings": {
-        "default": "Click \"Copy agent prompt\" above and paste the prompt into the Knock dashboard agent.",
+        "default": "Enter text here",
         "description": "The first numbered list item.",
         "placeholder": "Add the first list item",
         "required": false
@@ -16,7 +16,7 @@
       "key": "list_item_2",
       "label": "List item #2",
       "settings": {
-        "default": "Navigate to the Workflows section in your dashboard and click \"Create workflow\".",
+        "default": "Enter text here",
         "description": "The second numbered list item.",
         "placeholder": "Add the second list item",
         "required": false
@@ -27,7 +27,7 @@
       "key": "list_item_3",
       "label": "List item #3",
       "settings": {
-        "default": "Build your workflow using the visual editor, then commit your changes when ready.",
+        "default": "Enter text here",
         "description": "The third numbered list item.",
         "placeholder": "Add the third list item",
         "required": false
