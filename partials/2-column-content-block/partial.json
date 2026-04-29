@@ -31,6 +31,15 @@
           "default": "First content block image",
           "required": false
         }
+      },
+      "action": {
+        "type": "text",
+        "key": "action",
+        "label": "Image action",
+        "settings": {
+          "default": "",
+          "required": false
+        }
       }
     },
     {
@@ -100,6 +109,15 @@
         "label": "Alt text",
         "settings": {
           "default": "Second content block image",
+          "required": false
+        }
+      },
+      "action": {
+        "type": "text",
+        "key": "action",
+        "label": "Image action",
+        "settings": {
+          "default": "",
           "required": false
         }
       }
