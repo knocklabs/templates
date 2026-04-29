@@ -1,5 +1,5 @@
 {
-  "icon_name": "CheckCircle2",
+  "icon_name": "ListChecks",
   "input_schema": [
     {
       "key": "approve_url",
