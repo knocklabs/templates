@@ -1,0 +1,64 @@
+{
+  "icon_name": "TextQuote",
+  "input_schema": [
+    {
+      "key": "header_text",
+      "label": "Header text",
+      "settings": {
+        "default": "TLDR",
+        "description": "The H1-style heading shown at the top of the callout.",
+        "placeholder": "TLDR",
+        "required": false
+      },
+      "type": "text"
+    },
+    {
+      "key": "paragraph_text",
+      "label": "Paragraph text",
+      "settings": {
+        "default": "Add a concise summary of the most important takeaway here.",
+        "description": "The paragraph-style summary text shown below the heading.",
+        "placeholder": "Summarize the key takeaway",
+        "required": false
+      },
+      "type": "textarea"
+    },
+    {
+      "key": "color",
+      "label": "Color",
+      "settings": {
+        "default": "orange",
+        "description": "Choose the color treatment for the callout container.",
+        "options": [
+          {
+            "label": "Orange",
+            "value": "orange"
+          },
+          {
+            "label": "Blue",
+            "value": "blue"
+          },
+          {
+            "label": "Green",
+            "value": "green"
+          },
+          {
+            "label": "Purple",
+            "value": "purple"
+          },
+          {
+            "label": "Gray",
+            "value": "gray"
+          }
+        ],
+        "required": false
+      },
+      "type": "select"
+    }
+  ],
+  "name": "TLDR callout block",
+  "type": "html",
+  "visual_block_enabled": true,
+  "content@": "content.html",
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}
