@@ -1,0 +1,50 @@
+{%- assign callout_header = header_text | default: 'TLDR' -%}
+{%- assign callout_body = paragraph_text | default: 'Add a concise summary of the most important takeaway here.' -%}
+{%- assign callout_background = '#fff7ed' -%}
+{%- assign callout_border = '#fed7aa' -%}
+{%- assign callout_heading = '#9a3412' -%}
+{%- assign callout_text = '#7c2d12' -%}
+{%- if color == 'blue' -%}
+  {%- assign callout_background = '#eff6ff' -%}
+  {%- assign callout_border = '#bfdbfe' -%}
+  {%- assign callout_heading = '#1d4ed8' -%}
+  {%- assign callout_text = '#1e3a8a' -%}
+{%- elsif color == 'green' -%}
+  {%- assign callout_background = '#f0fdf4' -%}
+  {%- assign callout_border = '#bbf7d0' -%}
+  {%- assign callout_heading = '#15803d' -%}
+  {%- assign callout_text = '#14532d' -%}
+{%- elsif color == 'purple' -%}
+  {%- assign callout_background = '#faf5ff' -%}
+  {%- assign callout_border = '#e9d5ff' -%}
+  {%- assign callout_heading = '#7e22ce' -%}
+  {%- assign callout_text = '#581c87' -%}
+{%- elsif color == 'gray' -%}
+  {%- assign callout_background = '#f8fafc' -%}
+  {%- assign callout_border = '#e2e8f0' -%}
+  {%- assign callout_heading = '#334155' -%}
+  {%- assign callout_text = '#475569' -%}
+{%- endif -%}
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+  <tbody>
+    <tr>
+      <td style="padding: 16px 0">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
+          <tbody>
+            <tr>
+              <td style="background-color: {{ callout_background }}; border: 1px solid {{ callout_border }}; border-radius: 12px; padding: 20px 24px;">
+                <h1 style="margin: 0 0 8px 0; color: {{ callout_heading }}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; line-height: 32px; font-weight: 700;">
+                  {{ callout_header }}
+                </h1>
+                <p style="margin: 0; color: {{ callout_text }}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 24px; font-weight: 400;">
+                  {{ callout_body }}
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
