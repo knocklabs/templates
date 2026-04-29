@@ -1,0 +1,153 @@
+{
+  "name": "2-column content block",
+  "description": "Two side-by-side content sections with matching image, heading, body text, and CTA links.",
+  "type": "html",
+  "visual_block_enabled": true,
+  "icon_name": "Columns2",
+  "content@": "content.html",
+  "input_schema": [
+    {
+      "type": "image",
+      "key": "block_1_image",
+      "label": "Block 1 image",
+      "settings": {
+        "description": "Image shown above the first content block.",
+        "required": true
+      },
+      "url": {
+        "type": "url",
+        "key": "url",
+        "label": "Image URL",
+        "settings": {
+          "default": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+          "required": true
+        }
+      },
+      "alt": {
+        "type": "text",
+        "key": "alt",
+        "label": "Alt text",
+        "settings": {
+          "default": "First content block image",
+          "required": false
+        }
+      }
+    },
+    {
+      "type": "text",
+      "key": "block_1_header_text",
+      "label": "Block 1 header text",
+      "settings": {
+        "default": "Explore what is new",
+        "description": "Heading shown below the first image.",
+        "placeholder": "Add a headline",
+        "required": true
+      }
+    },
+    {
+      "type": "textarea",
+      "key": "block_1_paragraph_text",
+      "label": "Block 1 paragraph text",
+      "settings": {
+        "default": "Share a concise description that gives readers the context they need.",
+        "description": "Paragraph-style text shown below the first heading.",
+        "placeholder": "Add supporting copy",
+        "required": true
+      }
+    },
+    {
+      "type": "text",
+      "key": "block_1_cta_text",
+      "label": "Block 1 CTA text",
+      "settings": {
+        "default": "Learn more",
+        "description": "Linked CTA text for the first block.",
+        "placeholder": "Learn more",
+        "required": true
+      }
+    },
+    {
+      "type": "url",
+      "key": "block_1_cta_url",
+      "label": "Block 1 CTA link",
+      "settings": {
+        "default": "https://example.com",
+        "description": "Destination URL for the first block CTA.",
+        "placeholder": "https://example.com",
+        "required": true
+      }
+    },
+    {
+      "type": "image",
+      "key": "block_2_image",
+      "label": "Block 2 image",
+      "settings": {
+        "description": "Image shown above the second content block.",
+        "required": true
+      },
+      "url": {
+        "type": "url",
+        "key": "url",
+        "label": "Image URL",
+        "settings": {
+          "default": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+          "required": true
+        }
+      },
+      "alt": {
+        "type": "text",
+        "key": "alt",
+        "label": "Alt text",
+        "settings": {
+          "default": "Second content block image",
+          "required": false
+        }
+      }
+    },
+    {
+      "type": "text",
+      "key": "block_2_header_text",
+      "label": "Block 2 header text",
+      "settings": {
+        "default": "See the details",
+        "description": "Heading shown below the second image.",
+        "placeholder": "Add a headline",
+        "required": true
+      }
+    },
+    {
+      "type": "textarea",
+      "key": "block_2_paragraph_text",
+      "label": "Block 2 paragraph text",
+      "settings": {
+        "default": "Highlight another useful detail, feature, or action in the same format.",
+        "description": "Paragraph-style text shown below the second heading.",
+        "placeholder": "Add supporting copy",
+        "required": true
+      }
+    },
+    {
+      "type": "text",
+      "key": "block_2_cta_text",
+      "label": "Block 2 CTA text",
+      "settings": {
+        "default": "Read more",
+        "description": "Linked CTA text for the second block.",
+        "placeholder": "Read more",
+        "required": true
+      }
+    },
+    {
+      "type": "url",
+      "key": "block_2_cta_url",
+      "label": "Block 2 CTA link",
+      "settings": {
+        "default": "https://example.com",
+        "description": "Destination URL for the second block CTA.",
+        "placeholder": "https://example.com",
+        "required": true
+      }
+    }
+  ],
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}
