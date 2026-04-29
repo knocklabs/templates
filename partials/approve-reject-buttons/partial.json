@@ -1,0 +1,60 @@
+{
+  "icon_name": "ListChecks",
+  "input_schema": [
+    {
+      "key": "approve_url",
+      "label": "Approve URL",
+      "settings": {
+        "default": "https://example.com/approve",
+        "description": "The destination URL for the approve button.",
+        "placeholder": "https://example.com/approve",
+        "required": true
+      },
+      "type": "url"
+    },
+    {
+      "key": "approve_text",
+      "label": "Approve text",
+      "settings": {
+        "default": "Approve",
+        "description": "The label displayed on the approve button.",
+        "placeholder": "Approve",
+        "required": true
+      },
+      "type": "text"
+    },
+    {
+      "key": "reject_url",
+      "label": "Reject URL",
+      "settings": {
+        "default": "https://example.com/reject",
+        "description": "The destination URL for the reject button.",
+        "placeholder": "https://example.com/reject",
+        "required": true
+      },
+      "type": "url"
+    },
+    {
+      "key": "reject_text",
+      "label": "Reject text",
+      "settings": {
+        "default": "Reject",
+        "description": "The label displayed on the reject button.",
+        "placeholder": "Reject",
+        "required": true
+      },
+      "type": "text"
+    }
+  ],
+  "name": "Approve and reject buttons",
+  "type": "html",
+  "visual_block_enabled": true,
+  "content@": "content.html",
+  "__readonly": {
+    "environment": "development",
+    "key": "approve-reject-buttons",
+    "valid": true,
+    "created_at": "2026-04-29T16:11:00.000000Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/partial.json"
+}
