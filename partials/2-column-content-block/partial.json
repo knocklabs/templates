@@ -19,7 +19,8 @@
         "key": "url",
         "label": "Image URL",
         "settings": {
-          "default": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+          "default": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+          "placeholder": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
           "required": true
         }
       },
@@ -28,7 +29,8 @@
         "key": "alt",
         "label": "Alt text",
         "settings": {
-          "default": "First content block image",
+          "default": "Team planning a product launch",
+          "placeholder": "Team planning a product launch",
           "required": false
         }
       },
@@ -47,9 +49,9 @@
       "key": "block_1_header_text",
       "label": "Block 1 header text",
       "settings": {
-        "default": "Explore what is new",
+        "default": "Launch your notification faster",
         "description": "Heading shown below the first image.",
-        "placeholder": "Add a headline",
+        "placeholder": "Launch your notification faster",
         "required": true
       }
     },
@@ -58,9 +60,9 @@
       "key": "block_1_paragraph_text",
       "label": "Block 1 paragraph text",
       "settings": {
-        "default": "Share a concise description that gives readers the context they need.",
+        "default": "Start with a prebuilt content block, then customize the copy, image, and link to match your campaign.",
         "description": "Paragraph-style text shown below the first heading.",
-        "placeholder": "Add supporting copy",
+        "placeholder": "Start with a prebuilt content block, then customize the copy, image, and link to match your campaign.",
         "required": true
       }
     },
@@ -69,9 +71,9 @@
       "key": "block_1_cta_text",
       "label": "Block 1 CTA text",
       "settings": {
-        "default": "Learn more",
+        "default": "Browse templates",
         "description": "Linked CTA text for the first block.",
-        "placeholder": "Learn more",
+        "placeholder": "Browse templates",
         "required": true
       }
     },
@@ -80,9 +82,9 @@
       "key": "block_1_cta_url",
       "label": "Block 1 CTA link",
       "settings": {
-        "default": "https://example.com",
+        "default": "https://knock.app/templates",
         "description": "Destination URL for the first block CTA.",
-        "placeholder": "https://example.com",
+        "placeholder": "https://knock.app/templates",
         "required": true
       }
     },
@@ -99,7 +101,8 @@
         "key": "url",
         "label": "Image URL",
         "settings": {
-          "default": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+          "default": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80",
+          "placeholder": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80",
           "required": true
         }
       },
@@ -108,7 +111,8 @@
         "key": "alt",
         "label": "Alt text",
         "settings": {
-          "default": "Second content block image",
+          "default": "People collaborating around a laptop",
+          "placeholder": "People collaborating around a laptop",
           "required": false
         }
       },
@@ -127,9 +131,9 @@
       "key": "block_2_header_text",
       "label": "Block 2 header text",
       "settings": {
-        "default": "See the details",
+        "default": "Design every message with confidence",
         "description": "Heading shown below the second image.",
-        "placeholder": "Add a headline",
+        "placeholder": "Design every message with confidence",
         "required": true
       }
     },
@@ -138,9 +142,9 @@
       "key": "block_2_paragraph_text",
       "label": "Block 2 paragraph text",
       "settings": {
-        "default": "Highlight another useful detail, feature, or action in the same format.",
+        "default": "Pair each message with a clear CTA so readers know exactly where to go next.",
         "description": "Paragraph-style text shown below the second heading.",
-        "placeholder": "Add supporting copy",
+        "placeholder": "Pair each message with a clear CTA so readers know exactly where to go next.",
         "required": true
       }
     },
@@ -149,9 +153,9 @@
       "key": "block_2_cta_text",
       "label": "Block 2 CTA text",
       "settings": {
-        "default": "Read more",
+        "default": "View best practices",
         "description": "Linked CTA text for the second block.",
-        "placeholder": "Read more",
+        "placeholder": "View best practices",
         "required": true
       }
     },
@@ -160,9 +164,9 @@
       "key": "block_2_cta_url",
       "label": "Block 2 CTA link",
       "settings": {
-        "default": "https://example.com",
+        "default": "https://knock.app/blog",
         "description": "Destination URL for the second block CTA.",
-        "placeholder": "https://example.com",
+        "placeholder": "https://knock.app/blog",
         "required": true
       }
     }

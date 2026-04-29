@@ -1,9 +1,9 @@
-{%- assign first_header = block_1_header_text | default: 'Explore what is new' -%}
-{%- assign first_body = block_1_paragraph_text | default: 'Share a concise description that gives readers the context they need.' -%}
-{%- assign first_cta = block_1_cta_text | default: 'Learn more' -%}
-{%- assign second_header = block_2_header_text | default: 'See the details' -%}
-{%- assign second_body = block_2_paragraph_text | default: 'Highlight another useful detail, feature, or action in the same format.' -%}
-{%- assign second_cta = block_2_cta_text | default: 'Read more' -%}
+{%- assign first_header = block_1_header_text | default: 'Launch your notification faster' -%}
+{%- assign first_body = block_1_paragraph_text | default: 'Start with a prebuilt content block, then customize the copy, image, and link to match your campaign.' -%}
+{%- assign first_cta = block_1_cta_text | default: 'Browse templates' -%}
+{%- assign second_header = block_2_header_text | default: 'Design every message with confidence' -%}
+{%- assign second_body = block_2_paragraph_text | default: 'Pair each message with a clear CTA so readers know exactly where to go next.' -%}
+{%- assign second_cta = block_2_cta_text | default: 'View best practices' -%}
 
 <style>
   @media only screen and (max-width: 600px) {
@@ -60,7 +60,7 @@
                           {{ first_body }}
                         </p>
                         {% if block_1_cta_url and block_1_cta_url != "" %}
-                        <a href="{{ block_1_cta_url }}" style="color: #2563eb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 600; text-decoration: underline;">
+                        <a href="{{ block_1_cta_url }}" style="color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 600; text-decoration: underline;">
                           {{ first_cta }}
                         </a>
                         {% endif %}
@@ -94,7 +94,7 @@
                           {{ second_body }}
                         </p>
                         {% if block_2_cta_url and block_2_cta_url != "" %}
-                        <a href="{{ block_2_cta_url }}" style="color: #2563eb; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 600; text-decoration: underline;">
+                        <a href="{{ block_2_cta_url }}" style="color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 600; text-decoration: underline;">
                           {{ second_cta }}
                         </a>
                         {% endif %}
