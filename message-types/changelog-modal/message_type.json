@@ -38,6 +38,26 @@
           "type": "textarea"
         },
         {
+          "key": "author_name",
+          "label": "Author name",
+          "settings": {
+            "default": "Author name",
+            "max_length": 80,
+            "required": false
+          },
+          "type": "text"
+        },
+        {
+          "key": "author_title",
+          "label": "Author title",
+          "settings": {
+            "default": "Role",
+            "max_length": 80,
+            "required": false
+          },
+          "type": "text"
+        },
+        {
           "key": "link",
           "label": "Link",
           "settings": {
