@@ -49,9 +49,9 @@
       "key": "block_1_header_text",
       "label": "Block 1 header text",
       "settings": {
-        "default": "Launch your notification faster",
+        "default": "Build your emails faster",
         "description": "Heading shown below the first image.",
-        "placeholder": "Launch your notification faster",
+        "placeholder": "Build your emails faster",
         "required": true
       }
     },
@@ -60,9 +60,9 @@
       "key": "block_1_paragraph_text",
       "label": "Block 1 paragraph text",
       "settings": {
-        "default": "Start with a prebuilt content block, then customize the copy, image, and link to match your campaign.",
+        "default": "Start with a prebuilt content block, then customize the copy, image, and link.",
         "description": "Paragraph-style text shown below the first heading.",
-        "placeholder": "Start with a prebuilt content block, then customize the copy, image, and link to match your campaign.",
+        "placeholder": "Start with a prebuilt content block, then customize the copy, image, and link.",
         "required": true
       }
     },
