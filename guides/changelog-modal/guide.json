@@ -9,6 +9,8 @@
       "schema_semver": "0.0.1",
       "schema_variant_key": "default",
       "values": {
+        "author_name": "Victor Lamar",
+        "author_title": "Platform Engineer",
         "body": "Today we're introducing reusable requests, making it easy to reuse HTTP fetch step configurations across different workflows.",
         "eyebrowText": "New in Knock",
         "image": {

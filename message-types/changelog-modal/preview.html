@@ -76,6 +76,22 @@
         >
           {{ title }}
         </h2>
+        {% assign preview_author_name = authorName | default: author_name %}
+        {% assign preview_author_title = authorTitle | default: author_title %}
+        {% if preview_author_name != blank or preview_author_title != blank %}
+        <p
+          style="
+            margin: 0 0 12px 0;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #6b7280;
+          "
+        >
+          {% if preview_author_name != blank %}By {{ preview_author_name }}{% endif %}{% if
+          preview_author_name != blank and preview_author_title != blank %} • {% endif %}{% if
+          preview_author_title != blank %}{{ preview_author_title }}{% endif %}
+        </p>
+        {% endif %}
 
         <!-- Body + Learn more row -->
         <table
