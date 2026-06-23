@@ -65,7 +65,7 @@
             "key": "url",
             "label": "Image URL",
             "settings": {
-              "default": "",
+              "default": "https://assets.knock.app/example-announcement.png",
               "required": true
             },
             "type": "url"
@@ -76,7 +76,7 @@
             "key": "action",
             "label": "Button Action",
             "settings": {
-              "default": "",
+              "default": "/features/guides",
               "max_length": 100,
               "min_length": 1,
               "required": true
@@ -107,7 +107,7 @@
             "key": "action",
             "label": "Button Action",
             "settings": {
-              "default": "",
+              "default": "https://docs.knock.app",
               "max_length": 100,
               "min_length": 1,
               "required": true

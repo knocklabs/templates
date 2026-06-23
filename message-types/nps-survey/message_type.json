@@ -9,7 +9,7 @@
           "key": "companyName",
           "label": "Company Name",
           "settings": {
-            "default": "",
+            "default": "Acme Inc.",
             "description": "The company name to insert into the NPS survey",
             "max_length": 100,
             "min_length": 1,
