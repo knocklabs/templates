@@ -75,7 +75,7 @@
             "key": "url",
             "label": "Image URL",
             "settings": {
-              "default": "",
+              "default": "https://assets.knock.app/example-changelog.png",
               "required": true
             },
             "type": "url"

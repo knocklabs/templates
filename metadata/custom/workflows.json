@@ -1,0 +1,80 @@
+[
+  {
+    "key": "alerts",
+    "friendlyName": "System alerts",
+    "metaTitle": "Build system alert notifications",
+    "tags": ["alerting"],
+    "description": "Power user-configurable alerts with batches and channel selections.",
+    "extendedDescription": "Send customizable alerts across multiple channels with intelligent batching to prevent alert fatigue. Users can configure their preferred notification channels and receive consolidated notifications for high-volume events."
+  },
+  {
+    "key": "comments",
+    "metaTitle": "Build comment notifications",
+    "tags": ["collaboration"],
+    "description": "Batch high volume comments and send out-of-app messages after delay.",
+    "extendedDescription": "Efficiently handle comment notifications by batching them together and sending out-of-app messages after a configurable delay. This reduces notification noise while keeping users informed of activity."
+  },
+  {
+    "key": "invite-with-reminder",
+    "metaTitle": "Build invite reminder notifications",
+    "tags": ["collaboration"],
+    "description": "Send a user invite with a delayed reminder if not accepted.",
+    "extendedDescription": "Invite users to collaborate with an initial invitation followed by an automated reminder after a delay. The reminder is automatically cancelled if the invitation is accepted."
+  },
+  {
+    "key": "magic-link",
+    "metaTitle": "Build magic link notifications",
+    "tags": ["authentication"],
+    "description": "Passwordless authentication via magic link email.",
+    "extendedDescription": "Enable secure, passwordless authentication by sending users a one-time magic link via email. Provides a seamless login experience without requiring password management."
+  },
+  {
+    "key": "mentions",
+    "metaTitle": "Build mention notifications",
+    "tags": ["collaboration"],
+    "description": "Notify users when they're mentioned in comments or discussions.",
+    "extendedDescription": "Keep users engaged by notifying them across in-app, email, and push channels when someone mentions them. Includes contextual information about where they were mentioned."
+  },
+  {
+    "key": "password-changed",
+    "metaTitle": "Build password changed notifications",
+    "tags": ["authentication"],
+    "description": "Security notification when a user's password is changed.",
+    "extendedDescription": "Send immediate email notifications when account passwords are changed to alert users of potential security issues and provide peace of mind for authorized changes."
+  },
+  {
+    "key": "referral-accepted",
+    "metaTitle": "Build referral accepted notifications",
+    "tags": ["referrals"],
+    "description": "Celebrate when someone accepts a referral invitation.",
+    "extendedDescription": "Notify referrers when their invitation is accepted with an in-app message and follow-up email. Includes a delay to only send the email if the in-app notification wasn't seen."
+  },
+  {
+    "key": "referral-sent",
+    "metaTitle": "Build referral invite notifications",
+    "tags": ["referrals"],
+    "description": "Invite new users via referral with automated reminder.",
+    "extendedDescription": "Send referral invitations with a delayed reminder email after 3 days if not accepted. The reminder is automatically cancelled if the referral is accepted."
+  },
+  {
+    "key": "replies",
+    "metaTitle": "Build reply notifications",
+    "tags": ["collaboration"],
+    "description": "Batch and notify users of replies to their comments.",
+    "extendedDescription": "Intelligently batch multiple replies within a 15-minute window and notify users via in-app, email, and push. Includes a 60-minute delay before out-of-app notifications to reduce noise."
+  },
+  {
+    "key": "reset-password",
+    "metaTitle": "Build password reset notifications",
+    "tags": ["authentication"],
+    "description": "Send password reset link via email.",
+    "extendedDescription": "Enable users to securely reset their passwords by sending a time-limited reset link via email. Essential for account recovery and security workflows."
+  },
+  {
+    "key": "welcome-messages",
+    "metaTitle": "Build welcome notifications",
+    "tags": ["onboarding"],
+    "description": "Welcome new users with in-app and email messages.",
+    "extendedDescription": "Create a great first impression by welcoming new users with both an in-app message and email. Direct them to key resources and help them get started with your product."
+  }
+]
