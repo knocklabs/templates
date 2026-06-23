@@ -1,0 +1,189 @@
+[
+  {
+    "key": "author-block",
+    "metaTitle": "Build an author block email partial",
+    "tags": ["confirmations"],
+    "description": "Display author information with avatar, name, title, and signoff.",
+    "extendedDescription": "Add a professional author signature block to your emails with avatar image, name, title, signoff message, and email address. Perfect for personalized transactional emails and newsletters.",
+    "defaults": {
+      "author_image": {
+        "url": "https://upload.wikimedia.org/wikipedia/en/b/b5/John_Hammond.webp",
+        "alt": "John Hammond"
+      },
+      "author_name": "John Hammond",
+      "signoff": "We spared no expense,",
+      "author_title": "CEO, InGen",
+      "author_email": "jhammond@ingen.net"
+    },
+    "order": [
+      "author_image",
+      "signoff",
+      "author_name",
+      "author_title",
+      "author_email"
+    ]
+  },
+  {
+    "key": "task-item",
+    "metaTitle": "Build a task item email partial",
+    "tags": ["collaboration"],
+    "description": "Display a single task item with title, status, and metadata.",
+    "extendedDescription": "Render individual task items in notification emails for productivity and collaboration apps. Shows task details in a clean, structured format that matches your app's design.",
+    "defaults": {
+      "link": "https://knock.app",
+      "name": "Draft campaign report",
+      "date": "2025-12-25"
+    }
+  },
+  {
+    "key": "button-with-utm-link",
+    "metaTitle": "Build a button with UTM link email partial",
+    "tags": ["announcements"],
+    "description": "Create trackable links with UTM parameters for campaign analytics.",
+    "extendedDescription": "Automatically append UTM parameters (source, medium, campaign, term, content) to your links for accurate campaign tracking in analytics tools. Essential for measuring email campaign performance.",
+    "defaults": {
+      "button_url": "https://knock.app",
+      "button_text": "Sign up",
+      "utm_source": "email",
+      "utm_medium": "newsletter",
+      "utm_campaign": "spring-2024"
+    },
+    "order": [
+      "button_text",
+      "button_url",
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content"
+    ]
+  },
+  {
+    "key": "testimonial-with-large-avatar",
+    "metaTitle": "Build a testimonial email partial",
+    "tags": ["announcements"],
+    "description": "Show social proof with a quote and image.",
+    "extendedDescription": "Show social proof with a quote and image.",
+    "defaults": {
+      "image_url": {
+        "url": "https://react.email/static/steve-jobs.jpg",
+        "alt": "Steve Jobs"
+      },
+      "quote": "Design is not just what it looks like and feels like.",
+      "name": "Steve Jobs",
+      "title": "Co-founder of Apple"
+    }
+  },
+  {
+    "key": "video-cover-image",
+    "metaTitle": "Build a video cover image email partial",
+    "tags": ["announcements"],
+    "description": "Add a clickable video thumbnail with play icon overlay to emails.",
+    "extendedDescription": "Use this partial to turn a static image into a video teaser in your email layout. It overlays a play icon, supports responsive behavior, and links users to your hosted video or landing page.",
+    "defaults": {
+      "cover_image": {
+        "url": "https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=1280&q=80",
+        "alt": "Video cover image",
+        "action": "https://knock.app"
+      },
+      "optional_link": "https://knock.app"
+    },
+    "order": ["cover_image", "optional_link"]
+  },
+  {
+    "key": "numbered-list",
+    "metaTitle": "Build a numbered list email partial",
+    "tags": ["onboarding"],
+    "description": "Show ordered steps, requirements, or recommendations in email.",
+    "extendedDescription": "Use this partial to render up to five ordered items with numbered badges and consistent spacing. It helps teams add structured instructions, onboarding tasks, and ranked recommendations without rebuilding table-based email markup.",
+    "defaults": {
+      "list_item_1": "Create your notification workflow",
+      "list_item_2": "Add the channels your users prefer",
+      "list_item_3": "Test the template with sample data",
+      "list_item_4": "Review the preview across breakpoints",
+      "list_item_5": "Promote your changes to production"
+    },
+    "order": [
+      "list_item_1",
+      "list_item_2",
+      "list_item_3",
+      "list_item_4",
+      "list_item_5"
+    ]
+  },
+  {
+    "key": "approve-reject-buttons",
+    "metaTitle": "Build approve and reject email buttons",
+    "tags": ["collaboration"],
+    "description": "Add paired approve and reject buttons to decision-focused emails.",
+    "extendedDescription": "Use this partial to give recipients two clear choices from a single email. It works well for review flows, access requests, moderation queues, and any workflow where users need to approve or reject an item.",
+    "defaults": {
+      "approve_text": "Approve",
+      "approve_url": "https://example.com/approve",
+      "reject_text": "Reject",
+      "reject_url": "https://example.com/reject"
+    },
+    "order": [
+      "approve_text",
+      "approve_url",
+      "reject_text",
+      "reject_url"
+    ]
+  },
+  {
+    "key": "tldr-callout-block",
+    "metaTitle": "Build a TLDR callout email partial",
+    "tags": ["announcements"],
+    "description": "Highlight a short summary or key takeaway in an email.",
+    "extendedDescription": "Use this partial to give readers a focused summary before they read the rest of an email. It supports a heading, paragraph text, and color treatment so teams can match the callout to the message context.",
+    "defaults": {
+      "header_text": "TLDR",
+      "paragraph_text": "We shipped several updates to help you get started with Knock faster.",
+      "color": "blue"
+    },
+    "order": [
+      "header_text",
+      "paragraph_text",
+      "color"
+    ]
+  },
+  {
+    "key": "2-column-content-block",
+    "metaTitle": "Build a two-column content email partial",
+    "tags": ["announcements"],
+    "description": "Show two side-by-side content blocks with images, text, and CTA links.",
+    "extendedDescription": "Use this partial to compare two announcements, features, recommendations, or resources in a single email section. It pairs each item with its own image, heading, body copy, and CTA link while preserving responsive email markup.",
+    "defaults": {
+      "block_1_image": {
+        "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+        "alt": "Team planning a product launch",
+        "action": ""
+      },
+      "block_1_header_text": "Build your emails faster",
+      "block_1_paragraph_text": "Start with a prebuilt content block, then customize the copy, image, and link.",
+      "block_1_cta_text": "Browse templates",
+      "block_1_cta_url": "https://knock.app/templates",
+      "block_2_image": {
+        "url": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80",
+        "alt": "People collaborating around a laptop",
+        "action": ""
+      },
+      "block_2_header_text": "Design every message with confidence",
+      "block_2_paragraph_text": "Pair each message with a clear CTA so readers know where to go next.",
+      "block_2_cta_text": "View best practices",
+      "block_2_cta_url": "https://knock.app/blog"
+    },
+    "order": [
+      "block_1_image",
+      "block_1_header_text",
+      "block_1_paragraph_text",
+      "block_1_cta_text",
+      "block_1_cta_url",
+      "block_2_image",
+      "block_2_header_text",
+      "block_2_paragraph_text",
+      "block_2_cta_text",
+      "block_2_cta_url"
+    ]
+  }
+]

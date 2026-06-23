@@ -1,0 +1,439 @@
+[
+  {
+    "slug": "conference-banner",
+    "title": "Conference banner",
+    "metaTitle": "Build a conference banner component",
+    "description": "Display a dismissible banner for conferences, events, or important notices.",
+    "extendedDescription": "Show a prominent, dismissible banner at the top of your app to promote conferences, webinars, or other time-sensitive announcements. Users can dismiss the banner once they've seen it.",
+    "messageType": "Banner",
+    "messageTypeKey": "banner",
+    "iconName": "Flag",
+    "tags": [
+      "announcements"
+    ],
+    "variants": [
+      {
+        "key": "default",
+        "name": "Default",
+        "fields": [
+          "title",
+          "body",
+          "dismissible"
+        ]
+      },
+      {
+        "key": "single-action",
+        "name": "Single-action",
+        "fields": [
+          "title",
+          "body",
+          "dismissible",
+          "primary_button",
+          "primary_button.text",
+          "primary_button.action"
+        ]
+      },
+      {
+        "key": "multi-action",
+        "name": "Multi-action",
+        "fields": [
+          "title",
+          "body",
+          "dismissible",
+          "primary_button",
+          "primary_button.text",
+          "primary_button.action",
+          "secondary_button",
+          "secondary_button.text",
+          "secondary_button.action"
+        ]
+      }
+    ],
+    "defaultValues": {
+      "body": "Copy about a feature or an action that the user should be aware of.",
+      "dismissible": true,
+      "title": "Banner title"
+    },
+    "schema": {
+      "variants": [
+        {
+          "key": "default",
+          "name": "Default",
+          "fields": [
+            {
+              "key": "title",
+              "label": "Title",
+              "type": "text",
+              "settings": {
+                "default": "Banner title",
+                "required": true
+              }
+            },
+            {
+              "key": "body",
+              "label": "Body",
+              "type": "markdown",
+              "settings": {
+                "default": "Copy about a feature or an action that the user should be aware of.",
+                "required": true
+              }
+            },
+            {
+              "key": "dismissible",
+              "label": "Dismissible?",
+              "type": "boolean",
+              "settings": {
+                "default": true,
+                "required": false
+              }
+            }
+          ]
+        },
+        {
+          "key": "single-action",
+          "name": "Single-action",
+          "fields": [
+            {
+              "key": "title",
+              "label": "Title",
+              "type": "text",
+              "settings": {
+                "default": "Banner title",
+                "required": true
+              }
+            },
+            {
+              "key": "body",
+              "label": "Body",
+              "type": "markdown",
+              "settings": {
+                "default": "Copy about a feature or an action that the user should be aware of.",
+                "required": true
+              }
+            },
+            {
+              "key": "dismissible",
+              "label": "Dismissible?",
+              "type": "boolean",
+              "settings": {
+                "default": true,
+                "required": false
+              }
+            },
+            {
+              "key": "primary_button",
+              "label": "Primary button",
+              "type": "button",
+              "settings": {
+                "required": true
+              },
+              "text": {
+                "key": "text",
+                "label": "Button text",
+                "settings": {
+                  "default": "Primary",
+                  "required": true
+                },
+                "type": "text"
+              },
+              "action": {
+                "key": "action",
+                "label": "Button action",
+                "settings": {
+                  "default": "action",
+                  "required": true
+                },
+                "type": "text"
+              }
+            }
+          ]
+        },
+        {
+          "key": "multi-action",
+          "name": "Multi-action",
+          "fields": [
+            {
+              "key": "title",
+              "label": "Title",
+              "type": "text",
+              "settings": {
+                "default": "Banner title",
+                "required": true
+              }
+            },
+            {
+              "key": "body",
+              "label": "Body",
+              "type": "markdown",
+              "settings": {
+                "default": "Copy about a feature or an action that the user should be aware of.",
+                "required": true
+              }
+            },
+            {
+              "key": "dismissible",
+              "label": "Dismissible?",
+              "type": "boolean",
+              "settings": {
+                "default": true,
+                "required": false
+              }
+            },
+            {
+              "key": "primary_button",
+              "label": "Primary button",
+              "type": "button",
+              "settings": {
+                "required": true
+              },
+              "text": {
+                "key": "text",
+                "label": "Button text",
+                "settings": {
+                  "default": "Primary",
+                  "required": true
+                },
+                "type": "text"
+              },
+              "action": {
+                "key": "action",
+                "label": "Button action",
+                "settings": {
+                  "default": "action",
+                  "required": true
+                },
+                "type": "text"
+              }
+            },
+            {
+              "key": "secondary_button",
+              "label": "Secondary button",
+              "type": "button",
+              "settings": {
+                "required": true
+              },
+              "text": {
+                "key": "text",
+                "label": "Button text",
+                "settings": {
+                  "default": "Secondary",
+                  "required": true
+                },
+                "type": "text"
+              },
+              "action": {
+                "key": "action",
+                "label": "Button action",
+                "settings": {
+                  "default": "action",
+                  "required": true
+                },
+                "type": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "previewHtml": "<style>\n  .banner {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    background: #FFFFFF;\n    padding: 16px 24px;\n    border-radius: 8px;\n    border: 0.5px solid #E0E1E6;\n    box-shadow: 0px 12px 20px rgba(28, 32, 36, 0.1);\n    gap: 16px;\n    min-width: 480px;\n  }\n  .banner__title {\n    color: #1C2024;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 24px;\n  }\n  .banner__body {\n    color: #60646C;\n    font-size: 14px;\n    font-weight: 400;\n    line-height: 20px;\n  }\n  .banner__actions {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    gap: 8px;\n  }\n  .banner__btn {\n    font-size: 16px;\n    font-style: normal;\n    font-weight: 500;\n    line-height: 24px;\n    border-radius: 6px;\n    padding: 8px 16px;\n    border: 0.5px solid #1C2024;\n    background: #1C2024;\n    color: #FCFCFD;\n  }\n  .banner__btn--secondary {\n    border-color: #D9D9E0;\n    background: #FFFFFF;\n    color: #1C2024;\n  }\n  .banner__close {\n    padding: 11px;\n    border: none;\n    background: none;\n    line-height: 0;\n  }\n</style>\n<div class=\"banner\">\n  <div class=\"banner__message\">\n    <div class=\"banner__title\">\n      {{ title }}\n    </div>\n    <div class=\"banner__body\">\n      {{ body }}\n    </div>\n  </div>\n  <div class=\"banner__actions\">\n    {% if variant == \"multi-action\" %}\n      <button class=\"banner__btn banner__btn--secondary\">\n        {{ secondary_button.text }}\n      </button>\n    {% endif %}\n\n    {% if variant == \"single-action\" or variant == \"multi-action\" %}\n      <button class=\"banner__btn\">\n        {{ primary_button.text }}\n      </button>\n    {% endif %}\n\n    {% if dismissible %}\n      <button class=\"banner__close\">\n        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"18\" height=\"18\" fill=\"none\">\n          <g fill=\"#60646C\" fill-rule=\"evenodd\" clip-rule=\"evenodd\">\n            <path d=\"M14.03 3.97a.75.75 0 0 1 0 1.06l-9 9a.75.75 0 0 1-1.06-1.06l9-9a.75.75 0 0 1 1.06 0Z\"/>\n            <path d=\"M3.97 3.97a.75.75 0 0 1 1.06 0l9 9a.75.75 0 1 1-1.06 1.06l-9-9a.75.75 0 0 1 0-1.06Z\"/>\n          </g>\n        </svg>\n      </button>\n    {% endif %}\n  </div>\n</div>",
+    "selectedVariant": "default",
+    "previewImage": "metadata/images/components/conference-banner/cover.png",
+    "ogImage": "metadata/images/components/conference-banner/og.png",
+    "cliCommand": "npx @knocklabs/cli guide new --template=conference-banner"
+  },
+  {
+    "slug": "feature-announcement",
+    "title": "Feature announcement",
+    "metaTitle": "Build a feature announcement component",
+    "description": "Announce new features with an in-app card including image and action buttons.",
+    "extendedDescription": "Display rich feature announcements within your app using a card format with an image, title, description, and primary/secondary action buttons. Perfect for product launches and major updates.",
+    "messageType": "Announcement Card",
+    "messageTypeKey": "announcement-card",
+    "iconName": "Megaphone",
+    "tags": [
+      "announcements"
+    ],
+    "variants": [
+      {
+        "key": "default",
+        "name": "Default",
+        "fields": [
+          "title",
+          "body",
+          "dismissible",
+          "image",
+          "image.action",
+          "image.url",
+          "image.alt",
+          "primary_button",
+          "primary_button.text",
+          "primary_button.action",
+          "secondary_button",
+          "secondary_button.text",
+          "secondary_button.action"
+        ]
+      }
+    ],
+    "defaultValues": {
+      "body": "Power in-app messaging like Webflow and Assembly.",
+      "dismissible": true,
+      "image": {
+        "action": null,
+        "alt": null,
+        "url": "https://account-assets.knock.app/84b7a42e-60c9-4618-beb1-99bdc7cc9137/dbf2e9eb-3663-4d2c-a066-de57c6d92a07/5f06f241-b955-4bb4-8cd6-971032836d6f.png"
+      },
+      "primary_button": {
+        "action": "/features/guides",
+        "text": "Learn more"
+      },
+      "secondary_button": {
+        "action": "https://docs.knock.app",
+        "text": "Read the docs"
+      },
+      "title": "Announcing Guides 1.0"
+    },
+    "schema": {
+      "variants": [
+        {
+          "key": "default",
+          "name": "Default",
+          "fields": [
+            {
+              "key": "title",
+              "label": "Title",
+              "type": "text",
+              "settings": {
+                "default": "Card title",
+                "max_length": 32,
+                "min_length": 3,
+                "required": true
+              }
+            },
+            {
+              "key": "body",
+              "label": "Body",
+              "type": "textarea",
+              "settings": {
+                "default": "Copy about the feature or general information to highlight.",
+                "max_length": 200,
+                "min_length": 10,
+                "required": true
+              }
+            },
+            {
+              "key": "dismissible",
+              "label": "Dismissible?",
+              "type": "boolean",
+              "settings": {
+                "default": true,
+                "required": false
+              }
+            },
+            {
+              "key": "image",
+              "label": "Image",
+              "type": "image",
+              "settings": {
+                "required": true
+              },
+              "action": {
+                "key": "action",
+                "label": "Image action",
+                "settings": {
+                  "default": "",
+                  "required": false
+                },
+                "type": "text"
+              },
+              "url": {
+                "key": "url",
+                "label": "Image URL",
+                "settings": {
+                  "default": "",
+                  "required": true
+                },
+                "type": "url"
+              },
+              "alt": {
+                "key": "alt",
+                "label": "Alt text",
+                "settings": {
+                  "default": "",
+                  "required": false
+                },
+                "type": "text"
+              }
+            },
+            {
+              "key": "primary_button",
+              "label": "Primary Button",
+              "type": "button",
+              "settings": {
+                "description": "Primary action button",
+                "required": true
+              },
+              "text": {
+                "key": "text",
+                "label": "Button Text",
+                "settings": {
+                  "default": "Primary",
+                  "max_length": 20,
+                  "min_length": 1,
+                  "required": true
+                },
+                "type": "text"
+              },
+              "action": {
+                "key": "action",
+                "label": "Button Action",
+                "settings": {
+                  "default": "",
+                  "max_length": 100,
+                  "min_length": 1,
+                  "required": true
+                },
+                "type": "text"
+              }
+            },
+            {
+              "key": "secondary_button",
+              "label": "Secondary Button",
+              "type": "button",
+              "settings": {
+                "description": "Secondary action button",
+                "required": true
+              },
+              "text": {
+                "key": "text",
+                "label": "Button Text",
+                "settings": {
+                  "default": "Secondary",
+                  "max_length": 20,
+                  "min_length": 1,
+                  "required": true
+                },
+                "type": "text"
+              },
+              "action": {
+                "key": "action",
+                "label": "Button Action",
+                "settings": {
+                  "default": "",
+                  "max_length": 100,
+                  "min_length": 1,
+                  "required": true
+                },
+                "type": "text"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "previewHtml": "<style>\n.announcement-card {\n  background: white;\n  border: 1px solid #dfe2e5;\n  border-radius: 8px;\n  margin: 16px;\n  margin-bottom: 16px;\n  cursor: pointer;\n  font-family: Inter, sans-serif;\n  display: flex;\n  flex-direction: column;\n}\n\n.announcement-card .image-section {\n  background: #efece7;\n  height: 240px;\n  width: 100%;\n  position: relative;\n  overflow: hidden;\n  border-radius: 8px 8px 0 0;\n}\n\n.announcement-card .image {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  object-position: center;\n}\n\n.announcement-card .content-section {\n  padding: 12px 16px;\n}\n\n.announcement-card .title {\n  font-size: 16px;\n  font-weight: 500;\n  line-height: 24px;\n  color: #1c2024;\n  margin: 0 0 8px 0;\n}\n\n.announcement-card .body {\n  font-size: 12px;\n  font-weight: 400;\n  line-height: 16px;\n  color: #60646a;\n  letter-spacing: 0.0275px;\n  margin: 0;\n}\n\n.announcement-card .body p {\n  margin: 0;\n}\n\n.announcement-card .button-group {\n  display: flex;\n  gap: 12px;\n  align-items: center;\n  justify-content: flex-end;\n  padding: 0 12px 12px 12px;\n}\n\n.announcement-card .button {\n  flex: 1;\n  height: 32px;\n  padding: 0 8px;\n  border-radius: 4px;\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 20px;\n  cursor: pointer;\n  border: none;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.announcement-card .button-primary {\n  background: #1d2023;\n  color: #fcfcfd;\n}\n\n.announcement-card .button-primary:hover {\n  background: #2c3034;\n}\n\n.announcement-card .button-secondary {\n  background: white;\n  color: #1d2023;\n  border: 1px solid #d7dadf;\n}\n\n.announcement-card .button-secondary:hover {\n  background: #f9fafb;\n}\n</style>\n<div class=\"announcement-card\">\n  <div class=\"image-section\">\n    <img src=\"{{ image.url }}\" alt=\"{{ image.alt }}\" class=\"image\" />\n  </div>\n  \n  <div class=\"content-section\">\n    <h3 class=\"title\">{{ title }}</h3>\n    <div class=\"body\">\n      <p>{{ body }}</p>\n    </div>\n  </div>\n  \n  <div class=\"button-group\">\n    <button class=\"button button-primary\">{{ primary_button.text }}</button>\n    <button class=\"button button-secondary\">{{ secondary_button.text }}</button>\n  </div>\n</div>",
+    "selectedVariant": "default",
+    "previewImage": "metadata/images/components/feature-announcement/cover.png",
+    "ogImage": "metadata/images/components/feature-announcement/og.png",
+    "cliCommand": "npx @knocklabs/cli guide new --template=feature-announcement"
+  }
+]

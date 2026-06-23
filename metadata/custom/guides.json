@@ -1,0 +1,24 @@
+[
+  {
+    "key": "feature-announcement",
+    "metaTitle": "Build a feature announcement component",
+    "tags": ["announcements"],
+    "description": "Announce new features with an in-app card including image and action buttons.",
+    "extendedDescription": "Display rich feature announcements within your app using a card format with an image, title, description, and primary/secondary action buttons. Perfect for product launches and major updates."
+  },
+  {
+    "key": "conference-banner",
+    "metaTitle": "Build a conference banner component",
+    "tags": ["announcements"],
+    "description": "Display a dismissible banner for conferences, events, or important notices.",
+    "extendedDescription": "Show a prominent, dismissible banner at the top of your app to promote conferences, webinars, or other time-sensitive announcements. Users can dismiss the banner once they've seen it."
+  },
+  {
+    "key": "nps-survey",
+    "exclude": true
+  },
+  {
+    "key": "changelog-modal",
+    "exclude": true
+  }
+]

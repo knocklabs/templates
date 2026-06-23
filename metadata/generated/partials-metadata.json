@@ -1,0 +1,793 @@
+[
+  {
+    "slug": "2-column-content-block",
+    "title": "2-column content block",
+    "metaTitle": "Build a two-column content email partial",
+    "description": "Show two side-by-side content blocks with images, text, and CTA links.",
+    "extendedDescription": "Use this partial to compare two announcements, features, recommendations, or resources in a single email section. It pairs each item with its own image, heading, body copy, and CTA link while preserving responsive email markup.",
+    "category": "DevTools",
+    "htmlContent": "{%- assign first_header = block_1_header_text | default: 'Build your emails faster' -%}\n{%- assign first_body = block_1_paragraph_text | default: 'Start with a prebuilt content block, then customize the copy, image, and link.' -%}\n{%- assign first_cta = block_1_cta_text | default: 'Browse templates' -%}\n{%- assign second_header = block_2_header_text | default: 'Design every message with confidence' -%}\n{%- assign second_body = block_2_paragraph_text | default: 'Pair each message with a clear CTA so readers know exactly where to go next.' -%}\n{%- assign second_cta = block_2_cta_text | default: 'View best practices' -%}\n\n<style>\n  @media only screen and (max-width: 600px) {\n    .two-column-content-block-column {\n      display: block !important;\n      width: 100% !important;\n      max-width: 100% !important;\n      padding-left: 0 !important;\n      padding-right: 0 !important;\n    }\n\n    .two-column-content-block-spacer {\n      display: block !important;\n      height: 24px !important;\n      line-height: 24px !important;\n      font-size: 24px !important;\n    }\n\n    .two-column-content-block-image {\n      width: 100% !important;\n      max-width: 100% !important;\n    }\n  }\n</style>\n\n<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n  <tbody>\n    <tr>\n      <td align=\"center\" style=\"padding: 16px 0\">\n        <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" style=\"max-width: 600px\">\n          <tbody>\n            <tr>\n              <td class=\"two-column-content-block-column\" valign=\"top\" width=\"288\" style=\"padding: 0\">\n                <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n                  <tbody>\n                    <tr>\n                      <td>\n                        <img\n                          class=\"two-column-content-block-image\"\n                          src=\"{{ block_1_image.url }}\"\n                          alt=\"{{ block_1_image.alt | default: first_header }}\"\n                          width=\"288\"\n                          height=\"216\"\n                          style=\"display: block; width: 100%; max-width: 288px; height: 216px; object-fit: cover; border: 1px solid #d1d5db; border-radius: 10px; outline: none; text-decoration: none;\"\n                        />\n                      </td>\n                    </tr>\n                    <tr>\n                      <td style=\"padding: 16px 0 0 0\">\n                        <h2 style=\"margin: 0 0 8px 0; color: #111827; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 20px; line-height: 28px; font-weight: 700;\">\n                          {{ first_header }}\n                        </h2>\n                        <p style=\"margin: 0 0 8px 0; color: #4b5563; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 400;\">\n                          {{ first_body }}\n                        </p>\n                        {% if block_1_cta_url and block_1_cta_url != \"\" %}\n                        <a href=\"{{ block_1_cta_url }}\" style=\"color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 600; text-decoration: underline;\">\n                          {{ first_cta }}\n                        </a>\n                        {% endif %}\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </td>\n              <td class=\"two-column-content-block-spacer\" width=\"24\" style=\"font-size: 0; line-height: 0\">&nbsp;</td>\n              <td class=\"two-column-content-block-column\" valign=\"top\" width=\"288\" style=\"padding: 0\">\n                <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n                  <tbody>\n                    <tr>\n                      <td>\n                        <img\n                          class=\"two-column-content-block-image\"\n                          src=\"{{ block_2_image.url }}\"\n                          alt=\"{{ block_2_image.alt | default: second_header }}\"\n                          width=\"288\"\n                          height=\"216\"\n                          style=\"display: block; width: 100%; max-width: 288px; height: 216px; object-fit: cover; border: 1px solid #d1d5db; border-radius: 10px; outline: none; text-decoration: none;\"\n                        />\n                      </td>\n                    </tr>\n                    <tr>\n                      <td style=\"padding: 16px 0 0 0\">\n                        <h2 style=\"margin: 0 0 8px 0; color: #111827; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 20px; line-height: 28px; font-weight: 700;\">\n                          {{ second_header }}\n                        </h2>\n                        <p style=\"margin: 0 0 8px 0; color: #4b5563; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 400;\">\n                          {{ second_body }}\n                        </p>\n                        {% if block_2_cta_url and block_2_cta_url != \"\" %}\n                        <a href=\"{{ block_2_cta_url }}\" style=\"color: #000000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; line-height: 22px; font-weight: 600; text-decoration: underline;\">\n                          {{ second_cta }}\n                        </a>\n                        {% endif %}\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </td>\n    </tr>\n  </tbody>\n</table>\n",
+    "variables": [
+      "block_1_image",
+      "block_1_header_text",
+      "block_1_paragraph_text",
+      "block_1_cta_text",
+      "block_1_cta_url",
+      "block_2_image",
+      "block_2_header_text",
+      "block_2_paragraph_text",
+      "block_2_cta_text",
+      "block_2_cta_url"
+    ],
+    "defaultValues": {
+      "block_1_image": {
+        "url": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+        "alt": "Team planning a product launch",
+        "action": ""
+      },
+      "block_1_header_text": "Build your emails faster",
+      "block_1_paragraph_text": "Start with a prebuilt content block, then customize the copy, image, and link.",
+      "block_1_cta_text": "Browse templates",
+      "block_1_cta_url": "https://knock.app/templates",
+      "block_2_image": {
+        "url": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80",
+        "alt": "People collaborating around a laptop",
+        "action": ""
+      },
+      "block_2_header_text": "Design every message with confidence",
+      "block_2_paragraph_text": "Pair each message with a clear CTA so readers know where to go next.",
+      "block_2_cta_text": "View best practices",
+      "block_2_cta_url": "https://knock.app/blog"
+    },
+    "fieldTypes": {
+      "block_1_image": {
+        "type": "image",
+        "label": "Block 1 image",
+        "description": "Image shown above the first content block.",
+        "required": true,
+        "subfields": {
+          "url": {
+            "label": "Image URL",
+            "default": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+            "required": true
+          },
+          "alt": {
+            "label": "Alt text",
+            "default": "Team planning a product launch",
+            "required": false
+          },
+          "action": {
+            "label": "Image action",
+            "default": "",
+            "required": false
+          }
+        }
+      },
+      "block_1_header_text": {
+        "type": "text",
+        "label": "Block 1 header text",
+        "description": "Heading shown below the first image.",
+        "required": true,
+        "default": "Build your emails faster",
+        "placeholder": "Build your emails faster",
+        "options": []
+      },
+      "block_1_paragraph_text": {
+        "type": "textarea",
+        "label": "Block 1 paragraph text",
+        "description": "Paragraph-style text shown below the first heading.",
+        "required": true,
+        "default": "Start with a prebuilt content block, then customize the copy, image, and link.",
+        "placeholder": "Start with a prebuilt content block, then customize the copy, image, and link.",
+        "options": []
+      },
+      "block_1_cta_text": {
+        "type": "text",
+        "label": "Block 1 CTA text",
+        "description": "Linked CTA text for the first block.",
+        "required": true,
+        "default": "Browse templates",
+        "placeholder": "Browse templates",
+        "options": []
+      },
+      "block_1_cta_url": {
+        "type": "url",
+        "label": "Block 1 CTA link",
+        "description": "Destination URL for the first block CTA.",
+        "required": true,
+        "default": "https://knock.app/templates",
+        "placeholder": "https://knock.app/templates",
+        "options": []
+      },
+      "block_2_image": {
+        "type": "image",
+        "label": "Block 2 image",
+        "description": "Image shown above the second content block.",
+        "required": true,
+        "subfields": {
+          "url": {
+            "label": "Image URL",
+            "default": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80",
+            "required": true
+          },
+          "alt": {
+            "label": "Alt text",
+            "default": "People collaborating around a laptop",
+            "required": false
+          },
+          "action": {
+            "label": "Image action",
+            "default": "",
+            "required": false
+          }
+        }
+      },
+      "block_2_header_text": {
+        "type": "text",
+        "label": "Block 2 header text",
+        "description": "Heading shown below the second image.",
+        "required": true,
+        "default": "Design every message with confidence",
+        "placeholder": "Design every message with confidence",
+        "options": []
+      },
+      "block_2_paragraph_text": {
+        "type": "textarea",
+        "label": "Block 2 paragraph text",
+        "description": "Paragraph-style text shown below the second heading.",
+        "required": true,
+        "default": "Pair each message with a clear CTA so readers know exactly where to go next.",
+        "placeholder": "Pair each message with a clear CTA so readers know exactly where to go next.",
+        "options": []
+      },
+      "block_2_cta_text": {
+        "type": "text",
+        "label": "Block 2 CTA text",
+        "description": "Linked CTA text for the second block.",
+        "required": true,
+        "default": "View best practices",
+        "placeholder": "View best practices",
+        "options": []
+      },
+      "block_2_cta_url": {
+        "type": "url",
+        "label": "Block 2 CTA link",
+        "description": "Destination URL for the second block CTA.",
+        "required": true,
+        "default": "https://knock.app/blog",
+        "placeholder": "https://knock.app/blog",
+        "options": []
+      }
+    },
+    "iconName": "Columns2",
+    "messageType": "Changelog card",
+    "tags": [
+      "announcements"
+    ],
+    "previewImage": "metadata/images/partials/2-column-content-block/cover.png",
+    "ogImage": "metadata/images/partials/2-column-content-block/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=2-column-content-block"
+  },
+  {
+    "slug": "approve-reject-buttons",
+    "title": "Approve and reject buttons",
+    "metaTitle": "Build approve and reject email buttons",
+    "description": "Add paired approve and reject buttons to decision-focused emails.",
+    "extendedDescription": "Use this partial to give recipients two clear choices from a single email. It works well for review flows, access requests, moderation queues, and any workflow where users need to approve or reject an item.",
+    "category": "DevTools",
+    "htmlContent": "<table align=\"center\" width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n  <tbody style=\"width: 100%\">\n    <tr style=\"width: 100%\">\n      <td align=\"left\" style=\"padding: 16px 0\">\n        <table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n          <tbody>\n            <tr>\n              <td align=\"center\" style=\"padding-right: 8px\">\n                <a href=\"{{ approve_url }}\" style=\"display: inline-block; padding: 10px 20px; background-color: #2EB67D; color: #ffffff; text-decoration: none; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;\">{{ approve_text }}</a>\n              </td>\n              <td align=\"center\">\n                <a href=\"{{ reject_url }}\" style=\"display: inline-block; padding: 10px 20px; background-color: #E01E5A; color: #ffffff; text-decoration: none; border-radius: 8px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 400; line-height: 24px;\">{{ reject_text }}</a>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </td>\n    </tr>\n  </tbody>\n</table>\n",
+    "variables": [
+      "approve_text",
+      "approve_url",
+      "reject_text",
+      "reject_url"
+    ],
+    "defaultValues": {
+      "approve_text": "Approve",
+      "approve_url": "https://example.com/approve",
+      "reject_text": "Reject",
+      "reject_url": "https://example.com/reject"
+    },
+    "fieldTypes": {
+      "approve_url": {
+        "type": "url",
+        "label": "Approve URL",
+        "description": "The destination URL for the approve button.",
+        "required": true,
+        "default": "https://example.com/approve",
+        "placeholder": "https://example.com/approve",
+        "options": []
+      },
+      "approve_text": {
+        "type": "text",
+        "label": "Approve text",
+        "description": "The label displayed on the approve button.",
+        "required": true,
+        "default": "Approve",
+        "placeholder": "Approve",
+        "options": []
+      },
+      "reject_url": {
+        "type": "url",
+        "label": "Reject URL",
+        "description": "The destination URL for the reject button.",
+        "required": true,
+        "default": "https://example.com/reject",
+        "placeholder": "https://example.com/reject",
+        "options": []
+      },
+      "reject_text": {
+        "type": "text",
+        "label": "Reject text",
+        "description": "The label displayed on the reject button.",
+        "required": true,
+        "default": "Reject",
+        "placeholder": "Reject",
+        "options": []
+      }
+    },
+    "iconName": "ListChecks",
+    "messageType": "Changelog card",
+    "tags": [
+      "collaboration"
+    ],
+    "previewImage": "metadata/images/partials/approve-reject-buttons/cover.png",
+    "ogImage": "metadata/images/partials/approve-reject-buttons/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=approve-reject-buttons"
+  },
+  {
+    "slug": "author-block",
+    "title": "Author block",
+    "metaTitle": "Build an author block email partial",
+    "description": "Display author information with avatar, name, title, and signoff.",
+    "extendedDescription": "Add a professional author signature block to your emails with avatar image, name, title, signoff message, and email address. Perfect for personalized transactional emails and newsletters.",
+    "category": "DevTools",
+    "htmlContent": "<div style=\"text-align: center; margin: 24px 0\">\n  {% if author_image.url %}\n  <div style=\"margin-bottom: 16px\">\n    <img\n      src=\"{{ author_image.url }}\"\n      alt=\"{{ author_image.alt | default: author_name | default: 'Author' }}\"\n      style=\"\n        width: 80px;\n        height: 80px;\n        border-radius: 50%;\n        object-fit: cover;\n        display: block;\n        margin: 0 auto;\n      \"\n    />\n  </div>\n  {% endif %} {% if signoff %}\n  <div\n    style=\"\n      font-family: Georgia, Times, 'Times New Roman', serif;\n      font-size: 16px;\n      color: #222222;\n    \"\n  >\n    {{ signoff }}\n  </div>\n  {% endif %} {% if author_name %}\n  <div\n    style=\"\n      font-family: Georgia, Times, 'Times New Roman', serif;\n      font-size: 16px;\n      font-weight: bold;\n      color: #222222;\n    \"\n  >\n    {{ author_name }}\n  </div>\n  {% endif %} {% if author_title %}\n  <div\n    style=\"\n      font-family: Georgia, Times, 'Times New Roman', serif;\n      font-size: 16px;\n      color: #7a7a7a;\n    \"\n  >\n    {{ author_title }}\n  </div>\n  {% endif %} {% if author_email %}\n  <div\n    style=\"\n      font-family: Georgia, Times, 'Times New Roman', serif;\n      font-size: 16px;\n    \"\n  >\n    <a\n      href=\"mailto:{{ author_email }}\"\n      style=\"color: #fc5b22; text-decoration: none\"\n      >{{ author_email }}</a\n    >\n  </div>\n  {% endif %}\n</div>",
+    "variables": [
+      "author_image",
+      "signoff",
+      "author_name",
+      "author_title",
+      "author_email"
+    ],
+    "defaultValues": {
+      "author_image": {
+        "url": "https://upload.wikimedia.org/wikipedia/en/b/b5/John_Hammond.webp",
+        "alt": "John Hammond",
+        "action": ""
+      },
+      "signoff": "We spared no expense,",
+      "author_name": "John Hammond",
+      "author_title": "CEO, InGen",
+      "author_email": "jhammond@ingen.net"
+    },
+    "fieldTypes": {
+      "author_image": {
+        "type": "image",
+        "label": "Author image",
+        "description": "The author's profile photo",
+        "required": false,
+        "subfields": {
+          "url": {
+            "label": "Image URL",
+            "default": "https://upload.wikimedia.org/wikipedia/en/b/b5/John_Hammond.webp",
+            "required": false
+          },
+          "alt": {
+            "label": "Alt text",
+            "default": "",
+            "required": false
+          },
+          "action": {
+            "label": "Image action",
+            "default": "",
+            "required": false
+          }
+        }
+      },
+      "author_name": {
+        "type": "text",
+        "label": "Author name",
+        "description": "",
+        "required": false,
+        "default": "John Hammond",
+        "placeholder": "Jane Doe",
+        "options": []
+      },
+      "signoff": {
+        "type": "text",
+        "label": "Signoff",
+        "description": "",
+        "required": false,
+        "default": "We spared no expense,",
+        "placeholder": "Best,",
+        "options": []
+      },
+      "author_title": {
+        "type": "text",
+        "label": "Author title",
+        "description": "",
+        "required": false,
+        "default": "CEO, InGen",
+        "placeholder": "Head of Marketing",
+        "options": []
+      },
+      "author_email": {
+        "type": "text",
+        "label": "Author email",
+        "description": "",
+        "required": false,
+        "default": "jhammond@ingen.net",
+        "placeholder": "jane@example.com",
+        "options": []
+      }
+    },
+    "iconName": "UserRoundPen",
+    "messageType": "Changelog card",
+    "tags": [
+      "confirmations"
+    ],
+    "previewImage": "metadata/images/partials/author-block/cover.png",
+    "ogImage": "metadata/images/partials/author-block/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=author-block"
+  },
+  {
+    "slug": "button-with-utm-link",
+    "title": "Button with UTM link",
+    "metaTitle": "Build a button with UTM link email partial",
+    "description": "Create trackable links with UTM parameters for campaign analytics.",
+    "extendedDescription": "Automatically append UTM parameters (source, medium, campaign, term, content) to your links for accurate campaign tracking in analytics tools. Essential for measuring email campaign performance.",
+    "category": "DevTools",
+    "htmlContent": "<table align=\"center\" width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n{%- assign params = '' -%}\n{%- if utm_source != '' and utm_source -%}{%- assign params = params | append: 'utm_source=' | append: utm_source -%}{%- endif -%}\n{%- if utm_medium != '' and utm_medium -%}{%- if params != '' -%}{%- assign params = params | append: '&' -%}{%- endif -%}{%- assign params = params | append: 'utm_medium=' | append: utm_medium -%}{%- endif -%}\n{%- if utm_campaign != '' and utm_campaign -%}{%- if params != '' -%}{%- assign params = params | append: '&' -%}{%- endif -%}{%- assign params = params | append: 'utm_campaign=' | append: utm_campaign -%}{%- endif -%}\n{%- if utm_term != '' and utm_term -%}{%- if params != '' -%}{%- assign params = params | append: '&' -%}{%- endif -%}{%- assign params = params | append: 'utm_term=' | append: utm_term -%}{%- endif -%}\n{%- if utm_content != '' and utm_content -%}{%- if params != '' -%}{%- assign params = params | append: '&' -%}{%- endif -%}{%- assign params = params | append: 'utm_content=' | append: utm_content -%}{%- endif -%}\n{%- assign final_url = button_url -%}\n{%- if params != '' -%}\n  {%- if button_url contains '?' -%}\n    {%- assign final_url = button_url | append: '&' | append: params -%}\n  {%- else -%}\n    {%- assign final_url = button_url | append: '?' | append: params -%}\n  {%- endif -%}\n{%- endif -%}\n  <tbody style=\"width: 100%\">\n    <tr style=\"width: 100%\">\n      <td align=\"center\" style=\"padding: 16px 0\">\n        <a href=\"{{ final_url }}\" style=\"display: inline-block; padding: 12px 24px; background-color: #ea580c; color: #ffffff; text-decoration: none; border-radius: 6px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 500; line-height: 24px;\">{{ button_text }}</a>\n      </td>\n    </tr>\n  </tbody>\n</table>\n",
+    "variables": [
+      "button_text",
+      "button_url",
+      "utm_source",
+      "utm_medium",
+      "utm_campaign",
+      "utm_term",
+      "utm_content"
+    ],
+    "defaultValues": {
+      "button_text": "Sign up",
+      "button_url": "https://knock.app",
+      "utm_source": "email",
+      "utm_medium": "newsletter",
+      "utm_campaign": "spring-2024",
+      "utm_term": "",
+      "utm_content": ""
+    },
+    "fieldTypes": {
+      "button_url": {
+        "type": "url",
+        "label": "Button URL",
+        "description": "The destination URL for the button.",
+        "required": true,
+        "default": "https://google.com",
+        "placeholder": "https://example.com",
+        "options": []
+      },
+      "button_text": {
+        "type": "text",
+        "label": "Button Text",
+        "description": "The label displayed on the button.",
+        "required": true,
+        "default": "Click here",
+        "placeholder": "Click here",
+        "options": []
+      },
+      "utm_source": {
+        "type": "text",
+        "label": "UTM Source",
+        "description": "Identifies which site sent the traffic (e.g. newsletter, google).",
+        "required": false,
+        "default": "",
+        "placeholder": "newsletter",
+        "options": []
+      },
+      "utm_medium": {
+        "type": "text",
+        "label": "UTM Medium",
+        "description": "The marketing medium (e.g. email, cpc).",
+        "required": false,
+        "default": "",
+        "placeholder": "email",
+        "options": []
+      },
+      "utm_campaign": {
+        "type": "text",
+        "label": "UTM Campaign",
+        "description": "The campaign name or promotion.",
+        "required": false,
+        "default": "",
+        "placeholder": "spring_sale",
+        "options": []
+      },
+      "utm_term": {
+        "type": "text",
+        "label": "UTM Term",
+        "description": "Paid keyword term for the campaign.",
+        "required": false,
+        "default": "",
+        "placeholder": "running+shoes",
+        "options": []
+      },
+      "utm_content": {
+        "type": "text",
+        "label": "UTM Content",
+        "description": "Differentiates ads or links pointing to the same URL.",
+        "required": false,
+        "default": "",
+        "placeholder": "logolink",
+        "options": []
+      }
+    },
+    "iconName": "Link",
+    "messageType": "Changelog card",
+    "tags": [
+      "announcements"
+    ],
+    "previewImage": "metadata/images/partials/button-with-utm-link/cover.png",
+    "ogImage": "metadata/images/partials/button-with-utm-link/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=button-with-utm-link"
+  },
+  {
+    "slug": "numbered-list",
+    "title": "Numbered list",
+    "metaTitle": "Build a numbered list email partial",
+    "description": "Show ordered steps, requirements, or recommendations in email.",
+    "extendedDescription": "Use this partial to render up to five ordered items with numbered badges and consistent spacing. It helps teams add structured instructions, onboarding tasks, and ranked recommendations without rebuilding table-based email markup.",
+    "category": "DevTools",
+    "htmlContent": "<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n  <tbody>\n    {%- if list_item_1 != '' and list_item_1 -%}\n    <tr>\n      <td valign=\"top\" width=\"36\" style=\"padding: 0 16px 18px 0\">\n        <table width=\"32\" height=\"32\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n          <tr>\n            <td\n              align=\"center\"\n              valign=\"middle\"\n              width=\"32\"\n              height=\"32\"\n              style=\"width: 32px; height: 32px; border-radius: 50%; background-color: #ff5a45; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 32px; font-weight: 700;\"\n            >\n              1\n            </td>\n          </tr>\n        </table>\n      </td>\n      <td valign=\"top\" style=\"padding: 0 0 18px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5f6470; font-size: 16px; line-height: 24px;\">\n        {{ list_item_1 }}\n      </td>\n    </tr>\n    {%- endif -%}\n    {%- if list_item_2 != '' and list_item_2 -%}\n    <tr>\n      <td valign=\"top\" width=\"36\" style=\"padding: 0 16px 18px 0\">\n        <table width=\"32\" height=\"32\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n          <tr>\n            <td\n              align=\"center\"\n              valign=\"middle\"\n              width=\"32\"\n              height=\"32\"\n              style=\"width: 32px; height: 32px; border-radius: 50%; background-color: #ff5a45; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 32px; font-weight: 700;\"\n            >\n              2\n            </td>\n          </tr>\n        </table>\n      </td>\n      <td valign=\"top\" style=\"padding: 0 0 18px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5f6470; font-size: 16px; line-height: 24px;\">\n        {{ list_item_2 }}\n      </td>\n    </tr>\n    {%- endif -%}\n    {%- if list_item_3 != '' and list_item_3 -%}\n    <tr>\n      <td valign=\"top\" width=\"36\" style=\"padding: 0 16px 18px 0\">\n        <table width=\"32\" height=\"32\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n          <tr>\n            <td\n              align=\"center\"\n              valign=\"middle\"\n              width=\"32\"\n              height=\"32\"\n              style=\"width: 32px; height: 32px; border-radius: 50%; background-color: #ff5a45; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 32px; font-weight: 700;\"\n            >\n              3\n            </td>\n          </tr>\n        </table>\n      </td>\n      <td valign=\"top\" style=\"padding: 0 0 18px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5f6470; font-size: 16px; line-height: 24px;\">\n        {{ list_item_3 }}\n      </td>\n    </tr>\n    {%- endif -%}\n    {%- if list_item_4 != '' and list_item_4 -%}\n    <tr>\n      <td valign=\"top\" width=\"36\" style=\"padding: 0 16px 18px 0\">\n        <table width=\"32\" height=\"32\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n          <tr>\n            <td\n              align=\"center\"\n              valign=\"middle\"\n              width=\"32\"\n              height=\"32\"\n              style=\"width: 32px; height: 32px; border-radius: 50%; background-color: #ff5a45; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 32px; font-weight: 700;\"\n            >\n              4\n            </td>\n          </tr>\n        </table>\n      </td>\n      <td valign=\"top\" style=\"padding: 0 0 18px 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5f6470; font-size: 16px; line-height: 24px;\">\n        {{ list_item_4 }}\n      </td>\n    </tr>\n    {%- endif -%}\n    {%- if list_item_5 != '' and list_item_5 -%}\n    <tr>\n      <td valign=\"top\" width=\"36\" style=\"padding: 0 16px 0 0\">\n        <table width=\"32\" height=\"32\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n          <tr>\n            <td\n              align=\"center\"\n              valign=\"middle\"\n              width=\"32\"\n              height=\"32\"\n              style=\"width: 32px; height: 32px; border-radius: 50%; background-color: #ff5a45; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 14px; line-height: 32px; font-weight: 700;\"\n            >\n              5\n            </td>\n          </tr>\n        </table>\n      </td>\n      <td valign=\"top\" style=\"padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; color: #5f6470; font-size: 16px; line-height: 24px;\">\n        {{ list_item_5 }}\n      </td>\n    </tr>\n    {%- endif -%}\n  </tbody>\n</table>\n",
+    "variables": [
+      "list_item_1",
+      "list_item_2",
+      "list_item_3",
+      "list_item_4",
+      "list_item_5"
+    ],
+    "defaultValues": {
+      "list_item_1": "Create your notification workflow",
+      "list_item_2": "Add the channels your users prefer",
+      "list_item_3": "Test the template with sample data",
+      "list_item_4": "Review the preview across breakpoints",
+      "list_item_5": "Promote your changes to production"
+    },
+    "fieldTypes": {
+      "list_item_1": {
+        "type": "textarea",
+        "label": "List item #1",
+        "description": "The first numbered list item.",
+        "required": false,
+        "default": "Enter text here",
+        "placeholder": "Add the first list item",
+        "options": []
+      },
+      "list_item_2": {
+        "type": "textarea",
+        "label": "List item #2",
+        "description": "The second numbered list item.",
+        "required": false,
+        "default": "Enter text here",
+        "placeholder": "Add the second list item",
+        "options": []
+      },
+      "list_item_3": {
+        "type": "textarea",
+        "label": "List item #3",
+        "description": "The third numbered list item.",
+        "required": false,
+        "default": "Enter text here",
+        "placeholder": "Add the third list item",
+        "options": []
+      },
+      "list_item_4": {
+        "type": "textarea",
+        "label": "List item #4",
+        "description": "The fourth numbered list item.",
+        "required": false,
+        "default": "",
+        "placeholder": "Add the fourth list item",
+        "options": []
+      },
+      "list_item_5": {
+        "type": "textarea",
+        "label": "List item #5",
+        "description": "The fifth numbered list item.",
+        "required": false,
+        "default": "",
+        "placeholder": "Add the fifth list item",
+        "options": []
+      }
+    },
+    "iconName": "ListOrdered",
+    "messageType": "Changelog card",
+    "tags": [
+      "onboarding"
+    ],
+    "previewImage": "metadata/images/partials/numbered-list/cover.png",
+    "ogImage": "metadata/images/partials/numbered-list/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=numbered-list"
+  },
+  {
+    "slug": "task-item",
+    "title": "Task item",
+    "metaTitle": "Build a task item email partial",
+    "description": "Display a single task item with title, status, and metadata.",
+    "extendedDescription": "Render individual task items in notification emails for productivity and collaboration apps. Shows task details in a clean, structured format that matches your app's design.",
+    "category": "DevTools",
+    "htmlContent": "<table\n  border=\"0\"\n  cellpadding=\"0\"\n  cellspacing=\"0\"\n  width=\"100%\"\n  style=\"border: 1px solid #e5e5e5\"\n>\n  <tr>\n    <td style=\"padding: 16px\">\n      <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n        <tr>\n          <td width=\"24\" valign=\"top\" style=\"padding-right: 12px\">\n            <div\n              style=\"\n                width: 24px;\n                height: 24px;\n                border-radius: 50%;\n                background-color: #6b7280;\n                line-height: 24px;\n                text-align: center;\n              \"\n            >\n              <span style=\"color: white; font-size: 14px; font-weight: bold\"\n                >✓</span\n              >\n            </div>\n          </td>\n          <td\n            style=\"\n              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,\n                'Helvetica Neue', Arial, sans-serif;\n            \"\n          >\n            <a\n              href=\"{{ link }}\"\n              style=\"color: #1a1a1a; text-decoration: none; display: block\"\n            >\n              <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%\">\n                <tr>\n                  <td>\n                    <span\n                      style=\"font-size: 16px; line-height: 24px; color: #1a1a1a\"\n                      >{{ name | truncate: 35 }}</span\n                    >\n                  </td>\n                  <td align=\"right\" style=\"padding-left: 16px\">\n                    <table border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\n                      <tr>\n                        {% assign task_date_unix = date | date: \"%s\" %}\n                        {% assign current_date_unix = \"now\" | date: \"%s\" %}\n                        {% if task_date_unix < current_date_unix %}\n                        <td\n                          style=\"\n                            font-size: 16px;\n                            line-height: 24px;\n                            color: #dc2626;\n                          \"\n                        >\n                          {{ date | date: \"%b %d\" }}\n                        </td>\n                        {% else %}\n                        <td\n                          style=\"\n                            font-size: 16px;\n                            line-height: 24px;\n                            color: #4b5563;\n                          \"\n                        >\n                          {{ date | date: \"%b %d\" }}\n                        </td>\n                        {% endif %}\n                        <td style=\"padding-left: 8px\">\n                          <img\n                            src=\"https://d3ki9tyy5l5ruj.cloudfront.net/obj/44f5654475ec4d9fad41014461c7561e0a5811fa/right_icon-16x16@2x.png\"\n                            width=\"16\"\n                            height=\"16\"\n                            style=\"display: block\"\n                            alt=\"Arrow icon\"\n                          />\n                        </td>\n                      </tr>\n                    </table>\n                  </td>\n                </tr>\n              </table>\n            </a>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>\n",
+    "variables": [
+      "name",
+      "link",
+      "date"
+    ],
+    "defaultValues": {
+      "name": "Draft campaign report",
+      "link": "https://knock.app",
+      "date": "2025-12-25"
+    },
+    "fieldTypes": {
+      "name": {
+        "type": "text",
+        "label": "Task name",
+        "description": "The name of the task.",
+        "required": true,
+        "default": "Example task",
+        "placeholder": "",
+        "options": []
+      },
+      "link": {
+        "type": "url",
+        "label": "Task link",
+        "description": "URL the task links to.",
+        "required": true,
+        "default": "https://example.com",
+        "placeholder": "",
+        "options": []
+      },
+      "date": {
+        "type": "text",
+        "label": "Due date",
+        "description": "Due date for the task (e.g. 2026-04-10).",
+        "required": true,
+        "default": "2026-04-10",
+        "placeholder": "",
+        "options": []
+      }
+    },
+    "iconName": "ListChecks",
+    "messageType": "Changelog card",
+    "tags": [
+      "collaboration"
+    ],
+    "previewImage": "metadata/images/partials/task-item/cover.png",
+    "ogImage": "metadata/images/partials/task-item/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=task-item"
+  },
+  {
+    "slug": "testimonial-with-large-avatar",
+    "title": "Testimonial with large avatar",
+    "metaTitle": "Build a testimonial email partial",
+    "description": "Show social proof with a quote and image.",
+    "extendedDescription": "Show social proof with a quote and image.",
+    "category": "DevTools",
+    "htmlContent": "<style>\n  /* Webfont declarations (many email clients will ignore, but harmless to include) */\n  @font-face {\n    font-family: 'Inter';\n    font-style: normal;\n    font-weight: 400;\n    mso-font-alt: 'Helvetica';\n    src: url(https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');\n  }\n  @font-face {\n    font-family: 'Inter';\n    font-style: normal;\n    font-weight: 600;\n    mso-font-alt: 'Helvetica';\n    src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_fjbvMwCp50PDca1ZL7.woff2) format('woff2');\n  }\n  @font-face {\n    font-family: 'Inter';\n    font-style: normal;\n    font-weight: 700;\n    mso-font-alt: 'Helvetica';\n    src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_fjbvMwCp50BTca1ZL7.woff2) format('woff2');\n  }\n\n  /* Light reset + defaults */\n  * { font-family: Inter, Helvetica, Arial, sans-serif; }\n  .outer { padding: 16px 12px; }\n  .inner { max-width: 600px; }\n  .copy { color:#374151; font-size:16px; line-height:1.625; }\n  .name { font-weight:600; color:#1f2937; }\n  .title { font-size:14px; color:#4b5563; }\n</style>\n\n<table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n  <tr>\n    <td align=\"center\" class=\"outer\">\n      <table width=\"100%\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" class=\"inner\">\n        <tr>\n          <!-- Image column -->\n          <td align=\"left\" valign=\"top\" style=\"padding-right:12px; width:300px;\">\n            <img\n              src=\"{{ image_url.url }}\"\n              alt=\"{{ image_url.alt }}\"\n              width=\"300\"\n              style=\"display:block; width:100%; max-width:300px; height:auto; border-radius:24px; outline:none; border:none; text-decoration:none;\"\n            />\n          </td>\n\n          <!-- Text column -->\n          <td align=\"left\" valign=\"top\" class=\"copy\" style=\"padding-left:12px;\">\n            <p style=\"margin:0 0 24px;\">{{ quote }}</p>\n            <p class=\"name\" style=\"margin:0 0 4px;\">{{ name }}</p>\n            <p class=\"title\" style=\"margin:0;\">{{ title }}</p>\n          </td>\n        </tr>\n      </table>\n    </td>\n  </tr>\n</table>",
+    "variables": [
+      "image_url",
+      "quote",
+      "name",
+      "title"
+    ],
+    "defaultValues": {
+      "image_url": {
+        "url": "https://react.email/static/steve-jobs.jpg",
+        "alt": "Steve Jobs",
+        "action": ""
+      },
+      "quote": "Design is not just what it looks like and feels like.",
+      "name": "Steve Jobs",
+      "title": "Co-founder of Apple"
+    },
+    "fieldTypes": {
+      "image_url": {
+        "type": "image",
+        "label": "Avatar image",
+        "description": "The large avatar or photo displayed on the left side of the testimonial",
+        "required": true,
+        "subfields": {
+          "url": {
+            "label": "Image URL",
+            "default": "https://react.email/static/steve-jobs.jpg",
+            "required": true
+          },
+          "alt": {
+            "label": "Alt text",
+            "default": "",
+            "required": false
+          },
+          "action": {
+            "label": "Image action",
+            "default": "",
+            "required": false
+          }
+        }
+      },
+      "quote": {
+        "type": "textarea",
+        "label": "Quote",
+        "description": "The testimonial quote text",
+        "required": true,
+        "default": "Design is not just what it looks like and feels like.",
+        "placeholder": "\"This product changed everything for us...\"",
+        "options": []
+      },
+      "name": {
+        "type": "text",
+        "label": "Name",
+        "description": "Full name of the person giving the testimonial",
+        "required": true,
+        "default": "Steve Jobs",
+        "placeholder": "Jane Doe",
+        "options": []
+      },
+      "title": {
+        "type": "text",
+        "label": "Title",
+        "description": "Job title or company of the person giving the testimonial",
+        "required": false,
+        "default": "CEO, Apple",
+        "placeholder": "CEO at Acme Inc.",
+        "options": []
+      }
+    },
+    "iconName": "MessageCircleHeart",
+    "messageType": "Changelog card",
+    "tags": [
+      "announcements"
+    ],
+    "previewImage": "metadata/images/partials/testimonial-with-large-avatar/cover.png",
+    "ogImage": "metadata/images/partials/testimonial-with-large-avatar/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=testimonial-with-large-avatar"
+  },
+  {
+    "slug": "tldr-callout-block",
+    "title": "TLDR callout block",
+    "metaTitle": "Build a TLDR callout email partial",
+    "description": "Highlight a short summary or key takeaway in an email.",
+    "extendedDescription": "Use this partial to give readers a focused summary before they read the rest of an email. It supports a heading, paragraph text, and color treatment so teams can match the callout to the message context.",
+    "category": "DevTools",
+    "htmlContent": "{%- assign callout_header = header_text | default: 'TLDR' -%}\n{%- assign callout_body = paragraph_text | default: 'Add a concise summary of the most important takeaway here.' -%}\n{%- assign callout_background = '#fff7ed' -%}\n{%- assign callout_border = '#fed7aa' -%}\n{%- assign callout_heading = '#9a3412' -%}\n{%- assign callout_text = '#7c2d12' -%}\n{%- if color == 'blue' -%}\n  {%- assign callout_background = '#eff6ff' -%}\n  {%- assign callout_border = '#bfdbfe' -%}\n  {%- assign callout_heading = '#1d4ed8' -%}\n  {%- assign callout_text = '#1e3a8a' -%}\n{%- elsif color == 'green' -%}\n  {%- assign callout_background = '#f0fdf4' -%}\n  {%- assign callout_border = '#bbf7d0' -%}\n  {%- assign callout_heading = '#15803d' -%}\n  {%- assign callout_text = '#14532d' -%}\n{%- elsif color == 'purple' -%}\n  {%- assign callout_background = '#faf5ff' -%}\n  {%- assign callout_border = '#e9d5ff' -%}\n  {%- assign callout_heading = '#7e22ce' -%}\n  {%- assign callout_text = '#581c87' -%}\n{%- elsif color == 'gray' -%}\n  {%- assign callout_background = '#f8fafc' -%}\n  {%- assign callout_border = '#e2e8f0' -%}\n  {%- assign callout_heading = '#334155' -%}\n  {%- assign callout_text = '#475569' -%}\n{%- endif -%}\n\n<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n  <tbody>\n    <tr>\n      <td style=\"padding: 16px 0\">\n        <table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\" style=\"background-color: {{ callout_background }}; border: 1px solid {{ callout_border }}; border-collapse: separate; border-radius: 12px; border-spacing: 0; overflow: hidden;\">\n          <tbody>\n            <tr>\n              <td style=\"background-color: {{ callout_background }}; border-radius: 12px; padding: 20px 24px;\">\n                <h1 style=\"margin: 0 0 8px 0; color: {{ callout_heading }}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 24px; line-height: 32px; font-weight: 700;\">\n                  {{ callout_header }}\n                </h1>\n                <p style=\"margin: 0; color: {{ callout_text }}; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; font-size: 16px; line-height: 24px; font-weight: 400;\">\n                  {{ callout_body }}\n                </p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </td>\n    </tr>\n  </tbody>\n</table>\n",
+    "variables": [
+      "header_text",
+      "paragraph_text",
+      "color"
+    ],
+    "defaultValues": {
+      "header_text": "TLDR",
+      "paragraph_text": "We shipped several updates to help you get started with Knock faster.",
+      "color": "blue"
+    },
+    "fieldTypes": {
+      "header_text": {
+        "type": "text",
+        "label": "Header text",
+        "description": "The H1-style heading shown at the top of the callout.",
+        "required": false,
+        "default": "TLDR",
+        "placeholder": "TLDR",
+        "options": []
+      },
+      "paragraph_text": {
+        "type": "textarea",
+        "label": "Paragraph text",
+        "description": "The paragraph-style summary text shown below the heading.",
+        "required": false,
+        "default": "Add a concise summary of the most important takeaway here.",
+        "placeholder": "Summarize the key takeaway",
+        "options": []
+      },
+      "color": {
+        "type": "select",
+        "label": "Color",
+        "description": "Choose the color treatment for the callout container.",
+        "required": false,
+        "default": "orange",
+        "placeholder": "",
+        "options": [
+          {
+            "label": "Orange",
+            "value": "orange"
+          },
+          {
+            "label": "Blue",
+            "value": "blue"
+          },
+          {
+            "label": "Green",
+            "value": "green"
+          },
+          {
+            "label": "Purple",
+            "value": "purple"
+          },
+          {
+            "label": "Gray",
+            "value": "gray"
+          }
+        ]
+      }
+    },
+    "iconName": "TextQuote",
+    "messageType": "Changelog card",
+    "tags": [
+      "announcements"
+    ],
+    "previewImage": "metadata/images/partials/tldr-callout-block/cover.png",
+    "ogImage": "metadata/images/partials/tldr-callout-block/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=tldr-callout-block"
+  },
+  {
+    "slug": "video-cover-image",
+    "title": "Video cover image",
+    "metaTitle": "Build a video cover image email partial",
+    "description": "Add a clickable video thumbnail with play icon overlay to emails.",
+    "extendedDescription": "Use this partial to turn a static image into a video teaser in your email layout. It overlays a play icon, supports responsive behavior, and links users to your hosted video or landing page.",
+    "category": "DevTools",
+    "htmlContent": "{%- assign destination_url = cover_image.action | default: optional_link -%}\n<style>\n  @media only screen and (max-width: 480px) {\n    .video-cover-play-circle {\n      width: 54px !important;\n      height: 54px !important;\n    }\n    .video-cover-play-triangle {\n      border-top-width: 8px !important;\n      border-bottom-width: 8px !important;\n      border-left-width: 13px !important;\n    }\n  }\n</style>\n\n<table width=\"100%\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\" role=\"presentation\">\n  <tr>\n    <td align=\"center\" style=\"padding: 0\">\n      <div style=\"max-width: 640px; margin: 0 auto; position: relative; line-height: 0; font-size: 0\">\n        {% if destination_url and destination_url != \"\" %}\n        <a\n          href=\"{{ destination_url }}\"\n          style=\"text-decoration: none; display: block; position: relative\"\n        >\n        {% endif %}\n          <img\n            src=\"{{ cover_image.url }}\"\n            alt=\"{{ cover_image.alt | default: 'Video cover image' }}\"\n            width=\"640\"\n            style=\"\n              display: block;\n              width: 100%;\n              max-width: 640px;\n              height: auto;\n              border: 0;\n              border-radius: 8px;\n              outline: none;\n              text-decoration: none;\n            \"\n          />\n          <div\n            style=\"\n              position: absolute;\n              left: 50%;\n              top: 50%;\n              transform: translate(-50%, -50%);\n              -webkit-transform: translate(-50%, -50%);\n              mso-hide: all;\n            \"\n          >\n            <div\n              class=\"video-cover-play-circle\"\n              style=\"\n                width: 72px;\n                height: 72px;\n                border-radius: 36px;\n                background-color: rgba(0, 0, 0, 0.72);\n                display: table;\n              \"\n            >\n              <div\n                style=\"\n                  display: table-cell;\n                  vertical-align: middle;\n                  text-align: center;\n                  line-height: 0;\n                \"\n              >\n                <span\n                  class=\"video-cover-play-triangle\"\n                  style=\"\n                    display: inline-block;\n                    width: 0;\n                    height: 0;\n                    border-top: 11px solid transparent;\n                    border-bottom: 11px solid transparent;\n                    border-left: 18px solid #ffffff;\n                    margin-left: 4px;\n                  \"\n                ></span>\n              </div>\n            </div>\n          </div>\n        {% if destination_url and destination_url != \"\" %}\n        </a>\n        {% endif %}\n      </div>\n    </td>\n  </tr>\n</table>",
+    "variables": [
+      "cover_image",
+      "optional_link"
+    ],
+    "defaultValues": {
+      "cover_image": {
+        "url": "https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=1280&q=80",
+        "alt": "Video cover image",
+        "action": "https://knock.app"
+      },
+      "optional_link": "https://knock.app"
+    },
+    "fieldTypes": {
+      "cover_image": {
+        "type": "image",
+        "label": "Cover image",
+        "description": "Upload or provide the URL for the video cover image.",
+        "required": true,
+        "subfields": {
+          "url": {
+            "label": "Image URL",
+            "default": "https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=1280&q=80",
+            "required": true
+          },
+          "alt": {
+            "label": "Alt text",
+            "default": "Video cover image",
+            "required": false
+          },
+          "action": {
+            "label": "Image action",
+            "default": "",
+            "required": false
+          }
+        }
+      },
+      "optional_link": {
+        "type": "url",
+        "label": "Optional link",
+        "description": "Fallback destination URL used when no image action is set.",
+        "required": false,
+        "default": "",
+        "placeholder": "",
+        "options": []
+      }
+    },
+    "iconName": "Video",
+    "messageType": "Changelog card",
+    "tags": [
+      "announcements"
+    ],
+    "previewImage": "metadata/images/partials/video-cover-image/cover.png",
+    "ogImage": "metadata/images/partials/video-cover-image/og.png",
+    "cliCommand": "npx @knocklabs/cli partial new --template=video-cover-image"
+  }
+]
