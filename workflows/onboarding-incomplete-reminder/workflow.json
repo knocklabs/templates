@@ -2,53 +2,51 @@
   "name": "Onboarding incomplete reminder",
   "steps": [
     {
-      "channel_key": "in-app-feed",
-      "channel_type": "in_app_feed",
-      "description": "Send in-app onboarding nudge",
       "name": "In-app feed",
-      "ref": "in_app_feed_1",
+      "type": "channel",
+      "description": "Send in-app onboarding nudge",
       "template": {
         "action_url": "{{ data.onboarding_url }}",
         "markdown_body@": "in_app_feed_1/markdown_body.md"
       },
-      "type": "channel"
+      "ref": "in_app_feed_1",
+      "channel_type": "in_app_feed",
+      "channel_key": "knock-feed"
     },
     {
-      "description": "Wait before sending reminder",
       "name": "Delay",
+      "type": "delay",
+      "description": "Wait before sending reminder",
       "ref": "delay_1",
       "settings": {
         "delay_for": {
           "unit": "hours",
           "value": 24
         }
-      },
-      "type": "delay"
+      }
     },
     {
-      "channel_key": "postmark",
-      "channel_type": "email",
-      "description": "Send onboarding reminder email",
       "name": "Email",
-      "ref": "email_1",
+      "type": "channel",
+      "description": "Send onboarding reminder email",
       "template": {
-        "settings": {
-          "attachment_key": "attachments",
-          "layout_key": "default"
-        },
         "subject": "Finish setting up your Knock account",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
         "visual_blocks@": "email_1/visual_blocks.json"
       },
-      "type": "channel"
+      "ref": "email_1",
+      "channel_type": "email",
+      "channel_key": "knock-email"
     }
   ],
   "trigger_frequency": "every_trigger",
   "__readonly": {
-    "environment": "development",
     "key": "onboarding-incomplete-reminder",
     "active": true,
-    "valid": true,
-    "created_at": "2026-06-25T00:00:00.000000Z"
+    "valid": true
   },
   "$schema": "https://schemas.knock.app/cli/workflow.json"
 }

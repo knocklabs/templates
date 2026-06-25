@@ -2,85 +2,83 @@
   "name": "Trial ending",
   "steps": [
     {
-      "channel_key": "postmark",
-      "channel_type": "email",
-      "description": "Send 7-day trial reminder",
       "name": "Email",
-      "ref": "email_1",
+      "type": "channel",
+      "description": "Send 7-day trial reminder",
       "template": {
-        "settings": {
-          "attachment_key": "attachments",
-          "layout_key": "default"
-        },
         "subject": "Your Knock trial ends in 7 days",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
         "visual_blocks@": "email_1/visual_blocks.json"
       },
-      "type": "channel"
+      "ref": "email_1",
+      "channel_type": "email",
+      "channel_key": "knock-email"
     },
     {
-      "description": "Wait before 3-day reminder",
       "name": "Delay",
+      "type": "delay",
+      "description": "Wait before 3-day reminder",
       "ref": "delay_1",
       "settings": {
         "delay_for": {
           "unit": "days",
           "value": 4
         }
-      },
-      "type": "delay"
+      }
     },
     {
-      "channel_key": "postmark",
-      "channel_type": "email",
-      "description": "Send 3-day trial reminder",
       "name": "Email",
-      "ref": "email_2",
+      "type": "channel",
+      "description": "Send 3-day trial reminder",
       "template": {
-        "settings": {
-          "attachment_key": "attachments",
-          "layout_key": "default"
-        },
         "subject": "Your Knock trial ends in 3 days",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
         "visual_blocks@": "email_2/visual_blocks.json"
       },
-      "type": "channel"
+      "ref": "email_2",
+      "channel_type": "email",
+      "channel_key": "knock-email"
     },
     {
-      "description": "Wait before last-day reminder",
       "name": "Delay",
+      "type": "delay",
+      "description": "Wait before last-day reminder",
       "ref": "delay_2",
       "settings": {
         "delay_for": {
           "unit": "days",
           "value": 2
         }
-      },
-      "type": "delay"
+      }
     },
     {
-      "channel_key": "postmark",
-      "channel_type": "email",
-      "description": "Send last-day trial reminder",
       "name": "Email",
-      "ref": "email_3",
+      "type": "channel",
+      "description": "Send last-day trial reminder",
       "template": {
-        "settings": {
-          "attachment_key": "attachments",
-          "layout_key": "default"
-        },
         "subject": "Last day of your Knock trial",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
         "visual_blocks@": "email_3/visual_blocks.json"
       },
-      "type": "channel"
+      "ref": "email_3",
+      "channel_type": "email",
+      "channel_key": "knock-email"
     }
   ],
   "trigger_frequency": "every_trigger",
   "__readonly": {
-    "environment": "development",
     "key": "trial-ending",
     "active": true,
-    "valid": true,
-    "created_at": "2026-06-25T00:00:00.000000Z"
+    "valid": true
   },
   "$schema": "https://schemas.knock.app/cli/workflow.json"
 }

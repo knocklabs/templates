@@ -2,80 +2,87 @@
   "name": "Incident escalation",
   "steps": [
     {
+      "name": "Check severity",
+      "type": "branch",
+      "description": "Route incidents based on severity",
+      "ref": "branch_1",
       "branches": [
         {
+          "name": "Critical",
           "conditions": {
             "all": [
               {
-                "argument": "critical",
+                "variable": "data.incident.severity",
                 "operator": "equal_to",
-                "variable": "data.incident.severity"
+                "argument": "critical"
               }
             ]
           },
-          "name": "Critical",
           "steps": [
             {
-              "channel_key": "apns",
-              "channel_type": "push",
-              "description": "Send critical incident push notification",
               "name": "Push",
-              "ref": "push_1",
+              "type": "channel",
+              "description": "Send critical incident push notification",
               "template": {
-                "settings": {},
+                "title": "Critical incident: {{ data.incident.title }}",
+                "settings": {
+                  "delivery_type": "content"
+                },
                 "text_body@": "push_1/text_body.txt"
               },
-              "type": "channel"
+              "ref": "push_1",
+              "channel_type": "push",
+              "channel_key": "apns"
             },
             {
-              "channel_key": "twilio",
-              "channel_type": "sms",
-              "description": "Send critical incident SMS",
               "name": "SMS",
-              "ref": "sms_1",
+              "type": "channel",
+              "description": "Send critical incident SMS",
               "template": {
                 "settings": {},
                 "text_body@": "sms_1/text_body.txt"
               },
-              "type": "channel"
+              "ref": "sms_1",
+              "channel_type": "sms",
+              "channel_key": "twilio"
             },
             {
-              "description": "Wait before escalating",
               "name": "Delay",
+              "type": "delay",
+              "description": "Wait before escalating",
               "ref": "delay_1",
               "settings": {
                 "delay_for": {
                   "unit": "minutes",
                   "value": 30
                 }
-              },
-              "type": "delay"
+              }
             },
             {
-              "channel_key": "sendgrid",
+              "name": "Email",
+              "type": "channel",
+              "description": "Escalate via email if push unseen",
+              "template": {
+                "subject": "Escalation: {{ data.incident.title }}",
+                "is_mjml": false,
+                "settings": {
+                  "layout_key": "default",
+                  "attachment_key": "attachments"
+                },
+                "visual_blocks@": "email_1/visual_blocks.json"
+              },
+              "ref": "email_1",
               "channel_type": "email",
               "conditions": {
                 "all": [
                   {
-                    "argument": "$message.seen",
+                    "variable": "refs.push_1.status",
                     "operator": "less_than",
-                    "variable": "refs.push_1.status"
+                    "argument": "$message.seen"
                   }
                 ]
               },
-              "description": "Escalate via email if push unseen",
-              "name": "Email",
-              "ref": "email_1",
-              "template": {
-                "is_mjml": false,
-                "settings": {
-                  "attachment_key": "attachments",
-                  "layout_key": "default"
-                },
-                "subject": "Escalation: {{ data.incident.title }}",
-                "visual_blocks@": "email_1/visual_blocks.json"
-              },
-              "type": "channel"
+              "channel_key": "knock-email"
             }
           ],
           "terminates": false
@@ -84,39 +91,33 @@
           "name": "Warning or info",
           "steps": [
             {
-              "channel_key": "sendgrid",
-              "channel_type": "email",
-              "description": "Send incident notification via email",
               "name": "Email",
-              "ref": "email_2",
+              "type": "channel",
+              "description": "Send incident notification via email",
               "template": {
+                "subject": "{{ data.incident.severity | capitalize }}: {{ data.incident.title }}",
                 "is_mjml": false,
                 "settings": {
-                  "attachment_key": "attachments",
-                  "layout_key": "default"
+                  "layout_key": "default",
+                  "attachment_key": "attachments"
                 },
-                "subject": "{{ data.incident.severity | capitalize }}: {{ data.incident.title }}",
                 "visual_blocks@": "email_2/visual_blocks.json"
               },
-              "type": "channel"
+              "ref": "email_2",
+              "channel_type": "email",
+              "channel_key": "knock-email"
             }
           ],
           "terminates": false
         }
-      ],
-      "description": "Route incidents based on severity",
-      "name": "Check severity",
-      "ref": "branch_1",
-      "type": "branch"
+      ]
     }
   ],
   "trigger_frequency": "every_trigger",
   "__readonly": {
-    "environment": "development",
     "key": "incident-escalation",
     "active": true,
-    "valid": true,
-    "created_at": "2026-06-25T00:00:00.000000Z"
+    "valid": true
   },
   "$schema": "https://schemas.knock.app/cli/workflow.json"
 }
