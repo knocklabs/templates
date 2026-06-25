@@ -30,7 +30,7 @@ Use this template when:
 ### Best practices
 
 - **Define conversion clearly.** Document what actions count — signup alone usually isn't enough.
-- **Name the action.** "{{ name }} completed their first project" is more motivating than "Referral converted."
+- **Name the action.** `{{ name }} completed their first project` is more motivating than "Referral converted."
 - **Show reward progress.** If rewards are pending, explain what's left to earn the full payout.
 - **Encourage more referrals.** Gently suggest sending another invite while enthusiasm is high.
 
