@@ -1,0 +1,58 @@
+{
+  "name": "Email verification",
+  "steps": [
+    {
+      "channel_key": "sendgrid",
+      "channel_type": "email",
+      "description": "Send email verification link",
+      "name": "Email",
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "attachment_key": "attachments",
+          "layout_key": "default"
+        },
+        "subject": "Verify your email for Knock",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    },
+    {
+      "description": "Wait before sending reminder",
+      "name": "Delay",
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "hours",
+          "value": 24
+        }
+      },
+      "type": "delay"
+    },
+    {
+      "channel_key": "sendgrid",
+      "channel_type": "email",
+      "description": "Send verification reminder",
+      "name": "Email",
+      "ref": "email_2",
+      "template": {
+        "settings": {
+          "attachment_key": "attachments",
+          "layout_key": "default"
+        },
+        "subject": "Reminder: Verify your email for Knock",
+        "visual_blocks@": "email_2/visual_blocks.json"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "email-verification",
+    "active": true,
+    "valid": true,
+    "created_at": "2026-06-25T00:00:00.000000Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

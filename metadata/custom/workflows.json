@@ -76,5 +76,68 @@
     "tags": ["onboarding"],
     "description": "Welcome new users with in-app and email messages.",
     "extendedDescription": "Create a great first impression by welcoming new users with both an in-app message and email. Direct them to key resources and help them get started with your product."
+  },
+  {
+    "key": "usage-threshold-alerts",
+    "metaTitle": "Build usage threshold alert notifications",
+    "tags": ["alerting"],
+    "description": "Notify users when usage metrics cross warning or critical thresholds.",
+    "extendedDescription": "Route threshold alerts by severity with email for warnings and email plus SMS for critical limits. Helps SaaS products prevent surprise overages and service interruptions."
+  },
+  {
+    "key": "incident-escalation",
+    "metaTitle": "Build incident escalation notifications",
+    "tags": ["alerting"],
+    "description": "Escalate critical incidents via push and SMS with email fallback.",
+    "extendedDescription": "On-call style incident routing that sends push and SMS for critical events, then escalates to email if unacknowledged. Non-critical incidents receive email-only notifications."
+  },
+  {
+    "key": "alert-digest",
+    "metaTitle": "Build alert digest notifications",
+    "tags": ["alerting"],
+    "description": "Batch non-critical alerts into a daily or weekly digest.",
+    "extendedDescription": "Accumulate alerts over a 24-hour window and deliver a consolidated email and in-app summary. Reduces alert fatigue while keeping users informed of everything they missed."
+  },
+  {
+    "key": "email-verification",
+    "metaTitle": "Build email verification notifications",
+    "tags": ["authentication"],
+    "description": "Verify new accounts with an email link and automated reminder.",
+    "extendedDescription": "Send a verification email on signup with a follow-up reminder after 24 hours if the user hasn't verified. Cancel the reminder when verification completes."
+  },
+  {
+    "key": "onboarding-incomplete-reminder",
+    "metaTitle": "Build onboarding reminder notifications",
+    "tags": ["onboarding"],
+    "description": "Nudge users to complete setup with in-app and email reminders.",
+    "extendedDescription": "Send an in-app nudge when onboarding is incomplete, followed by an email reminder after 24 hours. Cancel the workflow when the user completes the remaining setup step."
+  },
+  {
+    "key": "trial-ending",
+    "metaTitle": "Build trial ending notifications",
+    "tags": ["onboarding"],
+    "description": "Remind users before their free trial expires with a timed email sequence.",
+    "extendedDescription": "Send a three-email sequence at 7, 3, and 1 days before trial expiration. Trigger once when 7 days remain and cancel if the user upgrades."
+  },
+  {
+    "key": "first-milestone",
+    "metaTitle": "Build first milestone notifications",
+    "tags": ["onboarding"],
+    "description": "Celebrate key user milestones with in-app and email messages.",
+    "extendedDescription": "Celebrate when users hit their first meaningful action with an in-app message and a follow-up email if unseen. Reinforces product value and drives continued engagement."
+  },
+  {
+    "key": "referral-converted",
+    "metaTitle": "Build referral converted notifications",
+    "tags": ["referrals"],
+    "description": "Notify referrers when a referral completes a key conversion action.",
+    "extendedDescription": "Tell referrers when their invitee completes a meaningful action beyond signup. Uses in-app first with a delayed email if the notification wasn't seen."
+  },
+  {
+    "key": "referral-reward-earned",
+    "metaTitle": "Build referral reward notifications",
+    "tags": ["referrals"],
+    "description": "Notify referrers when their referral reward is ready to claim.",
+    "extendedDescription": "Wait through a reward hold period, then notify referrers via in-app and email when their credit or reward is available. Closes the referral loop with a clear payout moment."
   }
 ]

@@ -1,0 +1,54 @@
+{
+  "name": "Referral reward earned",
+  "steps": [
+    {
+      "description": "Wait for reward hold period",
+      "name": "Delay",
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "days",
+          "value": 7
+        }
+      },
+      "type": "delay"
+    },
+    {
+      "channel_key": "in-app-feed",
+      "channel_type": "in_app_feed",
+      "description": "Notify referrer of reward in-app",
+      "name": "In-app feed",
+      "ref": "in_app_feed_1",
+      "template": {
+        "action_url": "{{ data.reward.url }}",
+        "markdown_body@": "in_app_feed_1/markdown_body.md"
+      },
+      "type": "channel"
+    },
+    {
+      "channel_key": "sendgrid",
+      "channel_type": "email",
+      "description": "Send reward earned email",
+      "name": "Email",
+      "ref": "email_1",
+      "template": {
+        "settings": {
+          "attachment_key": "attachments",
+          "layout_key": "default"
+        },
+        "subject": "You earned {{ data.reward.amount }} in referral rewards!",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "referral-reward-earned",
+    "active": true,
+    "valid": true,
+    "created_at": "2026-06-25T00:00:00.000000Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

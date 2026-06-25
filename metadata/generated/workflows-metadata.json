@@ -1,5 +1,25 @@
 [
   {
+    "slug": "alert-digest",
+    "name": "Alert digest",
+    "metaTitle": "Build alert digest notifications",
+    "channelsUsed": [
+      "email",
+      "in-app"
+    ],
+    "functionsUsed": [
+      "batch"
+    ],
+    "previewImage": "metadata/images/workflows/alert-digest/cover.png",
+    "diagramImage": "metadata/images/workflows/alert-digest/diagram.png",
+    "ogImage": "metadata/images/workflows/alert-digest/og.png",
+    "tags": [
+      "alerting"
+    ],
+    "description": "Batch non-critical alerts into a daily or weekly digest.",
+    "extendedDescription": "Accumulate alerts over a 24-hour window and deliver a consolidated email and in-app summary. Reduces alert fatigue while keeping users informed of everything they missed."
+  },
+  {
     "slug": "alerts",
     "name": "System alerts",
     "metaTitle": "Build system alert notifications",
@@ -42,6 +62,67 @@
     ],
     "description": "Batch high volume comments and send out-of-app messages after delay.",
     "extendedDescription": "Efficiently handle comment notifications by batching them together and sending out-of-app messages after a configurable delay. This reduces notification noise while keeping users informed of activity."
+  },
+  {
+    "slug": "email-verification",
+    "name": "Email verification",
+    "metaTitle": "Build email verification notifications",
+    "channelsUsed": [
+      "email"
+    ],
+    "functionsUsed": [
+      "delay"
+    ],
+    "previewImage": "metadata/images/workflows/email-verification/cover.png",
+    "diagramImage": "metadata/images/workflows/email-verification/diagram.png",
+    "ogImage": "metadata/images/workflows/email-verification/og.png",
+    "tags": [
+      "authentication"
+    ],
+    "description": "Verify new accounts with an email link and automated reminder.",
+    "extendedDescription": "Send a verification email on signup with a follow-up reminder after 24 hours if the user hasn't verified. Cancel the reminder when verification completes."
+  },
+  {
+    "slug": "first-milestone",
+    "name": "First milestone",
+    "metaTitle": "Build first milestone notifications",
+    "channelsUsed": [
+      "email",
+      "in-app"
+    ],
+    "functionsUsed": [
+      "delay"
+    ],
+    "previewImage": "metadata/images/workflows/first-milestone/cover.png",
+    "diagramImage": "metadata/images/workflows/first-milestone/diagram.png",
+    "ogImage": "metadata/images/workflows/first-milestone/og.png",
+    "tags": [
+      "onboarding"
+    ],
+    "description": "Celebrate key user milestones with in-app and email messages.",
+    "extendedDescription": "Celebrate when users hit their first meaningful action with an in-app message and a follow-up email if unseen. Reinforces product value and drives continued engagement."
+  },
+  {
+    "slug": "incident-escalation",
+    "name": "Incident escalation",
+    "metaTitle": "Build incident escalation notifications",
+    "channelsUsed": [
+      "email",
+      "push",
+      "sms"
+    ],
+    "functionsUsed": [
+      "branch",
+      "delay"
+    ],
+    "previewImage": "metadata/images/workflows/incident-escalation/cover.png",
+    "diagramImage": "metadata/images/workflows/incident-escalation/diagram.png",
+    "ogImage": "metadata/images/workflows/incident-escalation/og.png",
+    "tags": [
+      "alerting"
+    ],
+    "description": "Escalate critical incidents via push and SMS with email fallback.",
+    "extendedDescription": "On-call style incident routing that sends push and SMS for critical events, then escalates to email if unacknowledged. Non-critical incidents receive email-only notifications."
   },
   {
     "slug": "invite-with-reminder",
@@ -99,6 +180,26 @@
     "extendedDescription": "Keep users engaged by notifying them across in-app, email, and push channels when someone mentions them. Includes contextual information about where they were mentioned."
   },
   {
+    "slug": "onboarding-incomplete-reminder",
+    "name": "Onboarding incomplete reminder",
+    "metaTitle": "Build onboarding reminder notifications",
+    "channelsUsed": [
+      "email",
+      "in-app"
+    ],
+    "functionsUsed": [
+      "delay"
+    ],
+    "previewImage": "metadata/images/workflows/onboarding-incomplete-reminder/cover.png",
+    "diagramImage": "metadata/images/workflows/onboarding-incomplete-reminder/diagram.png",
+    "ogImage": "metadata/images/workflows/onboarding-incomplete-reminder/og.png",
+    "tags": [
+      "onboarding"
+    ],
+    "description": "Nudge users to complete setup with in-app and email reminders.",
+    "extendedDescription": "Send an in-app nudge when onboarding is incomplete, followed by an email reminder after 24 hours. Cancel the workflow when the user completes the remaining setup step."
+  },
+  {
     "slug": "password-changed",
     "name": "Password changed",
     "metaTitle": "Build password changed notifications",
@@ -134,6 +235,46 @@
     ],
     "description": "Celebrate when someone accepts a referral invitation.",
     "extendedDescription": "Notify referrers when their invitation is accepted with an in-app message and follow-up email. Includes a delay to only send the email if the in-app notification wasn't seen."
+  },
+  {
+    "slug": "referral-converted",
+    "name": "Referral converted",
+    "metaTitle": "Build referral converted notifications",
+    "channelsUsed": [
+      "email",
+      "in-app"
+    ],
+    "functionsUsed": [
+      "delay"
+    ],
+    "previewImage": "metadata/images/workflows/referral-converted/cover.png",
+    "diagramImage": "metadata/images/workflows/referral-converted/diagram.png",
+    "ogImage": "metadata/images/workflows/referral-converted/og.png",
+    "tags": [
+      "referrals"
+    ],
+    "description": "Notify referrers when a referral completes a key conversion action.",
+    "extendedDescription": "Tell referrers when their invitee completes a meaningful action beyond signup. Uses in-app first with a delayed email if the notification wasn't seen."
+  },
+  {
+    "slug": "referral-reward-earned",
+    "name": "Referral reward earned",
+    "metaTitle": "Build referral reward notifications",
+    "channelsUsed": [
+      "email",
+      "in-app"
+    ],
+    "functionsUsed": [
+      "delay"
+    ],
+    "previewImage": "metadata/images/workflows/referral-reward-earned/cover.png",
+    "diagramImage": "metadata/images/workflows/referral-reward-earned/diagram.png",
+    "ogImage": "metadata/images/workflows/referral-reward-earned/og.png",
+    "tags": [
+      "referrals"
+    ],
+    "description": "Notify referrers when their referral reward is ready to claim.",
+    "extendedDescription": "Wait through a reward hold period, then notify referrers via in-app and email when their credit or reward is available. Closes the referral loop with a clear payout moment."
   },
   {
     "slug": "referral-sent",
@@ -192,6 +333,45 @@
     ],
     "description": "Send password reset link via email.",
     "extendedDescription": "Enable users to securely reset their passwords by sending a time-limited reset link via email. Essential for account recovery and security workflows."
+  },
+  {
+    "slug": "trial-ending",
+    "name": "Trial ending",
+    "metaTitle": "Build trial ending notifications",
+    "channelsUsed": [
+      "email"
+    ],
+    "functionsUsed": [
+      "delay"
+    ],
+    "previewImage": "metadata/images/workflows/trial-ending/cover.png",
+    "diagramImage": "metadata/images/workflows/trial-ending/diagram.png",
+    "ogImage": "metadata/images/workflows/trial-ending/og.png",
+    "tags": [
+      "onboarding"
+    ],
+    "description": "Remind users before their free trial expires with a timed email sequence.",
+    "extendedDescription": "Send a three-email sequence at 7, 3, and 1 days before trial expiration. Trigger once when 7 days remain and cancel if the user upgrades."
+  },
+  {
+    "slug": "usage-threshold-alerts",
+    "name": "Usage threshold alerts",
+    "metaTitle": "Build usage threshold alert notifications",
+    "channelsUsed": [
+      "email",
+      "sms"
+    ],
+    "functionsUsed": [
+      "branch"
+    ],
+    "previewImage": "metadata/images/workflows/usage-threshold-alerts/cover.png",
+    "diagramImage": "metadata/images/workflows/usage-threshold-alerts/diagram.png",
+    "ogImage": "metadata/images/workflows/usage-threshold-alerts/og.png",
+    "tags": [
+      "alerting"
+    ],
+    "description": "Notify users when usage metrics cross warning or critical thresholds.",
+    "extendedDescription": "Route threshold alerts by severity with email for warnings and email plus SMS for critical limits. Helps SaaS products prevent surprise overages and service interruptions."
   },
   {
     "slug": "welcome-messages",

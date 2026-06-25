@@ -1,0 +1,59 @@
+{
+  "name": "Alert digest",
+  "steps": [
+    {
+      "description": "Batch alerts into a digest window",
+      "name": "Batch",
+      "ref": "batch_1",
+      "settings": {
+        "batch_execution_mode": "accumulate",
+        "batch_key": "digest_key",
+        "batch_order": "asc",
+        "batch_window": {
+          "unit": "hours",
+          "value": 24
+        },
+        "batch_window_type": "fixed"
+      },
+      "type": "batch"
+    },
+    {
+      "channel_key": "sendgrid",
+      "channel_type": "email",
+      "description": "Send alert digest email",
+      "name": "Email",
+      "ref": "email_1",
+      "template": {
+        "is_mjml": false,
+        "settings": {
+          "attachment_key": "attachments",
+          "layout_key": "default"
+        },
+        "subject": "Your {{ data.digest.period }} alert digest",
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "type": "channel"
+    },
+    {
+      "channel_key": "in-app-feed",
+      "channel_type": "in_app_feed",
+      "description": "Send alert digest in-app summary",
+      "name": "In-app feed",
+      "ref": "in_app_feed_1",
+      "template": {
+        "action_url": "",
+        "markdown_body@": "in_app_feed_1/markdown_body.md"
+      },
+      "type": "channel"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "alert-digest",
+    "active": true,
+    "valid": true,
+    "created_at": "2026-06-25T00:00:00.000000Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

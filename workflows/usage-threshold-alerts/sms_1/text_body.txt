@@ -1,0 +1,1 @@
+Critical alert: {{ data.threshold.metric_name }} is at {{ data.threshold.percent }}% of your limit.

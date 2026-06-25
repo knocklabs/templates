@@ -1,0 +1,3 @@
+Critical incident: {{ data.incident.title }}
+
+{{ data.incident.description }}

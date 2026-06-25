@@ -1,0 +1,116 @@
+{
+  "name": "Usage threshold alerts",
+  "steps": [
+    {
+      "branches": [
+        {
+          "conditions": {
+            "all": [
+              {
+                "argument": "critical",
+                "operator": "equal_to",
+                "variable": "data.threshold.severity"
+              }
+            ]
+          },
+          "name": "Critical",
+          "steps": [
+            {
+              "channel_key": "sendgrid",
+              "channel_type": "email",
+              "conditions": {
+                "all": [
+                  {
+                    "argument": "email",
+                    "operator": "contains",
+                    "variable": "data.threshold.channels"
+                  }
+                ]
+              },
+              "description": "Send critical threshold alert via email",
+              "name": "Email",
+              "ref": "email_1",
+              "template": {
+                "is_mjml": false,
+                "settings": {
+                  "attachment_key": "attachments",
+                  "layout_key": "default"
+                },
+                "subject": "Critical: {{ data.threshold.metric_name }} at {{ data.threshold.percent }}%",
+                "visual_blocks@": "email_1/visual_blocks.json"
+              },
+              "type": "channel"
+            },
+            {
+              "channel_key": "twilio",
+              "channel_type": "sms",
+              "conditions": {
+                "all": [
+                  {
+                    "argument": "sms",
+                    "operator": "contains",
+                    "variable": "data.threshold.channels"
+                  }
+                ]
+              },
+              "description": "Send critical threshold alert via SMS",
+              "name": "SMS",
+              "ref": "sms_1",
+              "template": {
+                "settings": {},
+                "text_body@": "sms_1/text_body.txt"
+              },
+              "type": "channel"
+            }
+          ],
+          "terminates": false
+        },
+        {
+          "name": "Warning",
+          "steps": [
+            {
+              "channel_key": "sendgrid",
+              "channel_type": "email",
+              "conditions": {
+                "all": [
+                  {
+                    "argument": "email",
+                    "operator": "contains",
+                    "variable": "data.threshold.channels"
+                  }
+                ]
+              },
+              "description": "Send warning threshold alert via email",
+              "name": "Email",
+              "ref": "email_2",
+              "template": {
+                "is_mjml": false,
+                "settings": {
+                  "attachment_key": "attachments",
+                  "layout_key": "default"
+                },
+                "subject": "Warning: {{ data.threshold.metric_name }} at {{ data.threshold.percent }}%",
+                "visual_blocks@": "email_2/visual_blocks.json"
+              },
+              "type": "channel"
+            }
+          ],
+          "terminates": false
+        }
+      ],
+      "description": "Route alerts based on threshold severity",
+      "name": "Check severity",
+      "ref": "branch_1",
+      "type": "branch"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "environment": "development",
+    "key": "usage-threshold-alerts",
+    "active": true,
+    "valid": true,
+    "created_at": "2026-06-25T00:00:00.000000Z"
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}
