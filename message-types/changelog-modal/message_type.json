@@ -38,7 +38,7 @@
           }
         },
         {
-          "label": "Link text",
+          "label": "Link",
           "type": "text",
           "key": "link",
           "settings": {
