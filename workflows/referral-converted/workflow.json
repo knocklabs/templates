@@ -1,0 +1,61 @@
+{
+  "name": "Referral converted",
+  "steps": [
+    {
+      "name": "In-app feed",
+      "type": "channel",
+      "description": "Notify referrer of conversion in-app",
+      "template": {
+        "action_url": "{{ vars.app_url }}/settings/referrals",
+        "markdown_body@": "in_app_feed_1/markdown_body.md"
+      },
+      "ref": "in_app_feed_1",
+      "channel_type": "in_app_feed",
+      "channel_key": "knock-feed"
+    },
+    {
+      "name": "Delay",
+      "type": "delay",
+      "description": "Wait before escalating",
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "hours",
+          "value": 8
+        }
+      }
+    },
+    {
+      "name": "Email",
+      "type": "channel",
+      "description": "Send conversion email if unseen",
+      "template": {
+        "subject": "{{ actor.name }} {{ data.conversion_action }} via your referral",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "ref": "email_1",
+      "channel_type": "email",
+      "conditions": {
+        "all": [
+          {
+            "variable": "refs.in_app_feed_1.status",
+            "operator": "less_than",
+            "argument": "$message.seen"
+          }
+        ]
+      },
+      "channel_key": "knock-email"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "key": "referral-converted",
+    "active": true,
+    "valid": true
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

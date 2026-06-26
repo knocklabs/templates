@@ -1,0 +1,52 @@
+{
+  "name": "Onboarding incomplete reminder",
+  "steps": [
+    {
+      "name": "In-app feed",
+      "type": "channel",
+      "description": "Send in-app onboarding nudge",
+      "template": {
+        "action_url": "{{ data.onboarding_url }}",
+        "markdown_body@": "in_app_feed_1/markdown_body.md"
+      },
+      "ref": "in_app_feed_1",
+      "channel_type": "in_app_feed",
+      "channel_key": "knock-feed"
+    },
+    {
+      "name": "Delay",
+      "type": "delay",
+      "description": "Wait before sending reminder",
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "hours",
+          "value": 24
+        }
+      }
+    },
+    {
+      "name": "Email",
+      "type": "channel",
+      "description": "Send onboarding reminder email",
+      "template": {
+        "subject": "Finish setting up your Knock account",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "ref": "email_1",
+      "channel_type": "email",
+      "channel_key": "knock-email"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "key": "onboarding-incomplete-reminder",
+    "active": true,
+    "valid": true
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}

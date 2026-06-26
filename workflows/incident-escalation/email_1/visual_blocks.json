@@ -1,0 +1,41 @@
+[
+  {
+    "type": "markdown",
+    "version": 1,
+    "layout_attrs": {
+      "padding_bottom": 8,
+      "padding_left": 4,
+      "padding_right": 4,
+      "padding_top": 8
+    },
+    "variant": "default",
+    "content@": "visual_blocks/1.content.md"
+  },
+  {
+    "type": "button_set",
+    "version": 1,
+    "buttons": [
+      {
+        "label": "View incident",
+        "action": "{{ data.incident.url }}",
+        "size_attrs": {
+          "size": "sm"
+        },
+        "style_attrs": {
+          "background_color": "primary_color",
+          "border_radius": 6,
+          "text_color": "primary_color_contrast"
+        },
+        "variant": "solid"
+      }
+    ],
+    "layout_attrs": {
+      "column_gap": 8,
+      "horizontal_align": "left",
+      "padding_bottom": 8,
+      "padding_left": 4,
+      "padding_right": 4,
+      "padding_top": 8
+    }
+  }
+]

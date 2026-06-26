@@ -1,0 +1,84 @@
+{
+  "name": "Trial ending",
+  "steps": [
+    {
+      "name": "Email",
+      "type": "channel",
+      "description": "Send 7-day trial reminder",
+      "template": {
+        "subject": "Your Knock trial ends in 7 days",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
+        "visual_blocks@": "email_1/visual_blocks.json"
+      },
+      "ref": "email_1",
+      "channel_type": "email",
+      "channel_key": "knock-email"
+    },
+    {
+      "name": "Delay",
+      "type": "delay",
+      "description": "Wait before 3-day reminder",
+      "ref": "delay_1",
+      "settings": {
+        "delay_for": {
+          "unit": "days",
+          "value": 4
+        }
+      }
+    },
+    {
+      "name": "Email",
+      "type": "channel",
+      "description": "Send 3-day trial reminder",
+      "template": {
+        "subject": "Your Knock trial ends in 3 days",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
+        "visual_blocks@": "email_2/visual_blocks.json"
+      },
+      "ref": "email_2",
+      "channel_type": "email",
+      "channel_key": "knock-email"
+    },
+    {
+      "name": "Delay",
+      "type": "delay",
+      "description": "Wait before last-day reminder",
+      "ref": "delay_2",
+      "settings": {
+        "delay_for": {
+          "unit": "days",
+          "value": 2
+        }
+      }
+    },
+    {
+      "name": "Email",
+      "type": "channel",
+      "description": "Send last-day trial reminder",
+      "template": {
+        "subject": "Last day of your Knock trial",
+        "settings": {
+          "layout_key": "default",
+          "attachment_key": "attachments"
+        },
+        "visual_blocks@": "email_3/visual_blocks.json"
+      },
+      "ref": "email_3",
+      "channel_type": "email",
+      "channel_key": "knock-email"
+    }
+  ],
+  "trigger_frequency": "every_trigger",
+  "__readonly": {
+    "key": "trial-ending",
+    "active": true,
+    "valid": true
+  },
+  "$schema": "https://schemas.knock.app/cli/workflow.json"
+}
