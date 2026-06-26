@@ -1,97 +1,97 @@
 {
-  "description": "Displays a modal with one or more changelog announcements.",
-  "icon_name": "Flag",
   "name": "Changelog modal",
+  "description": "Displays a modal with one or more changelog announcements.",
   "variants": [
     {
+      "name": "Default",
       "fields": [
         {
-          "key": "eyebrowText",
           "label": "Eyebrow text",
+          "type": "text",
+          "key": "eyebrowText",
           "settings": {
             "default": "New in Knock",
-            "max_length": 32,
-            "required": false
-          },
-          "type": "text"
+            "required": false,
+            "max_length": 32
+          }
         },
         {
-          "key": "title",
           "label": "Title",
+          "type": "text",
+          "key": "title",
           "settings": {
             "default": "Modal title",
+            "required": true,
             "max_length": 32,
-            "min_length": 3,
-            "required": true
-          },
-          "type": "text"
+            "min_length": 3
+          }
         },
         {
-          "key": "body",
           "label": "Body",
+          "type": "textarea",
+          "key": "body",
           "settings": {
             "default": "Copy about the feature or general information to highlight.",
+            "required": true,
             "max_length": 200,
-            "min_length": 10,
-            "required": true
-          },
-          "type": "textarea"
+            "min_length": 10
+          }
         },
         {
+          "label": "Link text",
+          "type": "text",
           "key": "link",
-          "label": "Link",
           "settings": {
             "default": "Link to changelog, release notes, or feature.",
             "required": false
-          },
-          "type": "text"
+          }
         },
         {
+          "label": "Image",
+          "type": "image",
+          "key": "image",
           "action": {
-            "key": "action",
             "label": "Image action",
+            "type": "text",
+            "key": "action",
             "settings": {
+              "default": "",
               "required": false
-            },
-            "type": "text"
+            }
           },
           "alt": {
-            "key": "alt",
             "label": "Alt text",
+            "type": "text",
+            "key": "alt",
             "settings": {
+              "default": "",
               "required": false
-            },
-            "type": "text"
+            }
           },
-          "key": "image",
-          "label": "Image",
           "settings": {
             "required": true
           },
-          "type": "image",
           "url": {
-            "key": "url",
             "label": "Image URL",
+            "type": "url",
+            "key": "url",
             "settings": {
               "default": "https://assets.knock.app/example-changelog.png",
               "required": true
-            },
-            "type": "url"
+            }
           }
         }
       ],
-      "key": "default",
-      "name": "Default"
+      "key": "default"
     }
   ],
+  "icon_name": "Flag",
   "preview@": "preview.html",
   "__readonly": {
     "key": "changelog-modal",
     "valid": true,
     "owner": "user",
-    "environment": "development",
-    "semver": "0.0.1",
-    "created_at": "2025-11-18T19:12:47.771692Z"
+    "semver": "0.0.2"
   },
   "$schema": "https://schemas.knock.app/cli/message-type.json"
 }
