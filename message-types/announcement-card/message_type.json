@@ -41,6 +41,7 @@
             "key": "action",
             "label": "Image action",
             "settings": {
+              "default": "",
               "required": false
             },
             "type": "text"
@@ -49,6 +50,7 @@
             "key": "alt",
             "label": "Alt text",
             "settings": {
+              "default": "",
               "required": false
             },
             "type": "text"
