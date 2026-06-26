@@ -6,7 +6,7 @@
       "name": "Default",
       "fields": [
         {
-          "label": "Title",
+          "label": "Title example",
           "type": "text",
           "key": "title",
           "settings": {
