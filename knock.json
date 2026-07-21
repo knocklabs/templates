@@ -1,0 +1,4 @@
+{
+  "$schema": "https://schemas.knock.app/cli/knock.json",
+  "knockDir": "."
+}
